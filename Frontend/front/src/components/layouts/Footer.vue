@@ -7,8 +7,8 @@
         <a class="footer-link" href="">Your Task List</a>
         <a class="footer-link" href="">Your Goals</a>
         <a class="footer-link" href="">Your Daily</a>
-        <a class="footer-link" href="">Login</a>
-        <a class="footer-link" href="">Registration</a>
+        <a class="footer-link" href="/login">Login</a>
+        <a class="footer-link" href="/signup">Registration</a>
       </div>
     </div>
     <div class="footer-block">
@@ -19,12 +19,12 @@
       </div>
     </div>
     <div class="footer-block">
-      <h3 class="block-name">More Information</h3>
+      <h3 class="block-name">More Info</h3>
       <div class="footer-links">
-        <a class="footer-link" href="">About Us</a>
+        <a class="footer-link" href="/aboutus">About Us</a>
         <a class="footer-link" href="">Terms</a>
         <a class="footer-link" href="">Privacy</a>
-        <a class="footer-link" href="">FAQ</a>
+        <a class="footer-link" href="/faq">FAQ</a>
         <a class="footer-link" href="">Contact Us</a>
       </div>
     </div>
@@ -107,18 +107,19 @@ footer {
   display: flex;
   gap: .7rem;
   justify-content: center;
-  height: 1.1rem;
+  height: 3lvw;
   top: 4vh;
   right: 15.5vh;
   font-size: 1.77em;
+  justify-items: center;
 }
 
 .footer-block {
   display: flex;
-  width: 45vh;
+  width: 44vh;
   height: 37vb;
-  padding: 1rem;
-  margin: 1rem;
+  padding: 0.9rem;
+  margin: 0.7rem;
   z-index: 10;
   justify-content: center;
   bottom: 1.2rem;
@@ -127,6 +128,7 @@ footer {
 .block-name {
   color: white;
   margin-bottom: 4rem;
+  right: 1%;
 }
 
 .footer-link{
@@ -134,6 +136,7 @@ footer {
   padding-top: 1rem;
   display: flex;
   flex-direction: row;
+  text-align: center;
 }
 .footer-links{
   padding-top: 2rem;

@@ -92,22 +92,6 @@ export default {
 </script>
 
 <style scoped>
-.main-gradient-1 {
-  position: absolute;
-  top: 3.8rem;
-  width: 100vw;
-  height: 115vh;
-  background: linear-gradient(180deg, #090B13 0%, rgba(9, 11, 19, 0.2) 100%);
-  opacity: 60%;
-  z-index: 0;
-}
-
-.insane_image {
-  width: 100%;
-  height: auto;
-  opacity: 67.5%;
-  z-index: -1;
-}
 
 .image-central-element {
   z-index: -1;

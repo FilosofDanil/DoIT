@@ -8,52 +8,42 @@
       <router-link class="header-link" to="/donate">Donate</router-link>
     </div>
     <div class="header-part">
-      <button class="try_for_free_button ">
-        Try For Free
-      </button>
+      <form action="/signup">
+        <button class="try_for_free_button ">
+          Try For Free
+        </button>
+      </form>
     </div>
     <div class="header-part">
-      <button class="login_button ">
-        Login
-      </button>
+      <form action="/login">
+        <button class="login_button ">
+          Login
+        </button>
+      </form>
+
     </div>
     <div class="header-part">
-      <i class = "user-icon fa-solid fa-user-circle fa-3x"></i>
+      <i class="user-icon fa-solid fa-user-circle fa-3x"></i>
     </div>
-<!--    <div class="sidebar-menu">-->
-<!--      <i class="fa-solid fa-bars header-link burger" @click="this.showSidebar=!this.showSidebar"></i>-->
-<!--      <Transition name="slide-fade">-->
-<!--        <Sidebar @click="this.showSidebar=!this.showSidebar"-->
-<!--                 :routelinks="this.routeLinks"-->
-<!--                 v-if="this.showSidebar"></Sidebar>-->
-<!--      </Transition>-->
-<!--      <div v-if="this.showSidebar" @click="this.showSidebar=!this.showSidebar" class="sidebar-dark"></div>-->
-<!--      -->
-<!--    </div>-->
+    <!--    <div class="sidebar-menu">-->
+    <!--      <i class="fa-solid fa-bars header-link burger" @click="this.showSidebar=!this.showSidebar"></i>-->
+    <!--      <Transition name="slide-fade">-->
+    <!--        <Sidebar @click="this.showSidebar=!this.showSidebar"-->
+    <!--                 :routelinks="this.routeLinks"-->
+    <!--                 v-if="this.showSidebar"></Sidebar>-->
+    <!--      </Transition>-->
+    <!--      <div v-if="this.showSidebar" @click="this.showSidebar=!this.showSidebar" class="sidebar-dark"></div>-->
+    <!--      -->
+    <!--    </div>-->
   </header>
 </template>
 
 <script>
-import Sidebar from "./Sidebar.vue";
 
 export default {
   name: "Header",
-  components: {
-    Sidebar
-  },
-  data: () => ({
-    showSidebar: false,
-    routeLinks: [
-      {'link': "/faculty", 'name': 'Faculty'},
-      {'link': "/department", 'name': 'Departments'},
-      {'link': "/group", 'name': 'Groups'},
-      {'link': "/student", 'name': 'Students'},
-      {'link': "/teacher", 'name': 'Teachers'},
-      {'link': "/new", 'name': 'News'},
-      {'link': "/schedule", 'name': 'Schedule'},
-      {'link': "/discipline", 'name': 'Disciplines'}
-    ]
-  }),
+  components: {},
+  data: () => ({}),
   methods: () => ({})
 
 
@@ -73,9 +63,9 @@ header {
   z-index: 2;
 }
 
-.user-icon{
-  right:10vh;
-  top:0.75vb;
+.user-icon {
+  right: 10vh;
+  top: 0.75vb;
   color: white;
 }
 
@@ -94,11 +84,11 @@ header {
   font-weight: 700;
 }
 
-.try_for_free_button{
-  right:10vh;
+.try_for_free_button {
+  right: 10vh;
   top: 5px;
   padding: 0.5rem;
-  color: rgba(255,255,255,80%);
+  color: rgba(255, 255, 255, 80%);
   width: 19vh;
   height: 6.25vb;
   text-align: center;
@@ -110,11 +100,11 @@ header {
   font-weight: bolder;
 }
 
-.login_button{
-  right:15vh;
+.login_button {
+  right: 15vh;
   top: 5px;
   padding: 0.5rem;
-  color: rgba(255,255,255,80%);
+  color: rgba(255, 255, 255, 80%);
   width: 19vh;
   height: 6.25vb;
   text-align: center;
@@ -126,23 +116,24 @@ header {
   font-weight: bolder;
 }
 
-.try_for_free_button:hover{
-  background-color: rgba(0, 0, 0, 0.3);
-  border-color: rgba(0, 0, 0, 0);
-  transition: 1s;
-}
-.login_button:hover{
+.try_for_free_button:hover {
   background-color: rgba(0, 0, 0, 0.3);
   border-color: rgba(0, 0, 0, 0);
   transition: 1s;
 }
 
-.user-icon:hover{
-  color: rgba(0,0,0,70%);
+.login_button:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0);
+  transition: 1s;
+}
+
+.user-icon:hover {
+  color: rgba(0, 0, 0, 70%);
   transition: 0.5s;
 }
 
-.header-logo{
+.header-logo {
   font-size: 1.77em;
 }
 

@@ -4,6 +4,10 @@ import {createRouter, createWebHistory} from 'vue-router/dist/vue-router.esm-bun
 import Test from '../components/Test.vue'
 import MainPage from "@/components/MainPage.vue";
 import Donate from "@/components/Donate.vue";
+import FAQ from "@/components/FAQ.vue";
+import AboutUs from "@/components/AboutUs.vue";
+import SignUp from "@/components/SignUp.vue";
+import Login from "@/components/Login.vue";
 const routes = [
     {
         path: '/',
@@ -17,9 +21,22 @@ const routes = [
         path: '/donate',
         component: Donate
     },
-
-
-
+    {
+        path: '/faq',
+        component: FAQ
+    },
+    {
+        path: '/aboutus',
+        component: AboutUs
+    },
+    {
+        path: '/signup',
+        component: SignUp
+    },
+    {
+        path: '/login',
+        component: Login
+    },
     {path: '/:pathMatch(.*)', component: Test}
 ]
 
