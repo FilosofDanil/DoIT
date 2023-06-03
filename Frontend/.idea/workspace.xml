@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/front/src/components/AboutUs.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/components/FAQ.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/components/Login.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/components/SignUp.vue" afterDir="false" />
+    <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="created a based version of a front-end part of web-site.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/assets/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/MainPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/MainPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/layouts/Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/layouts/Footer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/layouts/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/layouts/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/layouts/Sidebar.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,11 +56,24 @@
       <workItem from="1685370526750" duration="7045000" />
       <workItem from="1685467148057" duration="552000" />
       <workItem from="1685557996183" duration="5724000" />
-      <workItem from="1685712278279" duration="9566000" />
+      <workItem from="1685712278279" duration="10288000" />
+      <workItem from="1685729958873" duration="5000" />
     </task>
+    <task id="LOCAL-00001" summary="created a based version of a front-end part of web-site.">
+      <created>1685723603833</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685723603833</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="created a based version of a front-end part of web-site." />
+    <option name="LAST_COMMIT_MESSAGE" value="created a based version of a front-end part of web-site." />
   </component>
 </project>
