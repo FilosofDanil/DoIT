@@ -160,8 +160,6 @@ export default {
   display: inline-flex;
   justify-content: space-between;
   height: 50vh;
-
-
 }
 
 .empty-block {
