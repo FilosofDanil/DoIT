@@ -5,31 +5,61 @@
   <form class="login-form">
     <label class="labels">
       <p class="input-name">Email</p>
-      <input id="email" class="login-input input">
+      <input id="email" class="login-input input" v-model="user.email">
     </label>
     <label class="labels">
       <p class="input-name">Name</p>
-      <input id="pas" class="login-input input">
+      <input id="pas" class="login-input input" v-model="user.profile_name">
     </label>
     <label class="labels">
       <p class="input-name">Surname</p>
-      <input id="pas" class="login-input input">
+      <input id="pas" class="login-input input" v-model="user.surname">
+    </label>
+    <label class="labels">
+      <p class="input-name">Phone</p>
+      <input id="pas" class="login-input input" v-model="user.phone">
     </label>
     <label class="labels">
       <p class="input-name">Password</p>
-      <input id="pas" class="login-input input">
+      <input id="pas" class="login-input input" v-model="user.password">
     </label>
     <label class="labels">
-      <p class="input-name">Confirm Password</p>
-      <input id="pas" class="login-input input">
+      <p class="input-name">Date Of Birth</p>
+      <input id="pas" class="login-input input" type="date" v-model="user.date_of_birth">
     </label>
-    <button @click ="check_it" class="form-button">SignUp</button>
+    <button @click ="signUp" class="form-button">SignUp</button>
   </form>
 </template>
 
 <script>
+import AuthService from "@/services/AuthService";
+
 export default {
-  name: "SignUp"
+  name: "SignUp",
+  data: () => ({
+    user: {
+      email: "",
+      password: "",
+      profile_name: "",
+      surname: "",
+      date_of_birth: "",
+      phone: "",
+      role: "USER"
+    },
+    showError: false,
+    errorText: ""
+  }),
+  methods:{
+    signUp() {
+      AuthService.signUp(this.user).then(() => {
+        this.$router.push('/main')
+      })
+          //.catch(err => {
+            //this.showError = true
+            //this.errorText = crudErrorHandler.catchError(err)
+          // });
+    }
+  }
 }
 </script>
 
