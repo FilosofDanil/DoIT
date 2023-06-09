@@ -1,8 +1,9 @@
-package com.example.backend.services;
+package com.example.backend.services.dbservices;
 
 import com.example.backend.DTOs.HabitsDTO;
 import com.example.backend.components.habitscomponents.HabitsComponentCRUD;
 import com.example.backend.components.habitscomponents.HabitsDividorComponent;
+import com.example.backend.components.habitscomponents.HabitsMarkingComponent;
 import com.example.backend.components.usercomponents.UserAuthComponent;
 import com.example.backend.services.dbservices.DbaServiceInterface;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HabitsService implements DbaServiceInterface<HabitsDTO> {
     private final HabitsComponentCRUD habitsComponentCRUD;
-    private final HabitsDividorComponent habitsDividorComponent;
+    private final HabitsMarkingComponent habitsMarkingComponent;
     private final UserAuthComponent userAuthComponent;
 
     @Override
@@ -41,5 +42,13 @@ public class HabitsService implements DbaServiceInterface<HabitsDTO> {
     @Override
     public void delete(Long id) {
         habitsComponentCRUD.delete(id);
+    }
+
+    public void mark(Long id) {
+        habitsMarkingComponent.markIt(id);
+    }
+
+    public void unmark(Long id) {
+        habitsMarkingComponent.unmarkIt(id);
     }
 }

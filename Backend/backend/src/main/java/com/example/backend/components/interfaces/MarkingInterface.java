@@ -1,4 +1,4 @@
-package com.example.backend.components.taskcomponents;
+package com.example.backend.components.interfaces;
 
 public interface MarkingInterface {
     void markIt(Long id);

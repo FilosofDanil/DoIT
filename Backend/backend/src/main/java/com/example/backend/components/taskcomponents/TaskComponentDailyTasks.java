@@ -1,5 +1,6 @@
 package com.example.backend.components.taskcomponents;
 
+import com.example.backend.components.interfaces.MarkingInterface;
 import com.example.backend.entities.DailyTasks;
 import com.example.backend.entities.Tasks;
 import com.example.backend.repositories.DailyTasksRepository;

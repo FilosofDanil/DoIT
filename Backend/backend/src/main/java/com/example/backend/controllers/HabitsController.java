@@ -1,7 +1,7 @@
 package com.example.backend.controllers;
 
 import com.example.backend.DTOs.HabitsDTO;
-import com.example.backend.services.HabitsService;
+import com.example.backend.services.dbservices.HabitsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,5 +44,15 @@ public class HabitsController {
     @DeleteMapping("{id}")
     public void delete(@PathVariable Long id) {
         habitsService.delete(id);
+    }
+
+    @PatchMapping("/mark/{id}")
+    public void mark(@PathVariable Long id) {
+        habitsService.mark(id);
+    }
+
+    @PatchMapping("/unmark/{id}")
+    public void unmark(@PathVariable Long id) {
+        habitsService.unmark(id);
     }
 }

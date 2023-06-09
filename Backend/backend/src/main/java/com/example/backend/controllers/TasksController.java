@@ -1,7 +1,7 @@
 package com.example.backend.controllers;
 
 import com.example.backend.DTOs.TaskDTO;
-import com.example.backend.services.TaskService;
+import com.example.backend.services.dbservices.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,5 +44,25 @@ public class TasksController {
     @DeleteMapping("{id}")
     public void delete(@PathVariable Long id) {
         taskService.delete(id);
+    }
+
+    @PatchMapping("/subtask/mark/{id}")
+    public void markSubtask(@PathVariable Long id) {
+        taskService.markSubTask(id);
+    }
+
+    @PatchMapping("/subtask/unmark/{id}")
+    public void unmarkSubtask(@PathVariable Long id) {
+        taskService.unmarkSubTask(id);
+    }
+
+    @PatchMapping("/daily/mark/{id}")
+    public void markDailyTask(@PathVariable Long id) {
+        taskService.markDailyTask(id);
+    }
+
+    @PatchMapping("/daily/unmark/{id}")
+    public void unmarkDailyTask(@PathVariable Long id) {
+        taskService.unmarkDailyTask(id);
     }
 }

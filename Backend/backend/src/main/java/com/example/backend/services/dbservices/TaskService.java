@@ -1,4 +1,4 @@
-package com.example.backend.services;
+package com.example.backend.services.dbservices;
 
 import com.example.backend.DTOs.TaskDTO;
 import com.example.backend.components.taskcomponents.TaskComponentCRUD;

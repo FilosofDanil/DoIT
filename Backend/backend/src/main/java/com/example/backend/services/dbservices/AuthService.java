@@ -1,4 +1,4 @@
-package com.example.backend.services;
+package com.example.backend.services.dbservices;
 
 import com.example.backend.DTOs.UserDTO;
 import com.example.backend.auth.*;

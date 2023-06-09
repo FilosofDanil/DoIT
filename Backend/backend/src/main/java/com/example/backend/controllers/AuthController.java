@@ -4,7 +4,7 @@ import com.example.backend.DTOs.UserDTO;
 import com.example.backend.auth.JwtRequest;
 import com.example.backend.auth.JwtResponse;
 import com.example.backend.auth.RefreshJwtRequest;
-import com.example.backend.services.AuthService;
+import com.example.backend.services.dbservices.AuthService;
 import jakarta.security.auth.message.AuthException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
