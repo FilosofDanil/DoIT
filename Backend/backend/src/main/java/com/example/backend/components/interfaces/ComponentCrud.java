@@ -5,7 +5,7 @@ import com.example.backend.entities.User;
 import java.util.List;
 
 public interface ComponentCrud<T> {
-    List<T> get();
+    List<T> get(User user);
 
     T getById(Long id);
 

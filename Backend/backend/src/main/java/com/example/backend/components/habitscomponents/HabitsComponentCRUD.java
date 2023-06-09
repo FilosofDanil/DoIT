@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -19,10 +20,11 @@ public class HabitsComponentCRUD implements ComponentCrud<HabitsDTO> {
     private final HabitsDividorComponent habitsDividorComponent;
 
     @Override
-    public List<HabitsDTO> get() {
-        List<HabitsDTO> habits = new ArrayList<>();
-        habitsRepository.findAll().forEach(habit -> habits.add(HabitsMapper.toDto(habit)));
-        return habits;
+    public List<HabitsDTO> get(User user) {
+        return habitsRepository.findAllByUser(user)
+                .stream()
+                .map(HabitsMapper::toDto)
+                .collect(Collectors.toList());
     }
 
     @Override

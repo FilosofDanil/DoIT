@@ -1,12 +1,11 @@
 package com.example.backend.services.dbservices;
 
-import com.example.backend.entities.User;
 import org.springframework.security.core.Authentication;
 
 import java.util.List;
 
 public interface DbaServiceInterface<T> {
-    List<T> get();
+    List<T> get(Authentication auth);
 
     T getById(Long id);
 

@@ -18,7 +18,7 @@ public class HabitsController {
 
     @GetMapping("")
     public List<HabitsDTO> getAll() {
-        return habitsService.get();
+        return habitsService.get(SecurityContextHolder.getContext().getAuthentication());
     }
 
     @GetMapping("{id}")

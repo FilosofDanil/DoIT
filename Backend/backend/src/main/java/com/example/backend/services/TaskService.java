@@ -5,6 +5,8 @@ import com.example.backend.components.taskcomponents.TaskComponentCRUD;
 import com.example.backend.components.taskcomponents.TaskComponentDailyTasks;
 import com.example.backend.components.taskcomponents.TaskComponentSubtasker;
 import com.example.backend.components.usercomponents.UserAuthComponent;
+import com.example.backend.entities.DailyTasks;
+import com.example.backend.entities.Subtasks;
 import com.example.backend.services.dbservices.DbaServiceInterface;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -21,8 +23,8 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
     private final UserAuthComponent userAuthComponent;
 
     @Override
-    public List<TaskDTO> get() {
-        return taskComponentCRUD.get();
+    public List<TaskDTO> get(Authentication auth) {
+        return taskComponentCRUD.get(userAuthComponent.getUserByAuthorities(auth));
     }
 
     @Override
@@ -43,5 +45,29 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
     @Override
     public void delete(Long id) {
         taskComponentCRUD.delete(id);
+    }
+
+    public Subtasks createSubTask(Long id, String name) {
+        return taskComponentSubtasker.createSubtask(taskComponentCRUD.getEntityById(id), name);
+    }
+
+    public DailyTasks createDailyTask(Long id) {
+        return taskComponentDailyTasks.createDailyTask(taskComponentCRUD.getEntityById(id));
+    }
+
+    public void markDailyTask(Long id) {
+        taskComponentDailyTasks.markIt(id);
+    }
+
+    public void unmarkDailyTask(Long id) {
+        taskComponentDailyTasks.unmarkIt(id);
+    }
+
+    public void markSubTask(Long id) {
+        taskComponentSubtasker.markIt(id);
+    }
+
+    public void unmarkSubTask(Long id) {
+        taskComponentSubtasker.unmarkIt(id);
     }
 }

@@ -4,7 +4,6 @@ import com.example.backend.DTOs.HabitsDTO;
 import com.example.backend.components.habitscomponents.HabitsComponentCRUD;
 import com.example.backend.components.habitscomponents.HabitsDividorComponent;
 import com.example.backend.components.usercomponents.UserAuthComponent;
-import com.example.backend.entities.User;
 import com.example.backend.services.dbservices.DbaServiceInterface;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -20,8 +19,8 @@ public class HabitsService implements DbaServiceInterface<HabitsDTO> {
     private final UserAuthComponent userAuthComponent;
 
     @Override
-    public List<HabitsDTO> get() {
-        return habitsComponentCRUD.get();
+    public List<HabitsDTO> get(Authentication auth) {
+        return habitsComponentCRUD.get(userAuthComponent.getUserByAuthorities(auth));
     }
 
     @Override

@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/Task")
+@RequestMapping("api/tasks")
 @RequiredArgsConstructor
 public class TasksController {
     private final TaskService taskService;
 
     @GetMapping("")
     public List<TaskDTO> getAll() {
-        return taskService.get();
+        return taskService.get(SecurityContextHolder.getContext().getAuthentication());
     }
 
     @GetMapping("{id}")
