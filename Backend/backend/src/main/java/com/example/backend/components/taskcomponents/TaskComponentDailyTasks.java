@@ -19,6 +19,7 @@ public class TaskComponentDailyTasks implements MarkingInterface {
         DailyTasks dailyTask = DailyTasks.builder()
                 .task(task)
                 .today(today)
+                .done(false)
                 .build();
         dailyTasksRepository.save(dailyTask);
         return dailyTask;

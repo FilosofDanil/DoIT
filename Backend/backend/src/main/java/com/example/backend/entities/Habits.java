@@ -17,7 +17,7 @@ public class Habits {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne()
-    @JoinColumn(name = "credentials_id", nullable = false)
+    @JoinColumn(name = "credentials_id", nullable = false, referencedColumnName = "id")
     private User user;
     @Column(name = "habit_name", nullable = false)
     private String name;

@@ -34,8 +34,8 @@ public class TaskComponentCRUD implements ComponentCrud<TaskDTO> {
 
     @Override
     public TaskDTO create(TaskDTO taskDTO, User user) {
-        tasksRepository.save(TaskMapper.toEntity(taskDTO, user));
-        return taskDTO;
+        Tasks task = tasksRepository.save(TaskMapper.toEntity(taskDTO, user));
+        return TaskMapper.toDto(task);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class TaskComponentCRUD implements ComponentCrud<TaskDTO> {
         return null;
     }
 
-    public Tasks getEntityById(Long id){
+    public Tasks getEntityById(Long id) {
         if (tasksRepository.findById(id).isEmpty()) {
             throw new NullPointerException();
         }
@@ -65,6 +65,7 @@ public class TaskComponentCRUD implements ComponentCrud<TaskDTO> {
     static class TaskMapper {
         private static TaskDTO toDto(Tasks task) {
             return TaskDTO.builder()
+                    .id(task.getId())
                     .name(task.getName())
                     .build();
         }

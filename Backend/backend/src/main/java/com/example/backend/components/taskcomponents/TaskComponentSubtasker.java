@@ -16,6 +16,7 @@ public class TaskComponentSubtasker implements MarkingInterface {
         Subtasks subtask = Subtasks.builder()
                 .task(task)
                 .name(name)
+                .done(false)
                 .build();
         subTasksRepository.save(subtask);
         return subtask;

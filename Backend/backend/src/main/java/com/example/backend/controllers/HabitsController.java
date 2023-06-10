@@ -1,6 +1,7 @@
 package com.example.backend.controllers;
 
 import com.example.backend.DTOs.HabitsDTO;
+import com.example.backend.DTOs.TrackedDaysDTO;
 import com.example.backend.services.dbservices.HabitsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,11 @@ public class HabitsController {
     @GetMapping("{id}")
     public HabitsDTO getById(@PathVariable Long id) {
         return habitsService.getById(id);
+    }
+
+    @GetMapping("/tracks/{id}")
+    public List<TrackedDaysDTO> getAllHabitTracks(@PathVariable Long id) {
+        return habitsService.getAllTracks(id);
     }
 
     @PostMapping("")

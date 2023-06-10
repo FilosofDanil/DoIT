@@ -16,8 +16,16 @@ public class HabitsDividorComponent {
     protected void divide(Habits habits) {
         List<TrackedDays> trackedDaysList = new ArrayList<>();
         int count = habits.getDay_count();
+        Date today = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(today);
         for (int i = 0; i < count; i++) {
-            trackedDaysList.add(TrackedDays.builder().build());
+            trackedDaysList.add(TrackedDays.builder()
+                    .habit(habits)
+                    .marked(false)
+                    .markingDate(calendar.getTime())
+                    .build());
+            calendar.add(Calendar.HOUR, 24);
         }
         trackedDaysRepository.saveAll(trackedDaysList);
     }

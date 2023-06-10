@@ -20,4 +20,7 @@ public class TrackedDays {
     private Boolean marked;
     @Column(name = "marking_day")
     private Date markingDate;
+    @ManyToOne
+    @JoinColumn(name = "habits_id", nullable = false, referencedColumnName = "id")
+    private Habits habit;
 }

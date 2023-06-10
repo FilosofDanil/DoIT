@@ -1,7 +1,6 @@
 package com.example.backend.components.habitscomponents;
 
 import com.example.backend.components.interfaces.MarkingInterface;
-import com.example.backend.entities.DailyTasks;
 import com.example.backend.entities.TrackedDays;
 import com.example.backend.repositories.TrackedDaysRepository;
 import lombok.RequiredArgsConstructor;

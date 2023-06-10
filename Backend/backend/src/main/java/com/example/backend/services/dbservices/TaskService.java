@@ -7,7 +7,6 @@ import com.example.backend.components.taskcomponents.TaskComponentSubtasker;
 import com.example.backend.components.usercomponents.UserAuthComponent;
 import com.example.backend.entities.DailyTasks;
 import com.example.backend.entities.Subtasks;
-import com.example.backend.services.dbservices.DbaServiceInterface;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -51,8 +50,9 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
         return taskComponentSubtasker.createSubtask(taskComponentCRUD.getEntityById(id), name);
     }
 
-    public DailyTasks createDailyTask(Long id) {
-        return taskComponentDailyTasks.createDailyTask(taskComponentCRUD.getEntityById(id));
+    public DailyTasks createDailyTask(TaskDTO taskDTO, Authentication auth) {
+        TaskDTO created = taskComponentCRUD.create(taskDTO, userAuthComponent.getUserByAuthorities(auth));
+        return taskComponentDailyTasks.createDailyTask(taskComponentCRUD.getEntityById(created.getId()));
     }
 
     public void markDailyTask(Long id) {

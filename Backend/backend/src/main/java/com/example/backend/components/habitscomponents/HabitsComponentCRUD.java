@@ -62,6 +62,13 @@ public class HabitsComponentCRUD implements ComponentCrud<HabitsDTO> {
         habitsRepository.deleteById(id);
     }
 
+    public Habits getEntityById(Long id) {
+        if (habitsRepository.findById(id).isEmpty()) {
+            throw new NullPointerException();
+        }
+        return habitsRepository.findById(id).get();
+    }
+
     static class HabitsMapper {
         private static HabitsDTO toDto(Habits habit) {
             return HabitsDTO.builder()

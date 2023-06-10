@@ -1,6 +1,8 @@
 package com.example.backend.controllers;
 
 import com.example.backend.DTOs.TaskDTO;
+import com.example.backend.entities.DailyTasks;
+import com.example.backend.entities.Subtasks;
 import com.example.backend.services.dbservices.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -27,8 +29,20 @@ public class TasksController {
     }
 
     @PostMapping("")
-    public ResponseEntity<TaskDTO> create(@RequestBody TaskDTO TaskDTO) {
+    public ResponseEntity<TaskDTO> createCommonTask(@RequestBody TaskDTO TaskDTO) {
         TaskDTO saved = taskService.create(TaskDTO, SecurityContextHolder.getContext().getAuthentication());
+        return new ResponseEntity<>(saved, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/daily")
+    public ResponseEntity<DailyTasks> createDailyTask(@RequestBody TaskDTO TaskDTO) {
+        DailyTasks saved = taskService.createDailyTask(TaskDTO, SecurityContextHolder.getContext().getAuthentication());
+        return new ResponseEntity<>(saved, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/subtask/{id}")
+    public ResponseEntity<Subtasks> createSubtask(@PathVariable Long id, @RequestBody String name) {
+        Subtasks saved = taskService.createSubTask(id, name);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
