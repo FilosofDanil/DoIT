@@ -1,5 +1,6 @@
 package com.example.backend.auth;
 
+import com.example.backend.cookies.CookiesUtil;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
@@ -36,9 +37,12 @@ public class JwtFilter extends GenericFilterBean {
     }
 
     private String getTokenFromRequest(HttpServletRequest request) {
-        final String bearer = request.getHeader(AUTHORIZATION);
-        if (StringUtils.hasText(bearer) && bearer.startsWith("Bearer ")) {
-            return bearer.substring(7);
+        CookiesUtil cookiesUtil = new CookiesUtil();
+        if (request.getCookies() != null) {
+            final String bearer = cookiesUtil.readServletCookie(request, AUTHORIZATION).get();
+            if (StringUtils.hasText(bearer) && bearer.startsWith("Bearer")) {
+                return bearer.substring(6);
+            }
         }
         return null;
     }

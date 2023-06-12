@@ -52,7 +52,7 @@ export default {
   methods:{
     signUp() {
       AuthService.signUp(this.user).then(() => {
-        this.$router.push('/main')
+        this.$router.push('/profile')
       })
           //.catch(err => {
             //this.showError = true
@@ -76,7 +76,7 @@ export default {
   z-index: 2;
   top: 10%;
   left: 83.25vh;
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 700;
 }
 .labels {

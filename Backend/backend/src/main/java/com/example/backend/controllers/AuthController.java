@@ -4,14 +4,14 @@ import com.example.backend.DTOs.UserDTO;
 import com.example.backend.auth.JwtRequest;
 import com.example.backend.auth.JwtResponse;
 import com.example.backend.auth.RefreshJwtRequest;
-import com.example.backend.services.dbservices.AuthService;
+import com.example.backend.services.auth.AuthService;
 import jakarta.security.auth.message.AuthException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import jakarta.servlet.http.*;
 
 @RestController
 @RequestMapping("api/auth")
@@ -25,14 +25,24 @@ public class AuthController {
     }
 
     @PostMapping("login")
-    public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest authRequest) throws AuthException {
-        final JwtResponse token = authService.login(authRequest);
-        return ResponseEntity.ok(token);
+    public void login(@RequestBody JwtRequest authRequest, HttpServletRequest request, HttpServletResponse response) throws AuthException {
+        response.addCookie(authService.login(authRequest));
+
     }
 
     @PostMapping("token")
     public ResponseEntity<JwtResponse> getNewAccessToken(@RequestBody RefreshJwtRequest request) throws AuthException {
         final JwtResponse token = authService.getAccessToken(request.getRefreshToken());
         return ResponseEntity.ok(token);
+    }
+
+    @GetMapping("/set")
+    public String setCookie(HttpServletResponse response) {
+        // set a new cookie
+        Cookie cookie = new Cookie("color", "blue");
+        // add cookie in server response
+        response.addCookie(cookie);
+
+        return "Spring Boot Cookies";
     }
 }

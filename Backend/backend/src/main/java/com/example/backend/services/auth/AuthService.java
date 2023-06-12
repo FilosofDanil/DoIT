@@ -1,13 +1,16 @@
-package com.example.backend.services.dbservices;
+package com.example.backend.services.auth;
 
 import com.example.backend.DTOs.UserDTO;
 import com.example.backend.auth.*;
+import com.example.backend.cookies.CookiesUtil;
 import com.example.backend.entities.User;
 import com.example.backend.repositories.UserRepository;
 import io.jsonwebtoken.Claims;
 import jakarta.security.auth.message.AuthException;
+import jakarta.servlet.http.Cookie;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -35,17 +38,24 @@ public class AuthService {
         userRepository.save(user);
     }
 
-    public JwtResponse login(@NonNull JwtRequest authRequest) throws AuthException {
+    public Cookie login(@NonNull JwtRequest authRequest) throws AuthException {
         final User user = userRepository.getUserByEmail(authRequest.getLogin())
                 .orElseThrow(() -> new AuthException("User Not Found"));
         if (user.getPassword().equals(authRequest.getPassword()) && user.getVerified()) {
             final String accessToken = jwtProvider.generateAccessToken(user);
             final String refreshToken = jwtProvider.generateRefreshToken(user);
-            refreshStorage.put(user.getEmail(), refreshToken);
-            return new JwtResponse(accessToken, refreshToken);
+//            refreshStorage.put(user.getEmail(), refreshToken);
+//            HttpHeaders responseHeaders = new HttpHeaders();
+            CookiesUtil cookiesUtil = new CookiesUtil();
+//            String loh = cookiesUtil.readServletCookie(request ,"accessToken").get();
+//            responseHeaders.add(HttpHeaders.SET_COOKIE, cookiesUtil.createAccessTokenCookie(accessToken).toString());
+//            responseHeaders.add(HttpHeaders.SET_COOKIE, cookiesUtil.createRefreshTokenCookie(refreshToken).toString());
+//            return ResponseEntity.ok().headers(responseHeaders).body(new JwtResponse(accessToken, refreshToken));
+            return cookiesUtil.createCookie(accessToken);
         } else {
             throw new AuthException("Invalid password or your account is not verified");
         }
+
     }
 
     public JwtResponse getAccessToken(@NonNull String refreshToken) throws AuthException {

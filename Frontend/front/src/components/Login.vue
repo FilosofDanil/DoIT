@@ -11,10 +11,6 @@
       <p class="input-name">Password</p>
       <input id="pas" class="login-input input" v-model="jwt_request.password">
     </label>
-    <label class="labels">
-      <p class="input-name">Password</p>
-      <input id="pas" class="login-input input" v-model="accessToken">
-    </label>
     <button @click="login" class="form-button">Login</button>
 
   </form>
@@ -37,7 +33,7 @@ export default {
   methods: {
     login() {
       AuthService.login(this.jwt_request)
-      // this.$router.push('/')
+      this.$router.push('/profile')
       // GroupService.addGroup(this.group).then(() => {
       //   this.$router.push('/main')
       // })

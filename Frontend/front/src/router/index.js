@@ -8,6 +8,7 @@ import FAQ from "@/components/FAQ.vue";
 import AboutUs from "@/components/AboutUs.vue";
 import SignUp from "@/components/SignUp.vue";
 import Login from "@/components/Login.vue";
+import Profile from "@/components/site-content/Profile.vue";
 const routes = [
     {
         path: '/',
@@ -36,6 +37,10 @@ const routes = [
     {
         path: '/login',
         component: Login
+    },
+    {
+        path: '/profile',
+        component: Profile
     },
     {path: '/:pathMatch(.*)', component: Test}
 ]

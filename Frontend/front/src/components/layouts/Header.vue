@@ -23,7 +23,9 @@
 
     </div>
     <div class="header-part">
-      <i class="user-icon fa-solid fa-user-circle fa-3x"></i>
+      <router-link class="profile_link" to="/profile"><i class="user-icon fa-solid fa-user-circle fa-3x"></i>
+      </router-link>
+
     </div>
     <!--    <div class="sidebar-menu">-->
     <!--      <i class="fa-solid fa-bars header-link burger" @click="this.showSidebar=!this.showSidebar"></i>-->
@@ -64,7 +66,6 @@ header {
 }
 
 .user-icon {
-  right: 10vh;
   top: 0.75vb;
   color: white;
 }
@@ -135,6 +136,10 @@ header {
 
 .header-logo {
   font-size: 1.77em;
+}
+
+.profile_link{
+  right: 10vh;
 }
 
 </style>

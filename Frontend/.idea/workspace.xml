@@ -5,39 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="created a based version of a front-end part of web-site.">
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/PostDTOs/UserPostDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/auth/JwtAuthentication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/auth/JwtFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/auth/JwtProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/auth/JwtRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/auth/JwtResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/auth/JwtUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/auth/RefreshJwtRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/auth/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/habitscomponents/HabitsComponentCRUD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/habitscomponents/HabitsDividorComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/interfaces/ComponentCrud.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/taskcomponents/TaskComponentCRUD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/taskcomponents/TaskComponentDailyTasks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/taskcomponents/TaskComponentSubtasker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/configs/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/configs/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/HabitsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/TasksController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/mappers/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/AuthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/HabitsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/TaskService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/authstore.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/services/AuthService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/repositories/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/usercomponents/UserCRUDComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/cookies/CookiesUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/dbservices/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/scheduled/CleanService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/scheduled/NotificationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/components/site-content/Daily.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/components/site-content/Profile.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/components/site-content/Tasks.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/services/HabitsService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/services/ProfileService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/services/TaskService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/auth/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/auth/JwtFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/configs/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/configs/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/dbservices/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/auth/AuthService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/Login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/components/SignUp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/SignUp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/layouts/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/layouts/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/services/AuthService.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/AuthService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +37,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -64,21 +54,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/serhi/Desktop/DoIT/DoIT/Frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/serhi/Desktop/DoIT/DoIT/Frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2022.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -95,6 +85,11 @@
       <workItem from="1685809767836" duration="535000" />
       <workItem from="1686150127153" duration="507000" />
       <workItem from="1686150650522" duration="4889000" />
+      <workItem from="1686340375011" duration="711000" />
+      <workItem from="1686413908386" duration="1750000" />
+      <workItem from="1686517386117" duration="3022000" />
+      <workItem from="1686573337387" duration="581000" />
+      <workItem from="1686596979001" duration="2300000" />
     </task>
     <task id="LOCAL-00001" summary="created a based version of a front-end part of web-site.">
       <created>1685723603833</created>
