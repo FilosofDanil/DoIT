@@ -5,29 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="created a based version of a front-end part of web-site.">
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/usercomponents/UserCRUDComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/cookies/CookiesUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/dbservices/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/usercomponents/UserCalcComponent.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/scheduled/CleanService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/scheduled/NotificationService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/front/src/components/site-content/Daily.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/components/site-content/Profile.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/front/src/components/site-content/Tasks.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/front/src/services/HabitsService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/services/ProfileService.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/front/src/services/TaskService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/auth/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/auth/JwtFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/configs/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/configs/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/dbservices/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/auth/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/dbservices/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/dbservices/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/SignUp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/SignUp.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/layouts/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/layouts/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/services/AuthService.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/AuthService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Profile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/services/ProfileService.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/ProfileService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +79,8 @@
       <workItem from="1686413908386" duration="1750000" />
       <workItem from="1686517386117" duration="3022000" />
       <workItem from="1686573337387" duration="581000" />
-      <workItem from="1686596979001" duration="2300000" />
+      <workItem from="1686596979001" duration="2977000" />
+      <workItem from="1686670553264" duration="5893000" />
     </task>
     <task id="LOCAL-00001" summary="created a based version of a front-end part of web-site.">
       <created>1685723603833</created>
