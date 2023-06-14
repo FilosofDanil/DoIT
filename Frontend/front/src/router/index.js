@@ -9,6 +9,8 @@ import AboutUs from "@/components/AboutUs.vue";
 import SignUp from "@/components/SignUp.vue";
 import Login from "@/components/Login.vue";
 import Profile from "@/components/site-content/Profile.vue";
+import Daily from "@/components/site-content/Daily.vue";
+import Habits from "@/components/site-content/Habits.vue";
 const routes = [
     {
         path: '/',
@@ -41,6 +43,14 @@ const routes = [
     {
         path: '/profile',
         component: Profile
+    },
+    {
+        path:'/daily',
+        component: Daily
+    },
+    {
+        path: '/habits',
+        component: Habits
     },
     {path: '/:pathMatch(.*)', component: Test}
 ]

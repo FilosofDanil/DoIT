@@ -3,10 +3,9 @@
     <div class="footer-block">
       <h3 class="block-name">Navigation</h3>
       <div class="footer-links">
-        <a class="footer-link" href="">Profile</a>
-        <a class="footer-link" href="">Your Task List</a>
-        <a class="footer-link" href="">Your Goals</a>
-        <a class="footer-link" href="">Your Daily</a>
+        <a class="footer-link" href="/profile">Profile</a>
+        <a class="footer-link" href="/daily">Your Task List</a>
+        <a class="footer-link" href="/habits">Your Daily</a>
         <a class="footer-link" href="/login">Login</a>
         <a class="footer-link" href="/signup">Registration</a>
       </div>
