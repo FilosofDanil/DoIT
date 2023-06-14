@@ -72,6 +72,7 @@ public class HabitsComponentCRUD implements ComponentCrud<HabitsDTO> {
     static class HabitsMapper {
         private static HabitsDTO toDto(Habits habit) {
             return HabitsDTO.builder()
+                    .id(habit.getId())
                     .name(habit.getName())
                     .description(habit.getDescription())
                     .day_count(habit.getDay_count())

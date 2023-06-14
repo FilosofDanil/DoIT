@@ -13,4 +13,6 @@ public class TrackedDaysDTO {
     private Boolean marked;
     @JsonProperty("marking_day")
     private Date marking_day;
+    @JsonProperty("status")
+    private String status;
 }

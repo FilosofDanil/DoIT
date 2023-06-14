@@ -7,12 +7,14 @@ import lombok.Getter;
 @Builder
 @Getter
 public class HabitsDTO {
+    @JsonProperty("id")
+    private Long id;
     @JsonProperty("name")
     private String name;
     @JsonProperty("day_count")
     private Integer day_count;
     @JsonProperty("description")
-    private String description ;
+    private String description;
     @JsonProperty("completed")
     private Boolean completed;
 }
