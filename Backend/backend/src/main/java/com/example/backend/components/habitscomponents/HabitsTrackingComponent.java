@@ -27,6 +27,7 @@ public class HabitsTrackingComponent {
     static class TrackedMapper {
         private static TrackedDaysDTO toDto(TrackedDays trackedDays) {
             return TrackedDaysDTO.builder()
+                    .id(trackedDays.getId())
                     .marked(trackedDays.getMarked())
                     .marking_day(trackedDays.getMarkingDate())
                     .status(getStatus(trackedDays))

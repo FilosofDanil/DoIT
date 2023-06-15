@@ -15,8 +15,10 @@
       <div class="tracks" v-for="track in getAllHabitsTracks(habit.id)">
         <i v-if="track.status==='before'&&track.marked===true" class="fa-solid fa-circle circle_1"></i>
         <i v-if="track.status==='before'&&track.marked===false" class="fa-solid fa-circle circle_4"></i>
-        <i v-if="track.status==='today'&&track.marked===true" class="fa-solid fa-circle circle_1"></i>
-        <i v-if="track.status==='today'&&track.marked===false" class="fa-solid fa-circle circle_2"></i>
+        <i v-on:click="unmark(track.id)" v-if="track.status==='today'&&track.marked===true"
+           class="fa-solid fa-circle circle_1 today"></i>
+        <i v-on:click="mark(track.id)" v-if="track.status==='today'&&track.marked===false"
+           class="fa-solid fa-circle circle_2 today"></i>
         <i v-if="track.status==='after'" class="fa-solid fa-circle circle_3"></i>
       </div>
     </div>
@@ -40,6 +42,16 @@ export default {
     getAllHabitsTracks(id) {
       HabitsService.getAllTracks(id).then((response) => this.tracks = response.data)
       return this.tracks
+    },
+    mark(id) {
+      HabitsService.mark(id).then(() => {
+        this.$router.push('/habits')
+      })
+    },
+    unmark(id) {
+      HabitsService.unmark(id).then(() => {
+        this.$router.push('/habits')
+      })
     }
   },
 
@@ -84,8 +96,9 @@ export default {
   color: gray;
 }
 
-.circle_2:hover {
-  border: 1.5px solid goldenrod;
+.today:hover {
+  border: 3px solid goldenrod;
+  border-radius: 50%;
   color: greenyellow;
   opacity: 30%;
 }
@@ -100,14 +113,10 @@ export default {
   color: darkred;
 }
 
-.tracks{
+.tracks {
   display: inline-grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1.2, 1fr);
   grid-gap: 1em;
-}
-
-.tracks-block{
-
 }
 </style>

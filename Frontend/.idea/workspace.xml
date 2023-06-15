@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="created empty services and pages for habits and tasks(temporary)">
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/comparators/TrackedComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/HabitsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/HabitsDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/TrackedDaysDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/TrackedDaysDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/habitscomponents/HabitsComponentCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/habitscomponents/HabitsComponentCRUD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/habitscomponents/HabitsTrackingComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/habitscomponents/HabitsTrackingComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/assets/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/services/HabitsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/HabitsService.js" afterDir="false" />
     </list>
@@ -77,7 +73,8 @@
       <workItem from="1686573337387" duration="581000" />
       <workItem from="1686596979001" duration="2977000" />
       <workItem from="1686670553264" duration="6490000" />
-      <workItem from="1686769019827" duration="7750000" />
+      <workItem from="1686769019827" duration="8754000" />
+      <workItem from="1686848154295" duration="6022000" />
     </task>
     <task id="LOCAL-00001" summary="created a based version of a front-end part of web-site.">
       <created>1685723603833</created>

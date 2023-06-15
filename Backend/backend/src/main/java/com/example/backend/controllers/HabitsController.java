@@ -38,7 +38,7 @@ public class HabitsController {
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<HabitsDTO> update(@PathVariable Long id, @RequestBody HabitsDTO habitsDTO) {
         HabitsDTO saved = habitsService.update(habitsDTO, id, SecurityContextHolder.getContext().getAuthentication());
         if (saved != null) {
@@ -52,12 +52,12 @@ public class HabitsController {
         habitsService.delete(id);
     }
 
-    @PatchMapping("/mark/{id}")
+    @PostMapping("/mark/{id}")
     public void mark(@PathVariable Long id) {
         habitsService.mark(id);
     }
 
-    @PatchMapping("/unmark/{id}")
+    @PostMapping("/unmark/{id}")
     public void unmark(@PathVariable Long id) {
         habitsService.unmark(id);
     }

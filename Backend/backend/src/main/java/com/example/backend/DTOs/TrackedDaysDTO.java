@@ -9,6 +9,8 @@ import java.util.Date;
 @Builder
 @Getter
 public class TrackedDaysDTO {
+    @JsonProperty("id")
+    private Long id;
     @JsonProperty("marked")
     private Boolean marked;
     @JsonProperty("marking_day")
