@@ -8,10 +8,6 @@
       <h1 class="bolder cool-text-color white-color">{{ habit.name }}</h1>
       <h1 v-if="habit.completed" class="bolder cool-text-color white-color">Current status(completed): Yes</h1>
       <h1 v-if="!habit.completed" class="bolder cool-text-color white-color">Current status(completed): No</h1>
-
-      <div class="tracks-block">
-
-      </div>
       <div class="tracks" v-for="track in getAllHabitsTracks(habit.id)">
         <i v-if="track.status==='before'&&track.marked===true" class="fa-solid fa-circle circle_1"></i>
         <i v-if="track.status==='before'&&track.marked===false" class="fa-solid fa-circle circle_4"></i>

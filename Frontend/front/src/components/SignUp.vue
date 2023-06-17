@@ -83,4 +83,8 @@ export default {
   display: flex;
   padding: 2rem;
 }
+.form-button{
+  top: 10vh;
+  left: 12vh;
+}
 </style>

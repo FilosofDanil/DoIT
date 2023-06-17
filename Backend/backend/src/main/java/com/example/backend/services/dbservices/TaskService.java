@@ -30,6 +30,7 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
             DailyTasks dailyTask = taskComponentDailyTasks.getByTask(taskComponentCRUD.getEntityById(taskDTO.getId()));
             taskDTO.setDone(dailyTask.getDone());
             taskDTO.setToday(dailyTask.getToday());
+            taskDTO.setDaily_id(dailyTask.getId());
         });
         return list;
     }
@@ -88,6 +89,7 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
             DailyTasks dailyTask = taskComponentDailyTasks.getByTask(taskComponentCRUD.getEntityById(taskDTO.getId()));
             taskDTO.setDone(dailyTask.getDone());
             taskDTO.setToday(dailyTask.getToday());
+            taskDTO.setDaily_id(dailyTask.getId());
         });
         return list.stream().filter(taskDTO -> compareDates(new Date(), taskDTO.getToday())).collect(Collectors.toList());
     }
@@ -98,6 +100,7 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
             DailyTasks dailyTask = taskComponentDailyTasks.getByTask(taskComponentCRUD.getEntityById(taskDTO.getId()));
             taskDTO.setDone(dailyTask.getDone());
             taskDTO.setToday(dailyTask.getToday());
+            taskDTO.setDaily_id(dailyTask.getId());
         });
         return list.stream().filter(taskDTO -> compareDates(date, taskDTO.getToday())).collect(Collectors.toList());
     }

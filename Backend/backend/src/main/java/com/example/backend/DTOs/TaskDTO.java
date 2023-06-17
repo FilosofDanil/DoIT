@@ -20,4 +20,6 @@ public class TaskDTO {
     private Boolean done;
     @JsonIgnore
     private Long id;
+    @JsonProperty("daily_id")
+    private Long daily_id;
 }

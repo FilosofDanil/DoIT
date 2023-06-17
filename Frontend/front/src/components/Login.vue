@@ -76,4 +76,9 @@ export default {
   color: red;
   border-color: red;
 }
+
+.form-button{
+  top: 10vh;
+  left: 12vh;
+}
 </style>

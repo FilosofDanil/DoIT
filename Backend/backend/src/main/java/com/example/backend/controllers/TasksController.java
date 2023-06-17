@@ -81,12 +81,12 @@ public class TasksController {
         taskService.unmarkSubTask(id);
     }
 
-    @PostMapping("/daily/mark/{id}")
+    @PostMapping("/mark/{id}")
     public void markDailyTask(@PathVariable Long id) {
         taskService.markDailyTask(id);
     }
 
-    @PostMapping("/daily/unmark/{id}")
+    @PostMapping("/unmark/{id}")
     public void unmarkDailyTask(@PathVariable Long id) {
         taskService.unmarkDailyTask(id);
     }
