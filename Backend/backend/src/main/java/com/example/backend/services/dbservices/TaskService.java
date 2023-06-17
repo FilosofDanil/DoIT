@@ -10,8 +10,10 @@ import com.example.backend.entities.Subtasks;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -23,7 +25,13 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
 
     @Override
     public List<TaskDTO> get(Authentication auth) {
-        return taskComponentCRUD.get(userAuthComponent.getUserByAuthorities(auth));
+        List<TaskDTO> list = getList(auth);
+        list.forEach(taskDTO -> {
+            DailyTasks dailyTask = taskComponentDailyTasks.getByTask(taskComponentCRUD.getEntityById(taskDTO.getId()));
+            taskDTO.setDone(dailyTask.getDone());
+            taskDTO.setToday(dailyTask.getToday());
+        });
+        return list;
     }
 
     @Override
@@ -52,6 +60,9 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
 
     public DailyTasks createDailyTask(TaskDTO taskDTO, Authentication auth) {
         TaskDTO created = taskComponentCRUD.create(taskDTO, userAuthComponent.getUserByAuthorities(auth));
+        if (taskDTO.getToday() != null) {
+            return taskComponentDailyTasks.createDailyTask(taskComponentCRUD.getEntityById(created.getId()), taskDTO.getToday());
+        }
         return taskComponentDailyTasks.createDailyTask(taskComponentCRUD.getEntityById(created.getId()));
     }
 
@@ -69,5 +80,33 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
 
     public void unmarkSubTask(Long id) {
         taskComponentSubtasker.unmarkIt(id);
+    }
+
+    public List<TaskDTO> getAllTodayTasks(Authentication auth) {
+        List<TaskDTO> list = getList(auth);
+        list.forEach(taskDTO -> {
+            DailyTasks dailyTask = taskComponentDailyTasks.getByTask(taskComponentCRUD.getEntityById(taskDTO.getId()));
+            taskDTO.setDone(dailyTask.getDone());
+            taskDTO.setToday(dailyTask.getToday());
+        });
+        return list.stream().filter(taskDTO -> compareDates(new Date(), taskDTO.getToday())).collect(Collectors.toList());
+    }
+
+    public List<TaskDTO> getAllByDate(Authentication auth, Date date) {
+        List<TaskDTO> list = getList(auth);
+        list.forEach(taskDTO -> {
+            DailyTasks dailyTask = taskComponentDailyTasks.getByTask(taskComponentCRUD.getEntityById(taskDTO.getId()));
+            taskDTO.setDone(dailyTask.getDone());
+            taskDTO.setToday(dailyTask.getToday());
+        });
+        return list.stream().filter(taskDTO -> compareDates(date, taskDTO.getToday())).collect(Collectors.toList());
+    }
+
+    private List<TaskDTO> getList(Authentication auth){
+         return  taskComponentCRUD.get(userAuthComponent.getUserByAuthorities(auth));
+    }
+
+    private boolean compareDates(Date date1, Date date2) {
+        return date1.getDate() == date2.getDate();
     }
 }

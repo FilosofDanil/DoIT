@@ -10,7 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @RestController
 @RequestMapping("api/tasks")
@@ -21,6 +23,16 @@ public class TasksController {
     @GetMapping("")
     public List<TaskDTO> getAll() {
         return taskService.get(SecurityContextHolder.getContext().getAuthentication());
+    }
+
+    @GetMapping("/date/{date}")
+    public List<TaskDTO> getAllByDate(@PathVariable String date) throws ParseException {
+        return taskService.getAllByDate(SecurityContextHolder.getContext().getAuthentication(), new SimpleDateFormat("yyyy-MM-dd").parse(date));
+    }
+
+    @GetMapping("/today")
+    public List<TaskDTO> getAllTasksForToday() {
+        return taskService.getAllTodayTasks(SecurityContextHolder.getContext().getAuthentication());
     }
 
     @GetMapping("{id}")

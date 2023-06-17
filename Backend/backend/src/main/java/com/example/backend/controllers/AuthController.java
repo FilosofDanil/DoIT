@@ -35,14 +35,4 @@ public class AuthController {
         final JwtResponse token = authService.getAccessToken(request.getRefreshToken());
         return ResponseEntity.ok(token);
     }
-
-    @GetMapping("/set")
-    public String setCookie(HttpServletResponse response) {
-        // set a new cookie
-        Cookie cookie = new Cookie("color", "blue");
-        // add cookie in server response
-        response.addCookie(cookie);
-
-        return "Spring Boot Cookies";
-    }
 }

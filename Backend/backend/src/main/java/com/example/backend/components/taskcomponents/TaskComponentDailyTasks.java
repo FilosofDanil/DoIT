@@ -1,5 +1,6 @@
 package com.example.backend.components.taskcomponents;
 
+import com.example.backend.DTOs.TaskDTO;
 import com.example.backend.components.interfaces.MarkingInterface;
 import com.example.backend.entities.DailyTasks;
 import com.example.backend.entities.Tasks;
@@ -25,12 +26,27 @@ public class TaskComponentDailyTasks implements MarkingInterface {
         return dailyTask;
     }
 
+    public DailyTasks createDailyTask(Tasks task, Date date) {
+        DailyTasks dailyTask = DailyTasks.builder()
+                .task(task)
+                .today(date)
+                .done(false)
+                .build();
+        dailyTasksRepository.save(dailyTask);
+        return dailyTask;
+    }
+
+
     public void markIt(Long id) {
         dailyTasksRepository.save(marking(true, id));
     }
 
     public void unmarkIt(Long id) {
         dailyTasksRepository.save(marking(false, id));
+    }
+
+    public DailyTasks getByTask(Tasks task) {
+        return dailyTasksRepository.getDailyTasksByTask(task);
     }
 
     private DailyTasks marking(Boolean mark, Long id) {
