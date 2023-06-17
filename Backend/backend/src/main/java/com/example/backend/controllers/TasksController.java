@@ -28,13 +28,12 @@ public class TasksController {
         return taskService.getById(id);
     }
 
+    //    @PostMapping("")
+//    public ResponseEntity<TaskDTO> createCommonTask(@RequestBody TaskDTO TaskDTO) {
+//        TaskDTO saved = taskService.create(TaskDTO, SecurityContextHolder.getContext().getAuthentication());
+//        return new ResponseEntity<>(saved, HttpStatus.CREATED);
+//    }
     @PostMapping("")
-    public ResponseEntity<TaskDTO> createCommonTask(@RequestBody TaskDTO TaskDTO) {
-        TaskDTO saved = taskService.create(TaskDTO, SecurityContextHolder.getContext().getAuthentication());
-        return new ResponseEntity<>(saved, HttpStatus.CREATED);
-    }
-
-    @PostMapping("/daily")
     public ResponseEntity<DailyTasks> createDailyTask(@RequestBody TaskDTO TaskDTO) {
         DailyTasks saved = taskService.createDailyTask(TaskDTO, SecurityContextHolder.getContext().getAuthentication());
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
@@ -60,22 +59,22 @@ public class TasksController {
         taskService.delete(id);
     }
 
-    @PatchMapping("/subtask/mark/{id}")
+    @PostMapping("/subtask/mark/{id}")
     public void markSubtask(@PathVariable Long id) {
         taskService.markSubTask(id);
     }
 
-    @PatchMapping("/subtask/unmark/{id}")
+    @PostMapping("/subtask/unmark/{id}")
     public void unmarkSubtask(@PathVariable Long id) {
         taskService.unmarkSubTask(id);
     }
 
-    @PatchMapping("/daily/mark/{id}")
+    @PostMapping("/daily/mark/{id}")
     public void markDailyTask(@PathVariable Long id) {
         taskService.markDailyTask(id);
     }
 
-    @PatchMapping("/daily/unmark/{id}")
+    @PostMapping("/daily/unmark/{id}")
     public void unmarkDailyTask(@PathVariable Long id) {
         taskService.unmarkDailyTask(id);
     }
