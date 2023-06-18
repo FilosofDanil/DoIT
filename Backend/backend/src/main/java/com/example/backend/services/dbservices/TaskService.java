@@ -1,5 +1,6 @@
 package com.example.backend.services.dbservices;
 
+import com.example.backend.DTOs.SubtaskDTO;
 import com.example.backend.DTOs.TaskDTO;
 import com.example.backend.components.taskcomponents.TaskComponentCRUD;
 import com.example.backend.components.taskcomponents.TaskComponentDailyTasks;
@@ -10,9 +11,9 @@ import com.example.backend.entities.Subtasks;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.*;
+import java.util.Date;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -31,6 +32,7 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
             taskDTO.setDone(dailyTask.getDone());
             taskDTO.setToday(dailyTask.getToday());
             taskDTO.setDaily_id(dailyTask.getId());
+            taskDTO.setSubtasks(getSubTasks(taskDTO.getId()));
         });
         return list;
     }
@@ -90,6 +92,7 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
             taskDTO.setDone(dailyTask.getDone());
             taskDTO.setToday(dailyTask.getToday());
             taskDTO.setDaily_id(dailyTask.getId());
+            taskDTO.setSubtasks(getSubTasks(taskDTO.getId()));
         });
         return list.stream().filter(taskDTO -> compareDates(new Date(), taskDTO.getToday())).collect(Collectors.toList());
     }
@@ -101,12 +104,17 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
             taskDTO.setDone(dailyTask.getDone());
             taskDTO.setToday(dailyTask.getToday());
             taskDTO.setDaily_id(dailyTask.getId());
+            taskDTO.setSubtasks(getSubTasks(taskDTO.getId()));
         });
         return list.stream().filter(taskDTO -> compareDates(date, taskDTO.getToday())).collect(Collectors.toList());
     }
 
-    private List<TaskDTO> getList(Authentication auth){
-         return  taskComponentCRUD.get(userAuthComponent.getUserByAuthorities(auth));
+    private List<TaskDTO> getList(Authentication auth) {
+        return taskComponentCRUD.get(userAuthComponent.getUserByAuthorities(auth));
+    }
+
+    private List<SubtaskDTO> getSubTasks(Long id) {
+        return taskComponentSubtasker.getAllSubtasks(taskComponentCRUD.getEntityById(id));
     }
 
     private boolean compareDates(Date date1, Date date2) {

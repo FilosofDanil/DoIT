@@ -1,5 +1,6 @@
 package com.example.backend.controllers;
 
+import com.example.backend.DTOs.SubtaskDTO;
 import com.example.backend.DTOs.TaskDTO;
 import com.example.backend.entities.DailyTasks;
 import com.example.backend.entities.Subtasks;
@@ -34,6 +35,11 @@ public class TasksController {
     public List<TaskDTO> getAllTasksForToday() {
         return taskService.getAllTodayTasks(SecurityContextHolder.getContext().getAuthentication());
     }
+
+//    @GetMapping("/subtasks/{id}")
+//    public List<SubtaskDTO> getAllSubTasks(@PathVariable Long id) {
+//        return taskService.getSubTasks(id);
+//    }
 
     @GetMapping("{id}")
     public TaskDTO getById(@PathVariable Long id) {

@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="created empty services and pages for habits and tasks(temporary)">
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/DailyTaskDTO.java" beforeDir="false" />
+    <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="created based version of a daily-tasks page">
+      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/SubtaskDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/public/Safeimagekit-resized-img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/public/favicon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/TaskDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/TaskDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/taskcomponents/TaskComponentSubtasker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/taskcomponents/TaskComponentSubtasker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/TasksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/TasksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/repositories/SubTasksRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/repositories/SubTasksRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/dbservices/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/dbservices/TaskService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/assets/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/SignUp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/SignUp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Daily.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Daily.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Tasks.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/services/TaskService.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/TaskService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,26 +38,29 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2QTHCaBfUKLTgXIy2R2KsHZZDsy" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/serhi/Desktop/DoIT/DoIT/Frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2022.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/serhi/Desktop/DoIT/DoIT/Frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -83,7 +86,9 @@
       <workItem from="1686769019827" duration="8754000" />
       <workItem from="1686848154295" duration="6395000" />
       <workItem from="1686945481125" duration="241000" />
-      <workItem from="1687006792210" duration="9850000" />
+      <workItem from="1687006792210" duration="12264000" />
+      <workItem from="1687089534475" duration="1222000" />
+      <workItem from="1687097717063" duration="8225000" />
     </task>
     <task id="LOCAL-00001" summary="created a based version of a front-end part of web-site.">
       <created>1685723603833</created>
@@ -99,15 +104,24 @@
       <option name="project" value="LOCAL" />
       <updated>1686771162074</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="created based version of a daily-tasks page">
+      <created>1687024746028</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687024746029</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="created a based version of a front-end part of web-site." />
     <MESSAGE value="created empty services and pages for habits and tasks(temporary)" />
-    <option name="LAST_COMMIT_MESSAGE" value="created empty services and pages for habits and tasks(temporary)" />
+    <MESSAGE value="created based version of a daily-tasks page" />
+    <option name="LAST_COMMIT_MESSAGE" value="created based version of a daily-tasks page" />
   </component>
 </project>
