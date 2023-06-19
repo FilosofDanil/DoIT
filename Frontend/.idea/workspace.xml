@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="created based version of a daily-tasks page">
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/SubtaskDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/public/Safeimagekit-resized-img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/public/favicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/TaskDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/TaskDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/taskcomponents/TaskComponentSubtasker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/taskcomponents/TaskComponentSubtasker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/TasksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/TasksController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/repositories/SubTasksRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/repositories/SubTasksRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/dbservices/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/dbservices/TaskService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Daily.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Daily.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/services/TaskService.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/TaskService.js" afterDir="false" />
     </list>
@@ -51,6 +46,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "javascript.nodejs.core.library.configured.version": "19.1.0",
+    "javascript.nodejs.core.library.typings.version": "20.3.1",
     "last_opened_file_path": "C:/Users/serhi/Desktop/DoIT/DoIT/Frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -88,7 +85,8 @@
       <workItem from="1686945481125" duration="241000" />
       <workItem from="1687006792210" duration="12264000" />
       <workItem from="1687089534475" duration="1222000" />
-      <workItem from="1687097717063" duration="8225000" />
+      <workItem from="1687097717063" duration="10375000" />
+      <workItem from="1687191820856" duration="6392000" />
     </task>
     <task id="LOCAL-00001" summary="created a based version of a front-end part of web-site.">
       <created>1685723603833</created>
@@ -116,6 +114,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

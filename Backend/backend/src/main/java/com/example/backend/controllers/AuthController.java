@@ -27,7 +27,9 @@ public class AuthController {
     @PostMapping("login")
     public void login(@RequestBody JwtRequest authRequest, HttpServletRequest request, HttpServletResponse response) throws AuthException {
         response.addCookie(authService.login(authRequest));
-
+//        response.addHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+//        response.addHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
+//        response.addHeader("Access-Control-Allow-Headers", "Content-Type");
     }
 
     @PostMapping("token")

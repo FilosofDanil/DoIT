@@ -44,9 +44,9 @@
       <form class="login-form" action="">
         <label class="labels">
           <p class="input-name">Name</p>
-          <input id="email" class="loh-input input">
+          <input id="email" class="loh-input input" v-model="TaskDTO.name">
         </label>
-        <button @click="" class="form-button">Add</button>
+        <button @click="createTask" class="form-button">Add</button>
       </form>
     </div>
   </div>
@@ -60,7 +60,11 @@ export default {
   data: () => ({
     tasks: [],
     adding: false,
-    sub_adding: new Map()
+    sub_adding: new Map(),
+    TaskDTO:{
+      name:"",
+      today:""
+    }
   }),
   methods: {
     getAllDailyTasks() {
@@ -95,6 +99,12 @@ export default {
 
     getFromMap(id){
       return this.sub_adding.get(id)
+    },
+
+    createTask(){
+      TaskService.createTask(this.TaskDTO).then((response) => this.TaskDTO = response.data)
+      this.adding = !this.adding;
+
     }
   },
 
