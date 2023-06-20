@@ -8,9 +8,15 @@
       <h1 class="bolder cool-text-color white-color task-text">{{ task.name }}</h1>
       <i v-on:click="unmark(task.daily_id)" v-if="task.done===true" class="fa-solid fa-circle circle_1 circle"></i>
       <i v-on:click="mark(task.daily_id)" v-if="task.done===false" class="fa-solid fa-circle circle_2 circle"></i>
+      <i v-on:click=""
+         class="fa-solid fa-minus plus delete"></i>
       <div v-for="subtask in task.subtasks">
-        <i v-if="subtask.done===true" class="fa-solid fa-circle circle_1 sub-circle"></i>
-        <i v-if="subtask.done===false" class="fa-solid fa-circle circle_2 sub-circle"></i>
+        <i v-on:click="unmarkSub(subtask.id)" v-if="subtask.done===true"
+           class="fa-solid fa-circle circle_1 sub-circle"></i>
+        <i v-on:click="markSub(subtask.id)" v-if="subtask.done===false"
+           class="fa-solid fa-circle circle_2 sub-circle"></i>
+        <i v-on:click=""
+           class="fa-solid fa-minus sub-minus sub-delete"></i>
         <h2 class="bolder cool-text-color white-color sub-task-text ">{{ subtask.name }}</h2>
       </div>
       <div v-if="getFromMap(task.id)===false" v-on:click="subhide(task.id)" class="sub-add">
@@ -21,14 +27,13 @@
         <i class="fa-solid fa-minus sub-plus"></i>
         <h2 class="bolder cool-text-color white-color task-text sub-add-text">Hide</h2>
       </div>
-
       <div v-if="getFromMap(task.id)===true" class="sub-adding-form">
         <form class="login-form" action="">
           <label class="labels">
             <p class="input-name">Name</p>
-            <input id="email" class="loh-input input">
+            <input id="email" class="loh-input input" v-model="subtaskDTO.name">
           </label>
-          <button @click="" class="form-button">Add</button>
+          <button @click="createSubTask(task.id)" class="form-button">Add</button>
         </form>
       </div>
     </div>
@@ -61,15 +66,16 @@ export default {
     tasks: [],
     adding: false,
     sub_adding: new Map(),
-    TaskDTO:{
-      name:"",
-      today:""
-    }
+    TaskDTO: {
+      name: "",
+      today: ""
+    },
+    subtaskDTO: {name: ""}
   }),
   methods: {
     getAllDailyTasks() {
       TaskService.getAllTodayTasks().then((response) => this.tasks = response.data)
-      if(this.sub_adding.size===0) {
+      if (this.sub_adding.size === 0) {
         this.tasks.forEach(task => this.sub_adding.set(task.id, false))
       }
       return this.tasks
@@ -84,27 +90,44 @@ export default {
         this.$router.push('/daily')
       })
     },
+    markSub(id) {
+      TaskService.markSubTask(id).then(() => {
+        this.$router.push('/daily')
+      })
+    },
+    unmarkSub(id) {
+      TaskService.unmarkSubTask(id).then(() => {
+        this.$router.push('/daily')
+      })
+    },
     hide() {
       this.adding = !this.adding;
     },
-    subhide(id){
+    subhide(id) {
 
-      if(this.sub_adding.get(id)){
+      if (this.sub_adding.get(id)) {
         this.sub_adding.set(id, false)
-      }
-      else{
+      } else {
         this.sub_adding.set(id, true)
       }
     },
 
-    getFromMap(id){
+    getFromMap(id) {
       return this.sub_adding.get(id)
     },
 
-    createTask(){
+    createTask() {
       TaskService.createTask(this.TaskDTO).then((response) => this.TaskDTO = response.data)
       this.adding = !this.adding;
+    },
 
+    createSubTask(id) {
+      TaskService.createSubTask(this.subtaskDTO, id).then((response) => this.TaskDTO = response.data)
+      if (this.sub_adding.get(id)) {
+        this.sub_adding.set(id, false)
+      } else {
+        this.sub_adding.set(id, true)
+      }
     }
   },
 
@@ -153,14 +176,14 @@ export default {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
   opacity: 10%;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .circle_1 {
@@ -216,6 +239,12 @@ export default {
 
 .sub-plus {
   top: 2vh;
+  font-size: 1.5em;
+  margin: 0;
+  padding: 0;
+}
+
+.sub-minus {
   font-size: 1.5em;
   margin: 0;
   padding: 0;
@@ -284,9 +313,21 @@ export default {
   right: 10vh;
 }
 
-.sub-adding-form{
+.sub-adding-form {
   left: 7vh;
   bottom: 6vh;
+}
+
+.delete{
+  position: absolute;
+  left: 60vh;
+  bottom: 26vh;
+}
+
+.sub-delete{
+  position: absolute;
+  left: 45vh;
+  bottom: 6.55vh;
 }
 
 

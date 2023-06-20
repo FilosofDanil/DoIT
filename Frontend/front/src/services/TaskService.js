@@ -33,12 +33,40 @@ class TaskService {
         return axios.post(TASK_API_URL + '/unmark/' + id, body, {withCredentials: true});
     }
 
+    markSubTask(id) {
+        let body = true
+        return axios.patch(TASK_API_URL + '/subtask/mark/' + id, body, {withCredentials: true});
+    }
+
+    unmarkSubTask(id) {
+        let body = false
+        return axios.patch(TASK_API_URL + '/subtask/unmark/' + id, body, {withCredentials: true});
+    }
+
     //
     // subtasks(id) {
     //     return axios.get(TASK_API_URL + '/subtasks/' + id,  {withCredentials: true});
     // }
     createTask(TaskDTO) {
         return axios.post(TASK_API_URL, TaskDTO, {
+            withCredentials: true
+        });
+    }
+
+    createSubTask(subtask, id) {
+        return axios.post(TASK_API_URL + '/subtask/' + id, subtask, {
+            withCredentials: true
+        });
+    }
+
+    deleteTask(id) {
+        return axios.delete(TASK_API_URL + '/' + id, {
+            withCredentials: true
+        });
+    }
+
+    deleteSubTask(id) {
+        return axios.delete(TASK_API_URL + '/subtask/' + id, {
             withCredentials: true
         });
     }
