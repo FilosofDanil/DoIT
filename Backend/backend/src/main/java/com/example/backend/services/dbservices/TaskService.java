@@ -61,6 +61,10 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
         return taskComponentSubtasker.createSubtask(taskComponentCRUD.getEntityById(id), name);
     }
 
+    public void deleteSubTask(Long id) {
+        taskComponentSubtasker.deleteSubTasks(id);
+    }
+
     public DailyTasks createDailyTask(TaskDTO taskDTO, Authentication auth) {
         TaskDTO created = taskComponentCRUD.create(taskDTO, userAuthComponent.getUserByAuthorities(auth));
         if (taskDTO.getToday() != null) {

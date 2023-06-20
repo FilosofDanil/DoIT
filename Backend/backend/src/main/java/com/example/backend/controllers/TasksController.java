@@ -59,8 +59,8 @@ public class TasksController {
     }
 
     @PostMapping("/subtask/{id}")
-    public ResponseEntity<Subtasks> createSubtask(@PathVariable Long id, @RequestBody String name) {
-        Subtasks saved = taskService.createSubTask(id, name);
+    public ResponseEntity<Subtasks> createSubtask(@PathVariable Long id, @RequestBody SubtaskDTO subtaskDTO) {
+        Subtasks saved = taskService.createSubTask(id, subtaskDTO.getName());
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
@@ -78,12 +78,17 @@ public class TasksController {
         taskService.delete(id);
     }
 
-    @PostMapping("/subtask/mark/{id}")
+    @DeleteMapping("/subtask/{id}")
+    public void deleteSubTask(@PathVariable Long id) {
+        taskService.deleteSubTask(id);
+    }
+
+    @PatchMapping("/subtask/mark/{id}")
     public void markSubtask(@PathVariable Long id) {
         taskService.markSubTask(id);
     }
 
-    @PostMapping("/subtask/unmark/{id}")
+    @PatchMapping("/subtask/unmark/{id}")
     public void unmarkSubtask(@PathVariable Long id) {
         taskService.unmarkSubTask(id);
     }

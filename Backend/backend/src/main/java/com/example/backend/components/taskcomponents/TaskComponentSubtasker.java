@@ -2,9 +2,12 @@ package com.example.backend.components.taskcomponents;
 
 import com.example.backend.DTOs.SubtaskDTO;
 import com.example.backend.components.interfaces.MarkingInterface;
+import com.example.backend.entities.DailyTasks;
 import com.example.backend.entities.Subtasks;
 import com.example.backend.entities.Tasks;
+import com.example.backend.repositories.DailyTasksRepository;
 import com.example.backend.repositories.SubTasksRepository;
+import com.example.backend.repositories.TasksRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +18,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class TaskComponentSubtasker implements MarkingInterface {
     private final SubTasksRepository subTasksRepository;
+    private final DailyTasksRepository dailyTasksRepository;
+    private final TasksRepository tasksRepository;
 
     public Subtasks createSubtask(Tasks task, String name) {
         Subtasks subtask = Subtasks.builder()
@@ -22,6 +27,9 @@ public class TaskComponentSubtasker implements MarkingInterface {
                 .name(name)
                 .done(false)
                 .build();
+        DailyTasks dailyTask = dailyTasksRepository.getDailyTasksByTask(subtask.getTask());
+        dailyTask.setDone(false);
+        dailyTasksRepository.save(dailyTask);
         subTasksRepository.save(subtask);
         return subtask;
     }
@@ -34,7 +42,7 @@ public class TaskComponentSubtasker implements MarkingInterface {
         subTasksRepository.save(marking(false, id));
     }
 
-    public List<SubtaskDTO> getAllSubtasks(Tasks task){
+    public List<SubtaskDTO> getAllSubtasks(Tasks task) {
         return subTasksRepository.findAllByTask(task).stream().map(SubTaskMapper::toDto).collect(Collectors.toList());
     }
 
@@ -44,7 +52,32 @@ public class TaskComponentSubtasker implements MarkingInterface {
         }
         Subtasks subtask = subTasksRepository.findById(id).get();
         subtask.setDone(mark);
+        check(subtask, mark);
         return subtask;
+    }
+
+    private void check(Subtasks subtask, Boolean mark) {
+        List<Subtasks> list = subTasksRepository.findAllByTask(subtask.getTask());
+        if (mark) {
+            for (Subtasks s : list) {
+                if (!s.getDone()) {
+                    return;
+                }
+            }
+            DailyTasks dailyTask = dailyTasksRepository.getDailyTasksByTask(subtask.getTask());
+            dailyTask.setDone(true);
+            dailyTasksRepository.save(dailyTask);
+        } else {
+            DailyTasks dailyTask = dailyTasksRepository.getDailyTasksByTask(subtask.getTask());
+            dailyTask.setDone(false);
+            dailyTasksRepository.save(dailyTask);
+        }
+    }
+
+    public void deleteSubTasks(Long id) {
+        Subtasks subtask = subTasksRepository.findById(id).get();
+        check(subtask, true);
+        subTasksRepository.delete(subtask);
     }
 
     static class SubTaskMapper {
