@@ -2,20 +2,22 @@
   <div class="main-gradient-1"></div>
   <img class="insane_image" src="https://rare-gallery.com/uploads/posts/922893-landscape-farm-field.jpg">
   <h1 class="main-text bolder cool-text-color">Your Tasks</h1>
-  <h2 class="current">Your currently tasks, for today:</h2>
+  <h2 v-if="isToday()===true" class="current">Your currently tasks, for today:</h2>
+  <h2 v-if="isToday()===false" class="current">Your currently tasks, for {{today.toDateString()}}</h2>
+
   <div class="tasks_table">
     <div class="tasks" v-for="task in getAllDailyTasks()">
       <h1 class="bolder cool-text-color white-color task-text">{{ task.name }}</h1>
       <i v-on:click="unmark(task.daily_id)" v-if="task.done===true" class="fa-solid fa-circle circle_1 circle"></i>
       <i v-on:click="mark(task.daily_id)" v-if="task.done===false" class="fa-solid fa-circle circle_2 circle"></i>
-      <i v-on:click=""
+      <i v-on:click="deleteTask(task.id)"
          class="fa-solid fa-minus plus delete"></i>
       <div v-for="subtask in task.subtasks">
         <i v-on:click="unmarkSub(subtask.id)" v-if="subtask.done===true"
            class="fa-solid fa-circle circle_1 sub-circle"></i>
         <i v-on:click="markSub(subtask.id)" v-if="subtask.done===false"
            class="fa-solid fa-circle circle_2 sub-circle"></i>
-        <i v-on:click=""
+        <i v-on:click="deleteSubTask(subtask.id)"
            class="fa-solid fa-minus sub-minus sub-delete"></i>
         <h2 class="bolder cool-text-color white-color sub-task-text ">{{ subtask.name }}</h2>
       </div>
@@ -55,6 +57,11 @@
       </form>
     </div>
   </div>
+  <div class="navigation">
+    <h1 class="bolder cool-text-color white-color navigation-text">Navigation</h1>
+    <i v-on:click="goLeft" class="fa-solid fa-arrow-left navigation-left"></i>
+    <i v-on:click="goRight" class="fa-solid fa-arrow-right navigation-right"></i>
+  </div>
 </template>
 
 <script>
@@ -70,11 +77,14 @@ export default {
       name: "",
       today: ""
     },
-    subtaskDTO: {name: ""}
+    subtaskDTO: {name: ""},
+    today: new Date()
   }),
   methods: {
     getAllDailyTasks() {
-      TaskService.getAllTodayTasks().then((response) => this.tasks = response.data)
+      if (this.isToday()) {
+        TaskService.getAllTodayTasks().then((response) => this.tasks = response.data)
+      }
       if (this.sub_adding.size === 0) {
         this.tasks.forEach(task => this.sub_adding.set(task.id, false))
       }
@@ -117,17 +127,39 @@ export default {
     },
 
     createTask() {
-      TaskService.createTask(this.TaskDTO).then((response) => this.TaskDTO = response.data)
+      // this.TaskDTO.today.setDate(this.TaskDTO.today.getDate()+2)
+      TaskService.createTask(this.TaskDTO)
       this.adding = !this.adding;
     },
 
     createSubTask(id) {
-      TaskService.createSubTask(this.subtaskDTO, id).then((response) => this.TaskDTO = response.data)
+      TaskService.createSubTask(this.subtaskDTO, id)
       if (this.sub_adding.get(id)) {
         this.sub_adding.set(id, false)
       } else {
         this.sub_adding.set(id, true)
       }
+    },
+
+    isToday() {
+      return this.today.getDate()===new Date().getDate()
+    },
+
+    deleteTask(id) {
+      TaskService.deleteTask(id)
+    },
+    deleteSubTask(id) {
+      TaskService.deleteSubTask(id)
+    },
+    goRight() {
+      this.today.setDate(this.today.getDate() + 1)
+      this.$router.push('/daily')
+      return this.today
+    },
+    goLeft() {
+      this.today.setDate(this.today.getDate() - 1)
+      this.$router.push('/daily')
+      return this.today
     }
   },
 
@@ -162,6 +194,44 @@ export default {
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 75vh;
+  min-height: 25vh;
+  min-width: 50vh;
+}
+
+.navigation {
+  position: absolute;
+  top: 27vh;
+  left: 150vh;
+  justify-content: center;
+  place-content: center;
+}
+
+.navigation-text {
+  left: 10vh;
+}
+
+.navigation-left {
+  left: 5.5vh;
+  font-size: 2em;
+  z-index: 2;
+}
+
+.navigation-right {
+  left: 29vh;
+  font-size: 2em;
+  z-index: 2;
+}
+
+.navigation-left:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0);
+  transition: 1s;
+}
+
+.navigation-right:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0);
+  transition: 1s;
 }
 
 ::-webkit-scrollbar {
@@ -223,6 +293,9 @@ export default {
 
 .task-text {
   left: 10vh;
+  width: 100vh; /* Ширина блока */
+  padding-right: 20vh;
+  word-wrap: break-word; /* Перенос слов */
 }
 
 .circle:hover {
@@ -318,13 +391,14 @@ export default {
   bottom: 6vh;
 }
 
-.delete{
+.delete {
   position: absolute;
-  left: 60vh;
+  left: 90vh;
   bottom: 26vh;
 }
 
-.sub-delete{
+.sub-delete {
+  z-index: 2;
   position: absolute;
   left: 45vh;
   bottom: 6.55vh;

@@ -76,8 +76,8 @@ public class TaskComponentSubtasker implements MarkingInterface {
 
     public void deleteSubTasks(Long id) {
         Subtasks subtask = subTasksRepository.findById(id).get();
+        subTasksRepository.deleteById(id);
         check(subtask, true);
-        subTasksRepository.delete(subtask);
     }
 
     static class SubTaskMapper {
