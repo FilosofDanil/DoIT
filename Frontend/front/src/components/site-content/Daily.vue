@@ -3,10 +3,10 @@
   <img class="insane_image" src="https://rare-gallery.com/uploads/posts/922893-landscape-farm-field.jpg">
   <h1 class="main-text bolder cool-text-color">Your Tasks</h1>
   <h2 v-if="isToday()===true" class="current">Your currently tasks, for today:</h2>
-  <h2 v-if="isToday()===false" class="current">Your currently tasks, for {{today.toDateString()}}</h2>
+  <h2 v-if="isToday()===false" class="current">Your currently tasks, for {{ today.toDateString() }}</h2>
 
   <div class="tasks_table">
-    <div class="tasks" v-for="task in getAllDailyTasks()">
+    <div class="tasks" v-for="task in tasks">
       <h1 class="bolder cool-text-color white-color task-text">{{ task.name }}</h1>
       <i v-on:click="unmark(task.daily_id)" v-if="task.done===true" class="fa-solid fa-circle circle_1 circle"></i>
       <i v-on:click="mark(task.daily_id)" v-if="task.done===false" class="fa-solid fa-circle circle_2 circle"></i>
@@ -78,35 +78,48 @@ export default {
       today: ""
     },
     subtaskDTO: {name: ""},
-    today: new Date()
+    today: null,
+    change: 0
   }),
   methods: {
     getAllDailyTasks() {
       if (this.isToday()) {
-        TaskService.getAllTodayTasks().then((response) => this.tasks = response.data)
+        TaskService.getAllTodayTasks().then((response) => {
+          this.tasks = response.data
+          this.tasks.forEach(task => this.sub_adding.set(task.id, false))
+        })
+      } else {
+        let month = this.today.getMonth() + 1
+        TaskService.getAllTasksByDate(this.today.getFullYear().toString() + '-' + month.toString() + '-' + this.today.getDate().toString()).then((response) => {
+          this.tasks = response.data
+          this.tasks.forEach(task => this.sub_adding.set(task.id, false))
+        })
       }
-      if (this.sub_adding.size === 0) {
-        this.tasks.forEach(task => this.sub_adding.set(task.id, false))
-      }
+      this.tasks.forEach(task => this.sub_adding.set(task.id, false))
+      console.log(this.sub_adding)
       return this.tasks
     },
     mark(id) {
       TaskService.markTask(id).then(() => {
+        this.getAllDailyTasks()
         this.$router.push('/daily')
       })
     },
     unmark(id) {
       TaskService.unmarkTask(id).then(() => {
+        this.getAllDailyTasks()
         this.$router.push('/daily')
       })
     },
     markSub(id) {
       TaskService.markSubTask(id).then(() => {
+        this.getAllDailyTasks()
         this.$router.push('/daily')
       })
     },
     unmarkSub(id) {
       TaskService.unmarkSubTask(id).then(() => {
+        this.getAllDailyTasks()
         this.$router.push('/daily')
       })
     },
@@ -114,7 +127,6 @@ export default {
       this.adding = !this.adding;
     },
     subhide(id) {
-
       if (this.sub_adding.get(id)) {
         this.sub_adding.set(id, false)
       } else {
@@ -128,12 +140,21 @@ export default {
 
     createTask() {
       // this.TaskDTO.today.setDate(this.TaskDTO.today.getDate()+2)
-      TaskService.createTask(this.TaskDTO)
+      if (!this.isToday()) {
+        this.TaskDTO.today = this.today
+      }
+      TaskService.createTask(this.TaskDTO).then(() => {
+        this.getAllDailyTasks()
+        this.$router.push('/daily')
+      })
       this.adding = !this.adding;
     },
 
     createSubTask(id) {
-      TaskService.createSubTask(this.subtaskDTO, id)
+      TaskService.createSubTask(this.subtaskDTO, id).then(() => {
+        this.getAllDailyTasks()
+        this.$router.push('/daily')
+      })
       if (this.sub_adding.get(id)) {
         this.sub_adding.set(id, false)
       } else {
@@ -142,28 +163,45 @@ export default {
     },
 
     isToday() {
-      return this.today.getDate()===new Date().getDate()
+      this.initDate()
+      return this.today.getDate() === new Date().getDate()
     },
 
     deleteTask(id) {
-      TaskService.deleteTask(id)
+      TaskService.deleteTask(id).then(() => {
+        this.getAllDailyTasks()
+        this.$router.push('/daily')
+      })
+
     },
     deleteSubTask(id) {
-      TaskService.deleteSubTask(id)
+      TaskService.deleteSubTask(id).then(() => {
+        this.getAllDailyTasks()
+        this.$router.push('/daily')
+      })
     },
     goRight() {
-      this.today.setDate(this.today.getDate() + 1)
-      this.$router.push('/daily')
-      return this.today
+      this.change += 1
+      // this.today.setDate(this.today.getDate() + 2)
+      // return this.today
+      this.getAllDailyTasks()
     },
     goLeft() {
-      this.today.setDate(this.today.getDate() - 1)
-      this.$router.push('/daily')
+      this.change -= 1
+      // this.today.setDate(this.today.getDate() - 2)
+      // return this.today
+      this.getAllDailyTasks()
+    },
+    initDate() {
+      this.today = new Date()
+      this.today.setDate(this.today.getDate() + this.change)
       return this.today
     }
   },
 
   created() {
+    this.initDate()
+    this.getAllDailyTasks()
   }
 }
 </script>

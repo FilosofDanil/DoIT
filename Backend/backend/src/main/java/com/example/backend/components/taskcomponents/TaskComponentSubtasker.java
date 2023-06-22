@@ -58,7 +58,7 @@ public class TaskComponentSubtasker implements MarkingInterface {
 
     private void check(Subtasks subtask, Boolean mark) {
         List<Subtasks> list = subTasksRepository.findAllByTask(subtask.getTask());
-        if (mark) {
+        if (mark && !list.isEmpty()) {
             for (Subtasks s : list) {
                 if (!s.getDone()) {
                     return;
