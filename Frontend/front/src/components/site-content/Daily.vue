@@ -8,15 +8,24 @@
   <div class="tasks_table">
     <div class="tasks" v-for="task in tasks">
       <h1 class="bolder cool-text-color white-color task-text">{{ task.name }}</h1>
-      <i v-on:click="unmark(task.daily_id)" v-if="task.done===true" class="fa-solid fa-circle circle_1 circle"></i>
-      <i v-on:click="mark(task.daily_id)" v-if="task.done===false" class="fa-solid fa-circle circle_2 circle"></i>
+      <i v-on:click="unmark(task.daily_id)" v-if="task.done===true&&change===0" class="fa-solid fa-circle circle_1 circle"></i>
+      <i v-on:click="mark(task.daily_id)" v-if="task.done===false&&change===0" class="fa-solid fa-circle circle_2 circle"></i>
+      <i v-if="task.done===true&&change!==0" class="fa-solid fa-circle circle_1 n_circle"></i>
+      <i v-if="task.done===false&&change>0" class="fa-solid fa-circle circle_4 n_circle"></i>
+      <i v-if="task.done===false&&change<0" class="fa-solid fa-circle circle_3 n_circle"></i>
       <i v-on:click="deleteTask(task.id)"
          class="fa-solid fa-minus plus delete"></i>
       <div v-for="subtask in task.subtasks">
-        <i v-on:click="unmarkSub(subtask.id)" v-if="subtask.done===true"
+        <i v-on:click="unmarkSub(subtask.id)" v-if="subtask.done===true&&change===0"
            class="fa-solid fa-circle circle_1 sub-circle"></i>
-        <i v-on:click="markSub(subtask.id)" v-if="subtask.done===false"
+        <i v-on:click="markSub(subtask.id)" v-if="subtask.done===false&&change===0"
            class="fa-solid fa-circle circle_2 sub-circle"></i>
+        <i v-if="subtask.done===true&&change!==0"
+           class="fa-solid fa-circle circle_1 n_sub-circle"></i>
+        <i v-if="subtask.done===false&&change>0"
+           class="fa-solid fa-circle circle_4 n_sub-circle"></i>
+        <i v-if="subtask.done===false&&change<0"
+           class="fa-solid fa-circle circle_3 n_sub-circle"></i>
         <i v-on:click="deleteSubTask(subtask.id)"
            class="fa-solid fa-minus sub-minus sub-delete"></i>
         <h2 class="bolder cool-text-color white-color sub-task-text ">{{ subtask.name }}</h2>
@@ -29,7 +38,7 @@
         <i class="fa-solid fa-minus sub-plus"></i>
         <h2 class="bolder cool-text-color white-color task-text sub-add-text">Hide</h2>
       </div>
-      <div v-if="getFromMap(task.id)===true" class="sub-adding-form">
+      <div v-if="getFromMap(task.id)===true&&change>=0" class="sub-adding-form">
         <form class="login-form" action="">
           <label class="labels">
             <p class="input-name">Name</p>
@@ -37,6 +46,9 @@
           </label>
           <button @click="createSubTask(task.id)" class="form-button">Add</button>
         </form>
+      </div>
+      <div v-if="getFromMap(task.id)===true&&change<0" class="sub-adding-form">
+        <h1 class="bolder cool-text-color white-color n_text">Creating new tasks isn't permitted here</h1>
       </div>
     </div>
     <div v-if="adding===false" v-on:click="hide" class="add">
@@ -47,7 +59,7 @@
       <i class="fa-solid fa-minus plus"></i>
       <h2 class="bolder cool-text-color white-color task-text add-text">Hide</h2>
     </div>
-    <div v-if="adding===true" class="adding-form">
+    <div v-if="adding===true&&change>=0" class="adding-form">
       <form class="login-form" action="">
         <label class="labels">
           <p class="input-name">Name</p>
@@ -55,6 +67,9 @@
         </label>
         <button @click="createTask" class="form-button">Add</button>
       </form>
+    </div>
+    <div class="adding-form" v-if="adding===true&&change<0">
+      <h1 class="bolder cool-text-color white-color n_text">Creating new tasks isn't permitted here</h1>
     </div>
   </div>
   <div class="navigation">
@@ -306,7 +321,19 @@ export default {
   color: darkred;
 }
 
+.circle_4 {
+  font-size: 1.77em;
+  color: rgba(155, 155, 155, 0.34);
+}
+
 .circle {
+  font-size: 1.77em;
+  bottom: 5vh;
+  border: 2.2px solid black;
+  border-radius: 50%;
+}
+
+.n_circle {
   font-size: 1.77em;
   bottom: 5vh;
   border: 2.2px solid black;
@@ -326,6 +353,21 @@ export default {
   border-radius: 50%;
   color: greenyellow;
   opacity: 30%;
+}
+
+.n_sub-circle {
+  font-size: 1.2em;
+  bottom: 2vh;
+  left: 10vh;
+  border: 1.5px solid black;
+  border-radius: 50%;
+}
+
+.n_sub-circle:hover {
+  border: 2px solid goldenrod;
+  border-radius: 50%;
+  color: darkred;
+  opacity: 30%;
 
 }
 
@@ -340,6 +382,13 @@ export default {
   border: 3px solid goldenrod;
   border-radius: 50%;
   color: greenyellow;
+  opacity: 30%;
+}
+
+.n_circle:hover {
+  border: 3px solid goldenrod;
+  border-radius: 50%;
+  color: darkred;
   opacity: 30%;
 }
 
@@ -442,5 +491,8 @@ export default {
   bottom: 6.55vh;
 }
 
+.n_text{
+  top:4vh;
+}
 
 </style>
