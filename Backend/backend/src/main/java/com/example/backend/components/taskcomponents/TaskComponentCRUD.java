@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Date;
 import java.util.stream.Collectors;
 
 @Component
@@ -34,6 +35,11 @@ public class TaskComponentCRUD implements ComponentCrud<TaskDTO> {
 
     @Override
     public TaskDTO create(TaskDTO taskDTO, User user) {
+        Tasks task = tasksRepository.save(TaskMapper.toEntity(taskDTO, user));
+        return TaskMapper.toDto(task);
+    }
+
+    public TaskDTO create(TaskDTO taskDTO, User user, Date date) {
         Tasks task = tasksRepository.save(TaskMapper.toEntity(taskDTO, user));
         return TaskMapper.toDto(task);
     }

@@ -1,16 +1,20 @@
 package com.example.backend.controllers;
 
+import com.example.backend.DTOs.SubtaskDTO;
 import com.example.backend.DTOs.TaskDTO;
 import com.example.backend.entities.DailyTasks;
 import com.example.backend.entities.Subtasks;
 import com.example.backend.services.dbservices.TaskService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @RestController
 @RequestMapping("api/tasks")
@@ -23,26 +27,40 @@ public class TasksController {
         return taskService.get(SecurityContextHolder.getContext().getAuthentication());
     }
 
+    @GetMapping("/date/{date}")
+    public List<TaskDTO> getAllByDate(@PathVariable String date) throws ParseException {
+        return taskService.getAllByDate(SecurityContextHolder.getContext().getAuthentication(), new SimpleDateFormat("yyyy-MM-dd").parse(date));
+    }
+
+    @GetMapping("/today")
+    public List<TaskDTO> getAllTasksForToday() {
+        return taskService.getAllTodayTasks(SecurityContextHolder.getContext().getAuthentication());
+    }
+
+//    @GetMapping("/subtasks/{id}")
+//    public List<SubtaskDTO> getAllSubTasks(@PathVariable Long id) {
+//        return taskService.getSubTasks(id);
+//    }
+
     @GetMapping("{id}")
     public TaskDTO getById(@PathVariable Long id) {
         return taskService.getById(id);
     }
 
+    //    @PostMapping("")
+//    public ResponseEntity<TaskDTO> createCommonTask(@RequestBody TaskDTO TaskDTO) {
+//        TaskDTO saved = taskService.create(TaskDTO, SecurityContextHolder.getContext().getAuthentication());
+//        return new ResponseEntity<>(saved, HttpStatus.CREATED);
+//    }
     @PostMapping("")
-    public ResponseEntity<TaskDTO> createCommonTask(@RequestBody TaskDTO TaskDTO) {
-        TaskDTO saved = taskService.create(TaskDTO, SecurityContextHolder.getContext().getAuthentication());
-        return new ResponseEntity<>(saved, HttpStatus.CREATED);
-    }
-
-    @PostMapping("/daily")
     public ResponseEntity<DailyTasks> createDailyTask(@RequestBody TaskDTO TaskDTO) {
         DailyTasks saved = taskService.createDailyTask(TaskDTO, SecurityContextHolder.getContext().getAuthentication());
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
     @PostMapping("/subtask/{id}")
-    public ResponseEntity<Subtasks> createSubtask(@PathVariable Long id, @RequestBody String name) {
-        Subtasks saved = taskService.createSubTask(id, name);
+    public ResponseEntity<Subtasks> createSubtask(@PathVariable Long id, @RequestBody SubtaskDTO subtaskDTO) {
+        Subtasks saved = taskService.createSubTask(id, subtaskDTO.getName());
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
@@ -60,6 +78,11 @@ public class TasksController {
         taskService.delete(id);
     }
 
+    @DeleteMapping("/subtask/{id}")
+    public void deleteSubTask(@PathVariable Long id) {
+        taskService.deleteSubTask(id);
+    }
+
     @PatchMapping("/subtask/mark/{id}")
     public void markSubtask(@PathVariable Long id) {
         taskService.markSubTask(id);
@@ -70,12 +93,12 @@ public class TasksController {
         taskService.unmarkSubTask(id);
     }
 
-    @PatchMapping("/daily/mark/{id}")
+    @PostMapping("/mark/{id}")
     public void markDailyTask(@PathVariable Long id) {
         taskService.markDailyTask(id);
     }
 
-    @PatchMapping("/daily/unmark/{id}")
+    @PostMapping("/unmark/{id}")
     public void unmarkDailyTask(@PathVariable Long id) {
         taskService.unmarkDailyTask(id);
     }

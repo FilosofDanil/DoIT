@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="created empty services and pages for habits and tasks(temporary)">
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/TrackedDaysDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/TrackedDaysDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/habitscomponents/HabitsTrackingComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/habitscomponents/HabitsTrackingComponent.java" afterDir="false" />
+    <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="subtasking">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/services/HabitsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/HabitsService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Daily.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Daily.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,22 +22,33 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2QTHCaBfUKLTgXIy2R2KsHZZDsy" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;19.1.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.3.1&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/serhi/Desktop/DoIT/DoIT/Frontend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -74,7 +82,16 @@
       <workItem from="1686596979001" duration="2977000" />
       <workItem from="1686670553264" duration="6490000" />
       <workItem from="1686769019827" duration="8754000" />
-      <workItem from="1686848154295" duration="6022000" />
+      <workItem from="1686848154295" duration="6395000" />
+      <workItem from="1686945481125" duration="241000" />
+      <workItem from="1687006792210" duration="12264000" />
+      <workItem from="1687089534475" duration="1222000" />
+      <workItem from="1687097717063" duration="10375000" />
+      <workItem from="1687191820856" duration="6392000" />
+      <workItem from="1687289020971" duration="3965000" />
+      <workItem from="1687379811563" duration="4853000" />
+      <workItem from="1687443539884" duration="8907000" />
+      <workItem from="1687533597430" duration="2415000" />
     </task>
     <task id="LOCAL-00001" summary="created a based version of a front-end part of web-site.">
       <created>1685723603833</created>
@@ -90,15 +107,43 @@
       <option name="project" value="LOCAL" />
       <updated>1686771162074</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="created based version of a daily-tasks page">
+      <created>1687024746028</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687024746029</updated>
+    </task>
+    <task id="LOCAL-00004" summary="subtasking">
+      <created>1687293056192</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687293056192</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="created a based version of a front-end part of web-site." />
     <MESSAGE value="created empty services and pages for habits and tasks(temporary)" />
-    <option name="LAST_COMMIT_MESSAGE" value="created empty services and pages for habits and tasks(temporary)" />
+    <MESSAGE value="created based version of a daily-tasks page" />
+    <MESSAGE value="subtasking" />
+    <option name="LAST_COMMIT_MESSAGE" value="subtasking" />
   </component>
 </project>
