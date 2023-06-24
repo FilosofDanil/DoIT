@@ -1,6 +1,6 @@
 <template>
   <div class="main-gradient-1"></div>
-  <img class="insane_image" src="https://images.wallpaperscraft.com/image/single/dark_forest_road_167292_3840x2160.jpg">
+  <img class="insane_image" src="https://images.wallpaperscraft.com/image/single/street_city_autumn_131015_3840x2160.jpg">
   <h1 class="main-text bolder cool-text-color">Your Profile </h1>
   <h2 class="congratulations">Hi! {{ UserDTO.profile_name }} {{ UserDTO.surname }}</h2>
   <h2 v-if="UserDTO.profile_name!=='You just need to authorize!'" class="bolder cool-text-color reg-mail">Your current mailbox: {{UserDTO.email}}</h2>
@@ -92,8 +92,8 @@ export default {
 }
 
 .stat_nums{
-  bottom: 6.8vh;
-  left: 40vb;
+  bottom: 7.2vh;
+  left: 43vb;
 }
 
 .stats{
