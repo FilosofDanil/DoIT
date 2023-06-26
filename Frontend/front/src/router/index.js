@@ -1,5 +1,3 @@
-
-
 import {createRouter, createWebHistory} from 'vue-router/dist/vue-router.esm-bundler'
 import Test from '../components/Test.vue'
 import MainPage from "@/components/MainPage.vue";
@@ -11,14 +9,17 @@ import Login from "@/components/Login.vue";
 import Profile from "@/components/site-content/Profile.vue";
 import Daily from "@/components/site-content/Daily.vue";
 import Habits from "@/components/site-content/Habits.vue";
+import Verified from "@/components/site-content/Verified.vue";
+import verified from "@/components/site-content/Verified.vue";
+
 const routes = [
     {
         path: '/',
         redirect: '/main'
     },
     {
-      path: '/main',
-      component: MainPage
+        path: '/main',
+        component: MainPage
     },
     {
         path: '/donate',
@@ -45,12 +46,17 @@ const routes = [
         component: Profile
     },
     {
-        path:'/daily',
+        path: '/daily',
         component: Daily
     },
     {
         path: '/habits',
         component: Habits
+    },
+    {
+        path: '/verify',
+        // query:{verification: verified},
+        component: Verified
     },
     {path: '/:pathMatch(.*)', component: Test}
 ]

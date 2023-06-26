@@ -4,14 +4,14 @@ import com.example.backend.DTOs.UserDTO;
 import com.example.backend.auth.JwtRequest;
 import com.example.backend.auth.JwtResponse;
 import com.example.backend.auth.RefreshJwtRequest;
+import com.example.backend.entities.User;
 import com.example.backend.services.auth.AuthService;
 import jakarta.security.auth.message.AuthException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import jakarta.servlet.http.*;
 
 @RestController
 @RequestMapping("api/auth")
@@ -30,6 +30,12 @@ public class AuthController {
 //        response.addHeader("Access-Control-Allow-Origin", "http://localhost:5173");
 //        response.addHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
 //        response.addHeader("Access-Control-Allow-Headers", "Content-Type");
+    }
+
+    @GetMapping("activate/{code}")
+    public ResponseEntity<Boolean> activate(@PathVariable String code) {
+        Boolean response = authService.activate(code);
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("token")

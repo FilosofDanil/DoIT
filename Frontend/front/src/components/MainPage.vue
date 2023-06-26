@@ -129,8 +129,8 @@ export default {
 
 .main-text4 {
   position: absolute;
-  top: 38.5%;
-  right: 1.7%;
+  top: 38.8%;
+  right: 6.2%;
   color: white;
 }
 
@@ -186,5 +186,9 @@ export default {
   color: white;
   display: flex;
   width: 100rem;
+}
+
+.main-gradient-1{
+  height: 130vh;
 }
 </style>

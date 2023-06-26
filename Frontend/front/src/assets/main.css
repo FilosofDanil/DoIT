@@ -96,6 +96,11 @@ a,
     font-size: 18px;
 }
 
+.labels {
+    display: flex;
+    padding: 2rem;
+}
+
 .input-name{
     position: absolute;
     text-align: start;

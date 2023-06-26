@@ -15,6 +15,9 @@ class AuthService {
             withCredentials: true,
         });
     }
+    activate(code) {
+        return axios.get(AUTH_API_URL + 'activate/'+code)
+    }
 }
 
 export default new AuthService()
