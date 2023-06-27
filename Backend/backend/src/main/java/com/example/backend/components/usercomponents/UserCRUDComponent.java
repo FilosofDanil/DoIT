@@ -7,7 +7,9 @@ import com.example.backend.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -16,7 +18,15 @@ public class UserCRUDComponent implements ComponentCrud<UserDTO> {
 
     @Override
     public List<UserDTO> get(User user) {
-        return null;
+        List<User> list = new ArrayList<>();
+        userRepository.findAll().forEach(list::add);
+        return list.stream().map(UserMapper::toDto).collect(Collectors.toList());
+    }
+
+    public List<User> get() {
+        List<User> list = new ArrayList<>();
+        userRepository.findAll().forEach(list::add);
+        return list;
     }
 
     @Override

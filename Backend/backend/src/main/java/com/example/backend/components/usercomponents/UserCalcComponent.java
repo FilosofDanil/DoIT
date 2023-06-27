@@ -91,4 +91,24 @@ public class UserCalcComponent {
         }
         return years;
     }
+
+    public Integer calculateUncompletedTodayTasks(User user) {
+        int calc = 0;
+        List<Tasks> tasks = tasksRepository.findAllByUser(user);
+        if (!tasks.isEmpty()) {
+            for (Tasks task : tasks) {
+                DailyTasks dailyTask = dailyTasksRepository.getDailyTasksByTask(task);
+                Date today = new Date();
+                today.setTime(today.getTime()-today.getHours()*3600000-today.getMinutes()*60000-today.getSeconds()*1000);
+                Date trackedDate = dailyTask.getToday();
+                trackedDate.setTime(trackedDate.getTime()-trackedDate.getHours()*3600000-trackedDate.getMinutes()*60000-trackedDate.getSeconds()*1000);
+                if (trackedDate.getDate() == today.getDate() && trackedDate.getMonth() == today.getMonth() && trackedDate.getYear() == today.getYear()) {
+                    if (!dailyTask.getDone()) {
+                        calc += 1;
+                    }
+                }
+            }
+        }
+        return calc;
+    }
 }

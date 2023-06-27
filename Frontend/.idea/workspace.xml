@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="Added new wallpaper for a habit page&#10;Redesigned showing of an habits entity. Added creation button">
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/UserDTO.java" afterDir="false" />
+    <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="Added awesome rendering of entities">
       <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/usercomponents/UserCRUDComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/usercomponents/UserCRUDComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/scheduled/CleanService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/scheduled/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/scheduled/NotificationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/assets/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Verified.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Verified.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/services/HabitsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/HabitsService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +98,7 @@
       <workItem from="1687770625884" duration="2742000" />
       <workItem from="1687781309342" duration="3265000" />
       <workItem from="1687889172600" duration="491000" />
-      <workItem from="1687894473653" duration="3582000" />
+      <workItem from="1687894473653" duration="5104000" />
     </task>
     <task id="LOCAL-00001" summary="created a based version of a front-end part of web-site.">
       <created>1685723603833</created>
@@ -146,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687541535559</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added awesome rendering of entities">
+      <created>1687899724476</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1687899724476</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,7 +174,8 @@
     <MESSAGE value="subtasking" />
     <MESSAGE value="Added following changes:&#10;-Now the user may only view past tasks, but couldn't edit it, and create new tasks. &#10;-Also user may create tasks for the upcoming days, but cannot to mark this tasks as &quot;done&quot;, or &quot;undone&quot;(obviously)" />
     <MESSAGE value="Added new wallpaper for a habit page&#10;Redesigned showing of an habits entity. Added creation button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new wallpaper for a habit page&#10;Redesigned showing of an habits entity. Added creation button" />
+    <MESSAGE value="Added awesome rendering of entities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added awesome rendering of entities" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
