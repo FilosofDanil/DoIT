@@ -13,12 +13,12 @@ class HabitsService {
 
     mark(id) {
         let body = true
-        return axios.post(HABITS_API_URL + '/mark/' + id, body, {withCredentials: true})
+        return axios.patch(HABITS_API_URL + '/mark/' + id, body, {withCredentials: true})
     }
 
     unmark(id) {
         let body = false
-        return axios.post(HABITS_API_URL + '/unmark/' + id, body, {withCredentials: true})
+        return axios.patch(HABITS_API_URL + '/unmark/' + id, body, {withCredentials: true})
     }
 }
 

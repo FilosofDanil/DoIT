@@ -1,6 +1,7 @@
 <template>
   <div class="main-gradient-1"></div>
-  <img class="insane_image" src="https://images.pexels.com/photos/512229/pexels-photo-512229.jpeg?cs=srgb&dl=pexels-pixabay-512229.jpg&fm=jpg">
+  <img class="insane_image"
+       src="https://images.pexels.com/photos/512229/pexels-photo-512229.jpeg?cs=srgb&dl=pexels-pixabay-512229.jpg&fm=jpg">
   <h1 class="main-text bolder cool-text-color">Improve your Habitats</h1>
   <h2 class="current">Your currently habits, which have been worked on:</h2>
   <div class="habits_table">
@@ -9,15 +10,18 @@
       <h1 v-if="habit.completed" class="bolder cool-text-color white-color">Current status(completed): Yes</h1>
       <h1 v-if="!habit.completed" class="bolder cool-text-color white-color">Current status(completed): No</h1>
       <button @click="showHistory(habit.id)" class="form-button check_history">Show History</button>
-      <i class="edit fa-solid fa-edit"></i>
+      <i @click="hideEditMenu(habit.id)" class="edit fa-solid fa-edit"></i>
       <div class="today_markup">
         <h2 class="bolder cool-text-color white-color">Today duty markup</h2>
-        <p class="white-color">Attention! You may only mark today task. If you don't do this, then that'll be authomatickly  marked as incomplete</p>
+        <p class="white-color">Attention! You may only mark today task. If you don't do this, then that'll be
+          authomatickly marked as incomplete</p>
         <div class="tracks h" v-for="track in habit.tracks">
-          <i v-on:click="unmark(habit.id, track.id)" v-if="track.status==='today'&&track.marked===true"
-             class="fa-solid fa-circle circle_1 today"></i>
+          <div></div>
           <i v-on:click="mark(habit.id, track.id)" v-if="track.status==='today'&&track.marked===false"
              class="fa-solid fa-circle circle_2 today"></i>
+          <i v-on:click="unmark(habit.id, track.id)" v-if="track.status==='today'&&track.marked===true"
+             class="fa-solid fa-circle circle_1 today"></i>
+
         </div>
         <p class="white-color warn-text"> ----- Click here to mark it! </p>
       </div>
@@ -30,10 +34,26 @@
           <i v-if="track.status==='today'&&track.marked===false"
              class="fa-solid fa-circle circle_2"></i>
           <i v-if="track.status==='after'" class="fa-solid fa-circle circle_3"></i>
-          <p class="warn-color t_date">{{track.marking_day}}</p>
+          <p class="warn-color t_date">{{ track.marking_day }}</p>
         </div>
       </div>
-
+      <div v-if="getFromEditMap(habit.id)" class="edition-menu">
+        <form class="login-form" action="">
+          <label class="labels">
+            <p class="input-name">Name</p>
+            <input id="email" class="loh-input input" v-model="HabitDTO.name">
+          </label>
+          <label class="labels">
+            <p class="input-name">Days</p>
+            <input id="email" class="loh-input input" v-model="HabitDTO.day_count">
+          </label>
+          <label class="labels">
+            <p class="input-name">Description</p>
+            <input id="email" class="loh-input input" v-model="HabitDTO.description">
+          </label>
+          <button @click="create" class="form-button create_but">Create</button>
+        </form>
+      </div>
     </div>
     <div class="creation">
       <div v-if="adding===false" v-on:click="hide" class="add">
@@ -73,40 +93,49 @@ export default {
     habits: [],
     track_map: new Map(),
     adding: false,
-    HabitDTO:{
-      name:"",
-      day_count:0,
-      description:""
-    }
+    HabitDTO: {
+      name: "",
+      day_count: 0,
+      description: ""
+    },
+    editing_hide_map: new Map(),
   }),
   methods: {
     getAllHabits() {
-      HabitsService.getAll().then((response) => {this.habits = response.data
-        this.habits.forEach(habit => this.track_map.set(habit.id, false))
-        console.log(this.habits)
+      HabitsService.getAll().then((response) => {
+        this.habits = response.data
+        this.habits.forEach(habit => {
+          this.track_map.set(habit.id, false)
+          this.editing_hide_map.set(habit.id, false)
+        })
       })
     },
-    create(){
+    create() {
       HabitsService.create(this.HabitDTO)
     },
-    // getAllHabitsTracks(id) {
-    //   HabitsService.getAllTracks(id).then((response) => this.tracks = response.data)
-    //   return this.tracks
-    // },
+    hideEditMenu(id) {
+      if (this.editing_hide_map.get(id)) {
+        this.editing_hide_map.set(id, false)
+      } else {
+        this.editing_hide_map.set(id, true)
+      }
+    },
     mark(habit_id, id) {
       HabitsService.mark(id).then(() => {
-        this.$router.push('/habits')
+        this.getAllHabits()
+
       })
     },
     unmark(habit_id, id) {
       HabitsService.unmark(id).then(() => {
+        this.getAllHabits()
         this.$router.push('/habits')
       })
     },
     getFromMap(id) {
       return this.track_map.get(id)
     },
-    showHistory(id){
+    showHistory(id) {
       if (this.track_map.get(id)) {
         this.track_map.set(id, false)
       } else {
@@ -115,6 +144,16 @@ export default {
     },
     hide() {
       this.adding = !this.adding;
+    },
+    subhide(id) {
+      if (this.sub_adding.get(id)) {
+        this.sub_adding.set(id, false)
+      } else {
+        this.sub_adding.set(id, true)
+      }
+    },
+    getFromEditMap(id) {
+      return this.editing_hide_map.get(id)
     },
   },
 
@@ -163,11 +202,12 @@ export default {
   color: gray;
 }
 
-.today{
-  color: gray;
+.today {
   font-size: 3em;
-  right:17vh;
+  right: 12vh;
+  top: 3.3vh;
 }
+
 .today:hover {
   border: 4px solid goldenrod;
   border-radius: 50%;
@@ -185,16 +225,16 @@ export default {
   color: darkred;
 }
 
-.track-block{
+.track-block {
   margin: 0;
   padding: 0;
   max-width: 120vh;
   max-height: 40vh;
-  left:62vh;
-  bottom:27.5vh;
+  left: 62vh;
+  bottom: 27.5vh;
 }
 
-.today_markup{
+.today_markup {
   bottom: 7vh;
   max-width: 50vh;
 }
@@ -215,36 +255,44 @@ export default {
   opacity: 60%;
   z-index: 0;
 }
-.creation{
-  bottom:2.5vh;
+
+.creation {
+  bottom: 2.5vh;
   min-height: 20vh;
 }
 
-.create_but{
-  top:10.5vh;
+.create_but {
+  top: 10.5vh;
   left: 12vh;
 }
 
-.check_history{
-  bottom:6.5vh;
-  left:80vh;
+.check_history {
+  bottom: 6.5vh;
+  left: 80vh;
 }
 
-.edit{
-  color:white;
-  left:155vh;
+.edit {
+  color: white;
+  left: 142.5vh;
   font-size: 2.5em;
-  bottom:5vh;
+  bottom: 5vh;
 }
 
-.warn-text{
-  bottom:5vh;
+.edition-menu {
+  left: 127.5vh;
+  bottom: 38.5vh;
+}
+
+.warn-text {
+  bottom: 5vh;
   left: 10vh;
 }
-.t_date{
-  right:5vh;
+
+.t_date {
+  right: 5vh;
   color: white;
 }
+
 .plus {
   top: 2vh;
   font-size: 2.25em;
@@ -269,6 +317,7 @@ export default {
   left: 8vh;
   font-size: 36px;
 }
+
 ::-webkit-scrollbar {
   width: 20px;
 }
@@ -291,7 +340,7 @@ export default {
   background: rgba(0, 0, 0, 0.5);
 }
 
-.h{
-  left:5vh;
+.h {
+  left: 5vh;
 }
 </style>
