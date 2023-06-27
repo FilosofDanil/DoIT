@@ -52,12 +52,12 @@ public class HabitsController {
         habitsService.delete(id);
     }
 
-    @PostMapping("/mark/{id}")
+    @PatchMapping("/mark/{id}")
     public void mark(@PathVariable Long id) {
         habitsService.mark(id);
     }
 
-    @PostMapping("/unmark/{id}")
+    @PatchMapping("/unmark/{id}")
     public void unmark(@PathVariable Long id) {
         habitsService.unmark(id);
     }

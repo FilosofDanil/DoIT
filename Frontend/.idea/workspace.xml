@@ -5,20 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="Added new wallpaper for a habit page&#10;Redesigned showing of an habits entity. Added creation button">
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/configs/MailConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/MailSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/auth/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/auth/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/DTOs/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/usercomponents/UserCRUDComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/usercomponents/UserCRUDComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/assets/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/authstore.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/MainPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/MainPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Profile.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Verified.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Verified.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/services/AuthService.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/AuthService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/services/HabitsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/HabitsService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +100,9 @@
       <workItem from="1687533597430" duration="8137000" />
       <workItem from="1687598758897" duration="8835000" />
       <workItem from="1687770625884" duration="2742000" />
-      <workItem from="1687781309342" duration="2170000" />
+      <workItem from="1687781309342" duration="3265000" />
+      <workItem from="1687889172600" duration="491000" />
+      <workItem from="1687894473653" duration="3582000" />
     </task>
     <task id="LOCAL-00001" summary="created a based version of a front-end part of web-site.">
       <created>1685723603833</created>

@@ -27,4 +27,6 @@ public class UserDTO {
     private String password;
     @JsonProperty("role")
     private String role;
+    @JsonProperty("verified")
+    private Boolean verified;
 }

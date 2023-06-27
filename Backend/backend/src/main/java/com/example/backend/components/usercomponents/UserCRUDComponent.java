@@ -52,6 +52,7 @@ public class UserCRUDComponent implements ComponentCrud<UserDTO> {
                     .profile_name(user.getProfile_name())
                     .surname(user.getSurname())
                     .birthDate(user.getBirthDate())
+                    .verified(user.getVerified())
                     .build();
         }
     }

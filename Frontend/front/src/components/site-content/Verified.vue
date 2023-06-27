@@ -5,6 +5,9 @@
   <h1 v-if="!verified" class="main-text bolder cool-text-color">Waiting for server response...</h1>
   <h1 v-if="verified" class="main-text bolder cool-text-color">Your Mail has successfully verified!</h1>
   <i v-if="verified" class="fa-solid fa-check success "></i>
+  <router-link v-if="verified" class="profile_link" to="/profile">Go to your profile
+  </router-link>
+
 </template>
 
 <script>
@@ -126,5 +129,14 @@ export default {
   color: white;
   top:52vh;
   right:90vh;
+}
+
+.profile_link{
+  position: absolute;
+  color: white;
+  top:60vh;
+  right:124vh;
+  font-size: 32px;
+  font-weight: 700;
 }
 </style>

@@ -37,21 +37,11 @@ public class TasksController {
         return taskService.getAllTodayTasks(SecurityContextHolder.getContext().getAuthentication());
     }
 
-//    @GetMapping("/subtasks/{id}")
-//    public List<SubtaskDTO> getAllSubTasks(@PathVariable Long id) {
-//        return taskService.getSubTasks(id);
-//    }
-
     @GetMapping("{id}")
     public TaskDTO getById(@PathVariable Long id) {
         return taskService.getById(id);
     }
 
-    //    @PostMapping("")
-//    public ResponseEntity<TaskDTO> createCommonTask(@RequestBody TaskDTO TaskDTO) {
-//        TaskDTO saved = taskService.create(TaskDTO, SecurityContextHolder.getContext().getAuthentication());
-//        return new ResponseEntity<>(saved, HttpStatus.CREATED);
-//    }
     @PostMapping("")
     public ResponseEntity<DailyTasks> createDailyTask(@RequestBody TaskDTO TaskDTO) {
         DailyTasks saved = taskService.createDailyTask(TaskDTO, SecurityContextHolder.getContext().getAuthentication());
