@@ -85,7 +85,7 @@ public class HabitsComponentCRUD implements ComponentCrud<HabitsDTO> {
                     .name(habit.getName())
                     .description(habit.getDescription())
                     .day_count(habit.getDay_count())
-                    .completed(habit.getCompleted())
+                    .completed(false)
                     .user(user)
                     .build();
         }

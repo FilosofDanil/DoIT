@@ -1,5 +1,6 @@
 package com.example.backend.DTOs;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,8 +14,10 @@ public class TrackedDaysDTO {
     private Long id;
     @JsonProperty("marked")
     private Boolean marked;
-    @JsonProperty("marking_day")
+    @JsonIgnore
     private Date marking_day;
     @JsonProperty("status")
     private String status;
+    @JsonProperty(("marking_day"))
+    private String date;
 }

@@ -27,10 +27,10 @@ public class HabitsController {
         return habitsService.getById(id);
     }
 
-    @GetMapping("/tracks/{id}")
-    public List<TrackedDaysDTO> getAllHabitTracks(@PathVariable Long id) {
-        return habitsService.getAllTracks(id);
-    }
+//    @GetMapping("/tracks/{id}")
+//    public List<TrackedDaysDTO> getAllHabitTracks(@PathVariable Long id) {
+//        return habitsService.getAllTracks(id);
+//    }
 
     @PostMapping("")
     public ResponseEntity<HabitsDTO> create(@RequestBody HabitsDTO habitsDTO) {
@@ -52,12 +52,12 @@ public class HabitsController {
         habitsService.delete(id);
     }
 
-    @PostMapping("/mark/{id}")
+    @PatchMapping("/mark/{id}")
     public void mark(@PathVariable Long id) {
         habitsService.mark(id);
     }
 
-    @PostMapping("/unmark/{id}")
+    @PatchMapping("/unmark/{id}")
     public void unmark(@PathVariable Long id) {
         habitsService.unmark(id);
     }

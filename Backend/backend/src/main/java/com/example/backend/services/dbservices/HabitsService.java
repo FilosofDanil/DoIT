@@ -22,7 +22,9 @@ public class HabitsService implements DbaServiceInterface<HabitsDTO> {
 
     @Override
     public List<HabitsDTO> get(Authentication auth) {
-        return habitsComponentCRUD.get(userAuthComponent.getUserByAuthorities(auth));
+        List<HabitsDTO> list = habitsComponentCRUD.get(userAuthComponent.getUserByAuthorities(auth));
+        list.forEach(habitsDTO -> habitsDTO.setTracks(getAllTracks(habitsDTO.getId())));
+        return list;
     }
 
     @Override
@@ -53,7 +55,7 @@ public class HabitsService implements DbaServiceInterface<HabitsDTO> {
         habitsMarkingComponent.unmarkIt(id);
     }
 
-    public List<TrackedDaysDTO> getAllTracks(Long id) {
+    private List<TrackedDaysDTO> getAllTracks(Long id) {
         return habitsTrackingComponent.getAllTracksByHabit(habitsComponentCRUD.getEntityById(id));
     }
 }

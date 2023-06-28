@@ -37,6 +37,8 @@ public class User implements UserDetails {
     private Date birthDate;
     @Column(name = "verified")
     private Boolean verified;
+    @Column(name = "activation_code")
+    private String activationCode;
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private Set<Role> roles = new HashSet<>();

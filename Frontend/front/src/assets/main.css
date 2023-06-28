@@ -10,7 +10,7 @@
 a,
 .green {
     text-decoration: none;
-    color: hsla(160, 100%, 37%, 1);
+    color: white;
     transition: 0.4s;
 }
 
@@ -94,6 +94,11 @@ a,
     color: white;
     font-weight: 500;
     font-size: 18px;
+}
+
+.labels {
+    display: flex;
+    padding: 2rem;
 }
 
 .input-name{
