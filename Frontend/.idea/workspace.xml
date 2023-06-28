@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="Added awesome rendering of entities">
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/usercomponents/UserCRUDComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/usercomponents/UserCRUDComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/scheduled/CleanService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/scheduled/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/scheduled/NotificationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/layouts/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/layouts/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Verified.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Verified.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="master" />
+        <entry key="$PROJECT_DIR$/.." value="permanent_tasks(habits)_page" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -98,7 +97,8 @@
       <workItem from="1687770625884" duration="2742000" />
       <workItem from="1687781309342" duration="3265000" />
       <workItem from="1687889172600" duration="491000" />
-      <workItem from="1687894473653" duration="5104000" />
+      <workItem from="1687894473653" duration="5105000" />
+      <workItem from="1687945155280" duration="2192000" />
     </task>
     <task id="LOCAL-00001" summary="created a based version of a front-end part of web-site.">
       <created>1685723603833</created>

@@ -139,7 +139,8 @@ header {
 }
 
 .profile_link{
-  right: 10vh;
+  left: 42.5vh;
+  width: 100vh;
 }
 
 </style>
