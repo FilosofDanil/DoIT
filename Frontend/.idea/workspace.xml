@@ -4,10 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="Added awesome rendering of entities">
+    <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="login page and header refactored">
+      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/auth/LogoutService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/habitscomponents/HabitsComponentCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/habitscomponents/HabitsComponentCRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/habitscomponents/HabitsDividorComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/habitscomponents/HabitsDividorComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/entities/Habits.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/entities/Habits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/repositories/TrackedDaysRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/repositories/TrackedDaysRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/AboutUs.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/statics/AboutUs.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/Donate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/statics/Donate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/FAQ.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/statics/FAQ.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/MainPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/statics/MainPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/SignUp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/SignUp.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/components/layouts/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/layouts/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Profile.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Verified.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Verified.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/services/HabitsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/HabitsService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +75,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\serhi\Desktop\DoIT\DoIT\Frontend\front\src\components\site-content" />
+      <recent name="C:\Users\serhi\Desktop\DoIT\DoIT\Frontend\front\src\components\statics" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -98,7 +119,8 @@
       <workItem from="1687781309342" duration="3265000" />
       <workItem from="1687889172600" duration="491000" />
       <workItem from="1687894473653" duration="5105000" />
-      <workItem from="1687945155280" duration="2192000" />
+      <workItem from="1687945155280" duration="6301000" />
+      <workItem from="1688051836993" duration="2368000" />
     </task>
     <task id="LOCAL-00001" summary="created a based version of a front-end part of web-site.">
       <created>1685723603833</created>
@@ -149,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687899724476</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="login page and header refactored">
+      <created>1687948240059</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1687948240059</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,13 +204,14 @@
     <MESSAGE value="Added following changes:&#10;-Now the user may only view past tasks, but couldn't edit it, and create new tasks. &#10;-Also user may create tasks for the upcoming days, but cannot to mark this tasks as &quot;done&quot;, or &quot;undone&quot;(obviously)" />
     <MESSAGE value="Added new wallpaper for a habit page&#10;Redesigned showing of an habits entity. Added creation button" />
     <MESSAGE value="Added awesome rendering of entities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added awesome rendering of entities" />
+    <MESSAGE value="login page and header refactored" />
+    <option name="LAST_COMMIT_MESSAGE" value="login page and header refactored" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/front/src/components/Login.vue</url>
+          <url>file://$PROJECT_DIR$/front/src/components/site-content/Login.vue</url>
           <line>58</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>

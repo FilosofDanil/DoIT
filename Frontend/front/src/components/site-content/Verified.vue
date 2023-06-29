@@ -135,7 +135,7 @@ export default {
   position: absolute;
   color: white;
   top:60vh;
-  right:124vh;
+  right:73.7vh;
   font-size: 32px;
   font-weight: 700;
 }

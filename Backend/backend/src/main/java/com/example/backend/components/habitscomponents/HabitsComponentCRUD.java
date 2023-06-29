@@ -4,6 +4,7 @@ import com.example.backend.DTOs.HabitsDTO;
 import com.example.backend.components.interfaces.ComponentCrud;
 import com.example.backend.components.taskcomponents.TaskComponentCRUD;
 import com.example.backend.entities.Habits;
+import com.example.backend.entities.TrackedDays;
 import com.example.backend.entities.User;
 import com.example.backend.repositories.HabitsRepository;
 import lombok.RequiredArgsConstructor;
@@ -45,14 +46,18 @@ public class HabitsComponentCRUD implements ComponentCrud<HabitsDTO> {
 
     @Override
     public HabitsDTO update(HabitsDTO habitsDTO, Long id, User user) {
+        if(habitsRepository.findById(id).isEmpty()){
+            habitsRepository.save(HabitsMapper.toEntity(habitsDTO, user));
+            habitsDividorComponent.divide(HabitsMapper.toEntity(habitsDTO, user));
+            return habitsDTO;
+        }
         habitsRepository.findById(id).map(habit -> {
             habit.setName(habitsDTO.getName());
             habit.setDescription(habitsDTO.getDescription());
+            habitsDividorComponent.divide(habit, habitsDTO.getDay_count());
             habit.setDay_count(habitsDTO.getDay_count());
+            habitsRepository.save(habit);
             return null;
-        }).orElseGet(() -> {
-            habitsRepository.save(HabitsMapper.toEntity(habitsDTO, user));
-            return habitsDTO;
         });
         return null;
     }

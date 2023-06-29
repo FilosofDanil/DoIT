@@ -11,6 +11,14 @@ class HabitsService {
         return axios.post(HABITS_API_URL, HabitDTO, {withCredentials: true})
     }
 
+    update(HabitDTO, id) {
+        return axios.put(HABITS_API_URL + '/' + id, HabitDTO, {withCredentials: true})
+    }
+
+    delete(id) {
+        return axios.delete(HABITS_API_URL + '/' + id, {withCredentials: true})
+    }
+
     mark(id) {
         let body = true
         return axios.patch(HABITS_API_URL + '/mark/' + id, body, {withCredentials: true})

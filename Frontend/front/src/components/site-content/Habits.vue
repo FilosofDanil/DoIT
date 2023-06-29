@@ -21,9 +21,9 @@
              class="fa-solid fa-circle circle_2 today"></i>
           <i v-on:click="unmark(habit.id, track.id)" v-if="track.status==='today'&&track.marked===true"
              class="fa-solid fa-circle circle_1 today"></i>
-
+          <p v-if="track.status==='today'" class="white-color warn-text"> ----- Click here to mark it! </p>
         </div>
-        <p class="white-color warn-text"> ----- Click here to mark it! </p>
+
       </div>
       <div v-if="getFromMap(habit.id)" class="track-block">
         <div class="tracks" v-for="track in habit.tracks">
@@ -51,7 +51,7 @@
             <p class="input-name">Description</p>
             <input id="email" class="loh-input input" v-model="HabitDTO.description">
           </label>
-          <button @click="create" class="form-button create_but">Create</button>
+          <button @click="update(habit.id)" class="form-button create_but">Create</button>
         </form>
       </div>
     </div>
@@ -155,6 +155,12 @@ export default {
     getFromEditMap(id) {
       return this.editing_hide_map.get(id)
     },
+    update(id) {
+      HabitsService.update(this.HabitDTO, id).then(() => {
+        this.getAllHabits()
+        this.$router.push('/habits')
+      })
+    }
   },
 
   created() {
@@ -204,11 +210,12 @@ export default {
 
 .today {
   font-size: 3em;
-  right: 12vh;
+  right: 14vh;
   top: 3.3vh;
 }
 
 .today:hover {
+  max-width: 1.18em;
   border: 4px solid goldenrod;
   border-radius: 50%;
   color: greenyellow;
@@ -230,8 +237,9 @@ export default {
   padding: 0;
   max-width: 120vh;
   max-height: 40vh;
+  overflow-y: scroll;
   left: 62vh;
-  bottom: 27.5vh;
+  bottom: 25vh;
 }
 
 .today_markup {
@@ -243,7 +251,6 @@ export default {
   display: inline-grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1.2, 1fr);
-  grid-gap: 1em;
 }
 
 .main-gradient-1 {
@@ -280,12 +287,13 @@ export default {
 
 .edition-menu {
   left: 127.5vh;
-  bottom: 38.5vh;
+  bottom: 27.5vh;
 }
 
 .warn-text {
-  bottom: 5vh;
-  left: 10vh;
+  top: 5.25vh;
+  width: 30vh;
+  right: 14vh;
 }
 
 .t_date {

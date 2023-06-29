@@ -3,22 +3,22 @@
   <img class="insane_image" src="https://images.wallpaperscraft.com/image/single/street_city_autumn_131015_3840x2160.jpg">
   <h1 class="main-text bolder cool-text-color">Your Profile </h1>
   <h2 class="congratulations">Hi! {{ UserDTO.profile_name }} {{ UserDTO.surname }}</h2>
-  <h2 v-if="UserDTO.profile_name!=='You just need to authorize or verify your account!'" class="bolder cool-text-color reg-mail">Your current mailbox: {{UserDTO.email}}</h2>
-  <h2 v-if="UserDTO.profile_name!=='You just need to authorize or verify your account!'" class="bolder cool-text-color reg-phone">Your current phone: {{UserDTO.phone}}</h2>
-  <h2 v-if="UserDTO.profile_name!=='You just need to authorize or verify your account!'" class="bolder cool-text-color reg-age">Your age: {{age}}</h2>
-  <button v-if="UserDTO.profile_name!=='You just need to authorize or verify your account!'" class="change change1">
+  <h2 v-if="UserDTO.profile_name!=='You just need to authorize or verify your account or refresh the page!'" class="bolder cool-text-color reg-mail">Your current mailbox: {{UserDTO.email}}</h2>
+  <h2 v-if="UserDTO.profile_name!=='You just need to authorize or verify your account or refresh the page!'" class="bolder cool-text-color reg-phone">Your current phone: {{UserDTO.phone}}</h2>
+  <h2 v-if="UserDTO.profile_name!=='You just need to authorize or verify your account or refresh the page!'" class="bolder cool-text-color reg-age">Your age: {{age}}</h2>
+  <button v-if="UserDTO.profile_name!=='You just need to authorize or verify your account or refresh the page!'" class="change change1">
     Change
   </button>
 
-  <button v-if="UserDTO.profile_name!=='You just need to authorize or verify your account!'" class="change change2">
+  <button v-if="UserDTO.profile_name!=='You just need to authorize or verify your account or refresh the page!'" class="change change2">
     Change
   </button>
 
-  <button v-if="UserDTO.profile_name!=='You just need to authorize or verify your account!'" class="change change3">
+  <button v-if="UserDTO.profile_name!=='You just need to authorize or verify your account or refresh the page!'" class="change change3">
     Change Password
   </button>
 
-  <div v-if="UserDTO.profile_name!=='You just need to authorize or verify your account!'" class="statistics">
+  <div v-if="UserDTO.profile_name!=='You just need to authorize or verify your account or refresh the page!'" class="statistics">
     <div class="stats">
       <h2 class="bolder cool-text-color">Completed Tasks</h2>
       <h1 class="bolder cool-text-color stat_nums">{{ calc_stats_c_tasks }}</h1>
@@ -47,7 +47,7 @@ export default {
     UserDTO: {
       email: "",
       password: "",
-      profile_name: "You just need to authorize or verify your account!",
+      profile_name: "You just need to authorize or verify your account or refresh the page!",
       surname: "",
       phone: "",
       date_of_birth: "",
