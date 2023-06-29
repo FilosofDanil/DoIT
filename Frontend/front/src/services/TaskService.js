@@ -42,6 +42,18 @@ class TaskService {
         });
     }
 
+    updateTask(id, TaskDTO) {
+        return axios.put(TASK_API_URL + '/' + id, TaskDTO, {
+            withCredentials: true
+        });
+    }
+
+    updateSubTask(subtask, id) {
+        return axios.put(TASK_API_URL + '/subtask/' + id, subtask, {
+            withCredentials: true
+        });
+    }
+
     createSubTask(subtask, id) {
         return axios.post(TASK_API_URL + '/subtask/' + id, subtask, {
             withCredentials: true
