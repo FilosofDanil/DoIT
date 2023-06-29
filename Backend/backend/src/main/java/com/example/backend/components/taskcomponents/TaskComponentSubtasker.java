@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
 public class TaskComponentSubtasker implements MarkingInterface {
     private final SubTasksRepository subTasksRepository;
     private final DailyTasksRepository dailyTasksRepository;
-    private final TasksRepository tasksRepository;
 
     public Subtasks createSubtask(Tasks task, String name) {
         Subtasks subtask = Subtasks.builder()
@@ -32,6 +31,16 @@ public class TaskComponentSubtasker implements MarkingInterface {
         dailyTasksRepository.save(dailyTask);
         subTasksRepository.save(subtask);
         return subtask;
+    }
+
+    public void updateSubtask(SubtaskDTO subtaskDTO, Long id) {
+        if (subTasksRepository.findById(id).isPresent()) {
+            subTasksRepository.findById(id).map(subtask -> {
+                subtask.setName(subtaskDTO.getName());
+                subTasksRepository.save(subtask);
+                return null;
+            });
+        }
     }
 
     public void markIt(Long id) {

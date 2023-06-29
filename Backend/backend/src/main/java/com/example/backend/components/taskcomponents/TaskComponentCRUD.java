@@ -46,13 +46,16 @@ public class TaskComponentCRUD implements ComponentCrud<TaskDTO> {
 
     @Override
     public TaskDTO update(TaskDTO taskDTO, Long id, User user) {
-        tasksRepository.findById(id).map(task -> {
-            task.setName(taskDTO.getName());
-            return null;
-        }).orElseGet(() -> {
+        if (tasksRepository.findById(id).isEmpty()) {
             tasksRepository.save(TaskMapper.toEntity(taskDTO, user));
             return taskDTO;
-        });
+        } else {
+            tasksRepository.findById(id).map(task -> {
+                task.setName(taskDTO.getName());
+                tasksRepository.save(task);
+                return null;
+            });
+        }
         return null;
     }
 

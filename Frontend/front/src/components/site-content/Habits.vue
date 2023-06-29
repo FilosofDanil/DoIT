@@ -51,7 +51,7 @@
             <p class="input-name">Description</p>
             <input id="email" class="loh-input input" v-model="HabitDTO.description">
           </label>
-          <button @click="update(habit.id)" class="form-button create_but">Create</button>
+          <button @click="update(habit.id)" class="form-button create_but">Update</button>
         </form>
       </div>
     </div>

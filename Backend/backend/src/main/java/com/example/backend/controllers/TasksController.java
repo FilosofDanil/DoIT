@@ -5,7 +5,6 @@ import com.example.backend.DTOs.TaskDTO;
 import com.example.backend.entities.DailyTasks;
 import com.example.backend.entities.Subtasks;
 import com.example.backend.services.dbservices.TaskService;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("api/tasks")
@@ -61,6 +60,11 @@ public class TasksController {
             return new ResponseEntity<>(saved, HttpStatus.CREATED);
         }
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("/subtask/{id}")
+    public void updateSubtask(@PathVariable Long id, @RequestBody SubtaskDTO subtaskDTO) {
+        taskService.updateSubtask(subtaskDTO, id);
     }
 
     @DeleteMapping("{id}")

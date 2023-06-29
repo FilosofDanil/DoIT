@@ -113,6 +113,10 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
         return list.stream().filter(taskDTO -> compareDates(date, taskDTO.getToday())).collect(Collectors.toList());
     }
 
+    public void updateSubtask(SubtaskDTO subtaskDTO, Long id){
+        taskComponentSubtasker.updateSubtask(subtaskDTO, id);
+    }
+
     private List<TaskDTO> getList(Authentication auth) {
         return taskComponentCRUD.get(userAuthComponent.getUserByAuthorities(auth));
     }
