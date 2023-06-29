@@ -26,6 +26,7 @@ public class AuthService {
     private final UserRepository userRepository;
     private final Map<String, String> refreshStorage = new HashMap<>();
     private final JwtProvider jwtProvider;
+    private final CookiesUtil cookiesUtil;
     @Autowired(required = false)
     private MailSender mailSender;
 
@@ -44,7 +45,6 @@ public class AuthService {
         if (user.getPassword().equals(authRequest.getPassword()) && user.getVerified()) {
             final String accessToken = jwtProvider.generateAccessToken(user);
             final String refreshToken = jwtProvider.generateRefreshToken(user);
-            CookiesUtil cookiesUtil = new CookiesUtil();
             return cookiesUtil.createCookie(accessToken);
         } else {
             throw new AuthException("Invalid password or your account is not verified");

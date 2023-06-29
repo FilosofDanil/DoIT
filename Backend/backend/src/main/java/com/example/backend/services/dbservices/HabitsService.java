@@ -7,6 +7,7 @@ import com.example.backend.components.habitscomponents.HabitsMarkingComponent;
 import com.example.backend.components.habitscomponents.HabitsTrackingComponent;
 import com.example.backend.components.interfaces.ComponentCrud;
 import com.example.backend.components.interfaces.ComponentEntityCRUD;
+import com.example.backend.components.interfaces.MarkingInterface;
 import com.example.backend.components.usercomponents.UserAuthComponent;
 import com.example.backend.entities.Habits;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ import java.util.List;
 public class HabitsService implements DbaServiceInterface<HabitsDTO> {
     private final ComponentCrud<HabitsDTO> habitsComponentCRUD;
     private final ComponentEntityCRUD<Habits> habitsComponentEntityCRUD;
-    private final HabitsMarkingComponent habitsMarkingComponent;
+    private final MarkingInterface habitsMarkingComponent;
     private final UserAuthComponent userAuthComponent;
     private final HabitsTrackingComponent habitsTrackingComponent;
 
