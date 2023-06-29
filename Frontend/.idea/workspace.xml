@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="login page and header refactored">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/services/TaskService.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/TaskService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/interfaces/ComponentEntityCRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/habitscomponents/HabitsComponentCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/habitscomponents/HabitsComponentCRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/interfaces/ComponentCrud.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/components/interfaces/ComponentCrud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/dbservices/HabitsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/backend/src/main/java/com/example/backend/services/dbservices/HabitsService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +106,7 @@
       <workItem from="1687889172600" duration="491000" />
       <workItem from="1687894473653" duration="5105000" />
       <workItem from="1687945155280" duration="6301000" />
-      <workItem from="1688051836993" duration="8313000" />
+      <workItem from="1688051836993" duration="8903000" />
     </task>
     <task id="LOCAL-00001" summary="created a based version of a front-end part of web-site.">
       <created>1685723603833</created>

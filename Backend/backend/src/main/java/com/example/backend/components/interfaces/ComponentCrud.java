@@ -1,5 +1,6 @@
 package com.example.backend.components.interfaces;
 
+import com.example.backend.entities.Habits;
 import com.example.backend.entities.User;
 
 import java.util.List;

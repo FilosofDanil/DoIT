@@ -2,6 +2,7 @@ package com.example.backend.components.taskcomponents;
 
 import com.example.backend.DTOs.TaskDTO;
 import com.example.backend.components.interfaces.ComponentCrud;
+import com.example.backend.components.interfaces.ComponentEntityCRUD;
 import com.example.backend.entities.Tasks;
 import com.example.backend.entities.User;
 import com.example.backend.repositories.TasksRepository;
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
-public class TaskComponentCRUD implements ComponentCrud<TaskDTO> {
+public class TaskComponentCRUD implements ComponentCrud<TaskDTO>, ComponentEntityCRUD<Tasks> {
     private final TasksRepository tasksRepository;
 
     @Override
@@ -59,6 +60,7 @@ public class TaskComponentCRUD implements ComponentCrud<TaskDTO> {
         return null;
     }
 
+    @Override
     public Tasks getEntityById(Long id) {
         if (tasksRepository.findById(id).isEmpty()) {
             throw new NullPointerException();

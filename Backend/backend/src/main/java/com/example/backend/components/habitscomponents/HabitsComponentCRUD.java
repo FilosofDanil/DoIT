@@ -2,6 +2,7 @@ package com.example.backend.components.habitscomponents;
 
 import com.example.backend.DTOs.HabitsDTO;
 import com.example.backend.components.interfaces.ComponentCrud;
+import com.example.backend.components.interfaces.ComponentEntityCRUD;
 import com.example.backend.components.taskcomponents.TaskComponentCRUD;
 import com.example.backend.entities.Habits;
 import com.example.backend.entities.TrackedDays;
@@ -16,7 +17,7 @@ import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
-public class HabitsComponentCRUD implements ComponentCrud<HabitsDTO> {
+public class HabitsComponentCRUD implements ComponentCrud<HabitsDTO>, ComponentEntityCRUD<Habits> {
     private final HabitsRepository habitsRepository;
     private final HabitsDividorComponent habitsDividorComponent;
 
@@ -67,6 +68,7 @@ public class HabitsComponentCRUD implements ComponentCrud<HabitsDTO> {
         habitsRepository.deleteById(id);
     }
 
+    @Override
     public Habits getEntityById(Long id) {
         if (habitsRepository.findById(id).isEmpty()) {
             throw new NullPointerException();
