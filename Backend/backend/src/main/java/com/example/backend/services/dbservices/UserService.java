@@ -1,8 +1,8 @@
 package com.example.backend.services.dbservices;
 
 import com.example.backend.DTOs.UserDTO;
+import com.example.backend.components.interfaces.ComponentCrud;
 import com.example.backend.components.usercomponents.UserAuthComponent;
-import com.example.backend.components.usercomponents.UserCRUDComponent;
 import com.example.backend.components.usercomponents.UserCalcComponent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class UserService {
+    private final ComponentCrud<UserDTO> userCRUDComponent;
     private final UserAuthComponent userAuthComponent;
-    private final UserCRUDComponent userCRUDComponent;
     private final UserCalcComponent userCalcComponent;
 
     public UserDTO getProfile(Authentication authentication) {

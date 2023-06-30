@@ -8,13 +8,28 @@
   <div class="tasks_table">
     <div class="tasks" v-for="task in tasks">
       <h1 class="bolder cool-text-color white-color task-text">{{ task.name }}</h1>
-      <i v-on:click="unmark(task.daily_id)" v-if="task.done===true&&change===0" class="fa-solid fa-circle circle_1 circle"></i>
-      <i v-on:click="mark(task.daily_id)" v-if="task.done===false&&change===0" class="fa-solid fa-circle circle_2 circle"></i>
+      <i v-on:click="unmark(task.daily_id)" v-if="task.done===true&&change===0"
+         class="fa-solid fa-circle circle_1 circle"></i>
+      <i v-on:click="mark(task.daily_id)" v-if="task.done===false&&change===0"
+         class="fa-solid fa-circle circle_2 circle"></i>
       <i v-if="task.done===true&&change!==0" class="fa-solid fa-circle circle_1 n_circle"></i>
       <i v-if="task.done===false&&change>0" class="fa-solid fa-circle circle_4 n_circle"></i>
       <i v-if="task.done===false&&change<0" class="fa-solid fa-circle circle_3 n_circle"></i>
+
       <i v-on:click="deleteTask(task.id)"
          class="fa-solid fa-minus plus delete"></i>
+      <i @click="hideEditMenu(task.id)" class="edit fa-solid fa-edit"></i>
+
+      <div v-if="getFromEditMap(task.id)" class="edition-menu">
+        <form class="login-form" action="">
+          <label class="labels">
+            <p class="input-name">Name</p>
+            <input id="email" class="loh-input input" v-model="TaskDTO.name">
+          </label>
+          <button @click="update(task.id)" class="form-button create_but">Update</button>
+        </form>
+      </div>
+
       <div v-for="subtask in task.subtasks">
         <i v-on:click="unmarkSub(subtask.id)" v-if="subtask.done===true&&change===0"
            class="fa-solid fa-circle circle_1 sub-circle"></i>
@@ -28,8 +43,22 @@
            class="fa-solid fa-circle circle_3 n_sub-circle"></i>
         <i v-on:click="deleteSubTask(subtask.id)"
            class="fa-solid fa-minus sub-minus sub-delete"></i>
+        <i @click="hideSubEditMenu(subtask.id)" class="sub-edit sub-edit-block fa-solid fa-edit"></i>
         <h2 class="bolder cool-text-color white-color sub-task-text ">{{ subtask.name }}</h2>
       </div>
+
+      <div class="edition-menus-block" v-for="subtask in task.subtasks">
+        <div v-if="getFromSubEditMap(subtask.id)" class="sub-edition-menu">
+          <form class="login-form" action="">
+            <label class="labels">
+              <p class="input-name sub-input-name">Name</p>
+              <input id="email" class="loh-input input sub-input" v-model="subtaskDTO.name">
+            </label>
+            <button @click="updateSubtask(subtask.id)" class="form-button sub-form-button">Update</button>
+          </form>
+        </div>
+      </div>
+
       <div v-if="getFromMap(task.id)===false" v-on:click="subhide(task.id)" class="sub-add">
         <i class="fa-solid fa-plus sub-plus"></i>
         <h2 class="bolder cool-text-color white-color task-text sub-add-text">Add Subtask</h2>
@@ -94,7 +123,9 @@ export default {
     },
     subtaskDTO: {name: ""},
     today: null,
-    change: 0
+    change: 0,
+    editing_hide_map: new Map(),
+    sub_editing_hide_map: new Map()
   }),
   methods: {
     getAllDailyTasks() {
@@ -102,16 +133,19 @@ export default {
         TaskService.getAllTodayTasks().then((response) => {
           this.tasks = response.data
           this.tasks.forEach(task => this.sub_adding.set(task.id, false))
+          this.tasks.forEach(task => this.editing_hide_map.set(task.id, false))
+          this.tasks.forEach(task => task.subtasks.forEach(subtask => this.sub_editing_hide_map.set(subtask.id, false)))
+          console.log(this.editing_hide_map)
         })
       } else {
         let month = this.today.getMonth() + 1
         TaskService.getAllTasksByDate(this.today.getFullYear().toString() + '-' + month.toString() + '-' + this.today.getDate().toString()).then((response) => {
           this.tasks = response.data
           this.tasks.forEach(task => this.sub_adding.set(task.id, false))
+          this.tasks.forEach(task => this.editing_hide_map.set(task.id, false))
         })
       }
       this.tasks.forEach(task => this.sub_adding.set(task.id, false))
-      console.log(this.sub_adding)
       return this.tasks
     },
     mark(id) {
@@ -197,20 +231,50 @@ export default {
     },
     goRight() {
       this.change += 1
-      // this.today.setDate(this.today.getDate() + 2)
-      // return this.today
       this.getAllDailyTasks()
     },
     goLeft() {
       this.change -= 1
-      // this.today.setDate(this.today.getDate() - 2)
-      // return this.today
       this.getAllDailyTasks()
     },
     initDate() {
       this.today = new Date()
       this.today.setDate(this.today.getDate() + this.change)
       return this.today
+    },
+    getFromEditMap(id) {
+      return this.editing_hide_map.get(id)
+    },
+    hideEditMenu(id) {
+      if (this.editing_hide_map.get(id)) {
+        this.editing_hide_map.set(id, false)
+      } else {
+        this.editing_hide_map.set(id, true)
+      }
+    },
+    getFromSubEditMap(id) {
+      return this.sub_editing_hide_map.get(id)
+    },
+
+    hideSubEditMenu(id) {
+      if (this.sub_editing_hide_map.get(id)) {
+        this.sub_editing_hide_map.set(id, false)
+      } else {
+        this.sub_editing_hide_map.set(id, true)
+      }
+    },
+
+    update(id) {
+      TaskService.updateTask(id, this.TaskDTO).then(() => {
+        this.getAllDailyTasks()
+        this.$router.push('/daily')
+      })
+    },
+    updateSubtask(id) {
+      TaskService.updateSubTask(this.subtaskDTO, id).then(() => {
+        this.getAllDailyTasks()
+        this.$router.push('/daily')
+      })
     }
   },
 
@@ -348,6 +412,25 @@ export default {
   border-radius: 50%;
 }
 
+.edit {
+  color: white;
+  left: 70vh;
+  font-size: 2.5em;
+  bottom: 5vh;
+}
+
+.sub-edit-block {
+  max-width: 5vh;
+  z-index: 2;
+  left: 72vh;
+  bottom: 2.075vh;
+}
+
+.sub-edit {
+  color: white;
+  font-size: 1.5em;
+}
+
 .sub-circle:hover {
   border: 2px solid goldenrod;
   border-radius: 50%;
@@ -405,6 +488,7 @@ export default {
 }
 
 .sub-minus {
+  color: white;
   font-size: 1.5em;
   margin: 0;
   padding: 0;
@@ -479,20 +563,55 @@ export default {
 }
 
 .delete {
+  color: white;
   position: absolute;
-  left: 90vh;
+  left: 100vh;
   bottom: 26vh;
 }
 
 .sub-delete {
   z-index: 2;
   position: absolute;
-  left: 45vh;
+  left: 65vh;
   bottom: 6.55vh;
 }
 
-.n_text{
-  top:4vh;
+.n_text {
+  top: 4vh;
+}
+
+.edition-menu {
+  left: 64.5vh;
+  bottom: 5vh;
+  padding-bottom: 5vh;
+}
+
+.sub-edition-menu {
+  left: 71.5vh;
+  top:7.5vh;
+  z-index: 3;
+}
+
+.edition-menus-block {
+  left: 8vh;
+  bottom: 30vh;
+  padding-bottom: 2vh;
+}
+
+.sub-input-name{
+  font-size: 16px;
+}
+
+.sub-input{
+  left: 2.25vh;
+  height: 4vh;
+  width: 20vh;
+}
+
+.sub-form-button{
+  width: 18vh;
+  height: 5.25vb;
+  font-size: 16px;
 }
 
 </style>

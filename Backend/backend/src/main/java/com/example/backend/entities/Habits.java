@@ -1,9 +1,11 @@
 package com.example.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "habits")
@@ -24,7 +26,11 @@ public class Habits {
     @Column(name = "day_count", nullable = false)
     private Integer day_count;
     @Column(name = "description")
-    private String description ;
+    private String description;
     @Column(name = "completed", nullable = false)
     private Boolean completed;
+    @OneToMany(mappedBy = "habit", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @JsonBackReference
+    @JsonIgnore
+    private Set<TrackedDays> trackedDaysSet;
 }

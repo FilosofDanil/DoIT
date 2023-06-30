@@ -2,10 +2,14 @@ package com.example.backend.cookies;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.Optional;
 
+@Slf4j
+@Component
 public class CookiesUtil {
 
     public Cookie createCookie(String token) {

@@ -23,6 +23,8 @@ public class JwtFilter extends GenericFilterBean {
 
     private final JwtProvider jwtProvider;
 
+    private final CookiesUtil cookiesUtil;
+
     @Override
     public void doFilter(ServletRequest request, jakarta.servlet.ServletResponse response, jakarta.servlet.FilterChain fc)
             throws IOException, ServletException {
@@ -37,7 +39,6 @@ public class JwtFilter extends GenericFilterBean {
     }
 
     private String getTokenFromRequest(HttpServletRequest request) {
-        CookiesUtil cookiesUtil = new CookiesUtil();
         if (request.getCookies() != null) {
             final String bearer = cookiesUtil.readServletCookie(request, AUTHORIZATION).get();
             if (StringUtils.hasText(bearer) && bearer.startsWith("Bearer")) {

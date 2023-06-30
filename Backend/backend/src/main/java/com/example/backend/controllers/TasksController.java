@@ -3,9 +3,7 @@ package com.example.backend.controllers;
 import com.example.backend.DTOs.SubtaskDTO;
 import com.example.backend.DTOs.TaskDTO;
 import com.example.backend.entities.DailyTasks;
-import com.example.backend.entities.Subtasks;
 import com.example.backend.services.dbservices.TaskService;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("api/tasks")
@@ -49,8 +47,8 @@ public class TasksController {
     }
 
     @PostMapping("/subtask/{id}")
-    public ResponseEntity<Subtasks> createSubtask(@PathVariable Long id, @RequestBody SubtaskDTO subtaskDTO) {
-        Subtasks saved = taskService.createSubTask(id, subtaskDTO.getName());
+    public ResponseEntity<SubtaskDTO> createSubtask(@PathVariable Long id, @RequestBody SubtaskDTO subtaskDTO) {
+        SubtaskDTO saved = taskService.createSubTask(id, subtaskDTO, SecurityContextHolder.getContext().getAuthentication());
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
@@ -61,6 +59,11 @@ public class TasksController {
             return new ResponseEntity<>(saved, HttpStatus.CREATED);
         }
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("/subtask/{id}")
+    public void updateSubtask(@PathVariable Long id, @RequestBody SubtaskDTO subtaskDTO) {
+        taskService.updateSubtask(subtaskDTO, id, SecurityContextHolder.getContext().getAuthentication());
     }
 
     @DeleteMapping("{id}")
@@ -83,12 +86,12 @@ public class TasksController {
         taskService.unmarkSubTask(id);
     }
 
-    @PostMapping("/mark/{id}")
+    @PatchMapping("/mark/{id}")
     public void markDailyTask(@PathVariable Long id) {
         taskService.markDailyTask(id);
     }
 
-    @PostMapping("/unmark/{id}")
+    @PatchMapping("/unmark/{id}")
     public void unmarkDailyTask(@PathVariable Long id) {
         taskService.unmarkDailyTask(id);
     }

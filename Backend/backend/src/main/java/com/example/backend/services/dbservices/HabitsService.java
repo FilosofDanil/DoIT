@@ -5,7 +5,11 @@ import com.example.backend.DTOs.TrackedDaysDTO;
 import com.example.backend.components.habitscomponents.HabitsComponentCRUD;
 import com.example.backend.components.habitscomponents.HabitsMarkingComponent;
 import com.example.backend.components.habitscomponents.HabitsTrackingComponent;
+import com.example.backend.components.interfaces.ComponentCrud;
+import com.example.backend.components.interfaces.ComponentEntityCRUD;
+import com.example.backend.components.interfaces.MarkingInterface;
 import com.example.backend.components.usercomponents.UserAuthComponent;
+import com.example.backend.entities.Habits;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -15,8 +19,9 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class HabitsService implements DbaServiceInterface<HabitsDTO> {
-    private final HabitsComponentCRUD habitsComponentCRUD;
-    private final HabitsMarkingComponent habitsMarkingComponent;
+    private final ComponentCrud<HabitsDTO> habitsComponentCRUD;
+    private final ComponentEntityCRUD<Habits> habitsComponentEntityCRUD;
+    private final MarkingInterface habitsMarkingComponent;
     private final UserAuthComponent userAuthComponent;
     private final HabitsTrackingComponent habitsTrackingComponent;
 
@@ -56,6 +61,7 @@ public class HabitsService implements DbaServiceInterface<HabitsDTO> {
     }
 
     private List<TrackedDaysDTO> getAllTracks(Long id) {
-        return habitsTrackingComponent.getAllTracksByHabit(habitsComponentCRUD.getEntityById(id));
+
+        return habitsTrackingComponent.getAllTracksByHabit(habitsComponentEntityCRUD.getEntityById(id));
     }
 }

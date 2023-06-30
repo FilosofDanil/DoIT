@@ -26,15 +26,13 @@ public class AuthService {
     private final UserRepository userRepository;
     private final Map<String, String> refreshStorage = new HashMap<>();
     private final JwtProvider jwtProvider;
+    private final CookiesUtil cookiesUtil;
     @Autowired(required = false)
     private MailSender mailSender;
 
     public void signup(UserDTO userDTO) {
         User user = UserMapper.toUser(userDTO);
-        user.setRoles(new HashSet<>(Set.of(Role.USER)));
-        user.setActivationCode(UUID.randomUUID().toString());
-        user.setVerified(false);
-        userRepository.save(user);
+        saveUser(user);
         sendActivationCodeAssistant(user);
     }
 
@@ -44,7 +42,6 @@ public class AuthService {
         if (user.getPassword().equals(authRequest.getPassword()) && user.getVerified()) {
             final String accessToken = jwtProvider.generateAccessToken(user);
             final String refreshToken = jwtProvider.generateRefreshToken(user);
-            CookiesUtil cookiesUtil = new CookiesUtil();
             return cookiesUtil.createCookie(accessToken);
         } else {
             throw new AuthException("Invalid password or your account is not verified");
@@ -70,12 +67,7 @@ public class AuthService {
     public JwtAuthentication getAuthInfo() {
         if (SecurityContextHolder.getContext().getAuthentication() instanceof UsernamePasswordAuthenticationToken) {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            User username = (User) auth.getPrincipal();
-            String name = auth.getName();
-            java.util.List<Role> roles = (java.util.List<Role>) auth.getAuthorities();
-            Set<Role> setRoles = new HashSet<>();
-            setRoles.addAll(roles);
-            return new JwtAuthentication(username.getUsername(), name, setRoles);
+            return new JwtAuthentication(((User) auth.getPrincipal()).getUsername(), auth.getName(), new HashSet<>((List<Role>) auth.getAuthorities()));
         }
         return (JwtAuthentication) SecurityContextHolder.getContext().getAuthentication();
     }
@@ -88,11 +80,18 @@ public class AuthService {
                 + "http://localhost:5173/verify?verification=" + user.getActivationCode());
     }
 
+    private void saveUser(User user) {
+        user.setRoles(new HashSet<>(Set.of(Role.USER)));
+        user.setActivationCode(UUID.randomUUID().toString());
+        user.setVerified(false);
+        userRepository.save(user);
+    }
+
     public Boolean activate(String code) {
-            User user = userRepository.findByActivationCode(code);
-            if (user == null) {
-                throw new IllegalArgumentException();
-            }
+        User user = userRepository.findByActivationCode(code);
+        if (user == null) {
+            throw new IllegalArgumentException();
+        }
         user.setVerified(true);
         userRepository.save(user);
         return true;

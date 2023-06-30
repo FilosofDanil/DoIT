@@ -7,6 +7,7 @@ import com.example.backend.entities.User;
 import com.example.backend.repositories.DailyTasksRepository;
 import com.example.backend.repositories.HabitsRepository;
 import com.example.backend.repositories.TasksRepository;
+import com.example.backend.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -17,65 +18,60 @@ import java.util.*;
 public class UserCalcComponent {
     private final TasksRepository tasksRepository;
     private final DailyTasksRepository dailyTasksRepository;
-    private final HabitsRepository habitsRepository;
+    private final UserRepository userRepository;
 
     public Integer calculateCompletedTasks(User user) {
-        int calc = 0;
-        List<Tasks> tasks = tasksRepository.findAllByUser(user);
-        if (!tasks.isEmpty()) {
-            for (Tasks task : tasks) {
-                DailyTasks dailyTask = dailyTasksRepository.getDailyTasksByTask(task);
-                if (dailyTask != null) {
-                    if (dailyTask.getDone()) {
-                        calc += 1;
-                    }
-                }
-            }
-        }
-
-        return calc;
+        //        List<Tasks> tasks = tasksRepository.findAllByUser(user);
+//        if (!tasks.isEmpty()) {
+//            for (Tasks task : tasks) {
+//                DailyTasks dailyTask = dailyTasksRepository.getDailyTasksByTask(task);
+//                if (dailyTask != null) {
+//                    if (dailyTask.getDone()) {
+//                        calc += 1;
+//                    }
+//                }
+//            }
+//        }
+        return userRepository.undoneTasks(user.getId(), true);
     }
 
     public Integer calculateUncompletedTasks(User user) {
-        int calc = 0;
-        List<Tasks> tasks = tasksRepository.findAllByUser(user);
-        if (!tasks.isEmpty()) {
-            for (Tasks task : tasks) {
-                DailyTasks dailyTask = dailyTasksRepository.getDailyTasksByTask(task);
-                if (dailyTask != null) {
-                    if (!dailyTask.getDone()) {
-                        calc += 1;
-                    }
-                }
-            }
-        }
-        return calc;
+        //        List<Tasks> tasks = tasksRepository.findAllByUser(user);
+//        if (!tasks.isEmpty()) {
+//            for (Tasks task : tasks) {
+//                DailyTasks dailyTask = dailyTasksRepository.getDailyTasksByTask(task);
+//                if (dailyTask != null) {
+//                    if (!dailyTask.getDone()) {
+//                        calc += 1;
+//                    }
+//                }
+//            }
+//        }
+        return userRepository.undoneTasks(user.getId(), false);
     }
 
     public Integer calculateCompletedHabits(User user) {
-        int calc = 0;
-        List<Habits> habits = habitsRepository.findAllByUser(user);
-        if (!habits.isEmpty()) {
-            for (Habits habit : habits) {
-                if (habit.getCompleted()) {
-                    calc += 1;
-                }
-            }
-        }
-        return calc;
+        //        List<Habits> habits = habitsRepository.findAllByUser(user);
+//        if (!habits.isEmpty()) {
+//            for (Habits habit : habits) {
+//                if (habit.getCompleted()) {
+//                    calc += 1;
+//                }
+//            }
+//        }
+        return userRepository.undoneHabits(user.getId(), true);
     }
 
     public Integer calculateUncompletedHabits(User user) {
-        int calc = 0;
-        List<Habits> habits = habitsRepository.findAllByUser(user);
-        if (!habits.isEmpty()) {
-            for (Habits habit : habits) {
-                if (!habit.getCompleted()) {
-                    calc += 1;
-                }
-            }
-        }
-        return calc;
+        //        List<Habits> habits = habitsRepository.findAllByUser(user);
+//        if (!habits.isEmpty()) {
+//            for (Habits habit : habits) {
+//                if (!habit.getCompleted()) {
+//                    calc += 1;
+//                }
+//            }
+//        }
+        return userRepository.undoneHabits(user.getId(), false);
     }
 
     public Integer calculateAge(User user) {

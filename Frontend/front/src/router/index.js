@@ -1,11 +1,11 @@
 import {createRouter, createWebHistory} from 'vue-router/dist/vue-router.esm-bundler'
 import Test from '../components/Test.vue'
-import MainPage from "@/components/MainPage.vue";
-import Donate from "@/components/Donate.vue";
-import FAQ from "@/components/FAQ.vue";
-import AboutUs from "@/components/AboutUs.vue";
-import SignUp from "@/components/SignUp.vue";
-import Login from "@/components/Login.vue";
+import MainPage from "@/components/statics/MainPage.vue";
+import Donate from "@/components/statics/Donate.vue";
+import FAQ from "@/components/statics/FAQ.vue";
+import AboutUs from "@/components/statics/AboutUs.vue";
+import SignUp from "@/components/site-content/SignUp.vue";
+import Login from "@/components/site-content/Login.vue";
 import Profile from "@/components/site-content/Profile.vue";
 import Daily from "@/components/site-content/Daily.vue";
 import Habits from "@/components/site-content/Habits.vue";

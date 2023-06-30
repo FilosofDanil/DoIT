@@ -27,11 +27,6 @@ public class HabitsController {
         return habitsService.getById(id);
     }
 
-//    @GetMapping("/tracks/{id}")
-//    public List<TrackedDaysDTO> getAllHabitTracks(@PathVariable Long id) {
-//        return habitsService.getAllTracks(id);
-//    }
-
     @PostMapping("")
     public ResponseEntity<HabitsDTO> create(@RequestBody HabitsDTO habitsDTO) {
         HabitsDTO saved = habitsService.create(habitsDTO, SecurityContextHolder.getContext().getAuthentication());
