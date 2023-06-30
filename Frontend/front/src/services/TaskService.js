@@ -18,12 +18,12 @@ class TaskService {
 
     markTask(id) {
         let body = true
-        return axios.post(TASK_API_URL + '/mark/' + id, body, {withCredentials: true});
+        return axios.patch(TASK_API_URL + '/mark/' + id, body, {withCredentials: true});
     }
 
     unmarkTask(id) {
         let body = false
-        return axios.post(TASK_API_URL + '/unmark/' + id, body, {withCredentials: true});
+        return axios.patch(TASK_API_URL + '/unmark/' + id, body, {withCredentials: true});
     }
 
     markSubTask(id) {

@@ -32,10 +32,7 @@ public class AuthService {
 
     public void signup(UserDTO userDTO) {
         User user = UserMapper.toUser(userDTO);
-        user.setRoles(new HashSet<>(Set.of(Role.USER)));
-        user.setActivationCode(UUID.randomUUID().toString());
-        user.setVerified(false);
-        userRepository.save(user);
+        saveUser(user);
         sendActivationCodeAssistant(user);
     }
 
@@ -70,12 +67,7 @@ public class AuthService {
     public JwtAuthentication getAuthInfo() {
         if (SecurityContextHolder.getContext().getAuthentication() instanceof UsernamePasswordAuthenticationToken) {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            User username = (User) auth.getPrincipal();
-            String name = auth.getName();
-            java.util.List<Role> roles = (java.util.List<Role>) auth.getAuthorities();
-            Set<Role> setRoles = new HashSet<>();
-            setRoles.addAll(roles);
-            return new JwtAuthentication(username.getUsername(), name, setRoles);
+            return new JwtAuthentication(((User) auth.getPrincipal()).getUsername(), auth.getName(), new HashSet<>((List<Role>) auth.getAuthorities()));
         }
         return (JwtAuthentication) SecurityContextHolder.getContext().getAuthentication();
     }
@@ -88,11 +80,18 @@ public class AuthService {
                 + "http://localhost:5173/verify?verification=" + user.getActivationCode());
     }
 
+    private void saveUser(User user) {
+        user.setRoles(new HashSet<>(Set.of(Role.USER)));
+        user.setActivationCode(UUID.randomUUID().toString());
+        user.setVerified(false);
+        userRepository.save(user);
+    }
+
     public Boolean activate(String code) {
-            User user = userRepository.findByActivationCode(code);
-            if (user == null) {
-                throw new IllegalArgumentException();
-            }
+        User user = userRepository.findByActivationCode(code);
+        if (user == null) {
+            throw new IllegalArgumentException();
+        }
         user.setVerified(true);
         userRepository.save(user);
         return true;
