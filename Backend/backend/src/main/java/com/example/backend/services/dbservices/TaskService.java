@@ -4,11 +4,10 @@ import com.example.backend.DTOs.SubtaskDTO;
 import com.example.backend.DTOs.TaskDTO;
 import com.example.backend.components.interfaces.ComponentCrud;
 import com.example.backend.components.interfaces.ComponentEntityCRUD;
+import com.example.backend.components.interfaces.MarkingInterface;
 import com.example.backend.components.taskcomponents.TaskComponentDailyTasks;
-import com.example.backend.components.taskcomponents.TaskComponentSubtasker;
 import com.example.backend.components.usercomponents.UserAuthComponent;
 import com.example.backend.entities.DailyTasks;
-import com.example.backend.entities.Subtasks;
 import com.example.backend.entities.Tasks;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -23,8 +22,9 @@ import java.util.stream.Collectors;
 public class TaskService implements DbaServiceInterface<TaskDTO> {
     private final ComponentCrud<TaskDTO> taskComponentCRUD;
     private final ComponentEntityCRUD<Tasks> tasksComponentEntityCRUD;
+    private final ComponentCrud<SubtaskDTO> taskComponentSubtaskerCRUD;
+    private final MarkingInterface taskComponentSubtasker;
     private final TaskComponentDailyTasks taskComponentDailyTasks;
-    private final TaskComponentSubtasker taskComponentSubtasker;
     private final UserAuthComponent userAuthComponent;
 
     @Override
@@ -35,7 +35,7 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
             taskDTO.setDone(dailyTask.getDone());
             taskDTO.setToday(dailyTask.getToday());
             taskDTO.setDaily_id(dailyTask.getId());
-            taskDTO.setSubtasks(getSubTasks(taskDTO.getId()));
+//            taskDTO.setSubtasks(getSubTasks(taskDTO.getId()));
         });
         return list;
     }
@@ -60,12 +60,13 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
         taskComponentCRUD.delete(id);
     }
 
-    public Subtasks createSubTask(Long id, String name) {
-        return taskComponentSubtasker.createSubtask(tasksComponentEntityCRUD.getEntityById(id), name);
+    public SubtaskDTO createSubTask(Long id, SubtaskDTO subtaskDTO, Authentication auth) {
+        subtaskDTO.setTask(tasksComponentEntityCRUD.getEntityById(id));
+        return taskComponentSubtaskerCRUD.create(subtaskDTO, userAuthComponent.getUserByAuthorities(auth));
     }
 
     public void deleteSubTask(Long id) {
-        taskComponentSubtasker.deleteSubTasks(id);
+        taskComponentSubtaskerCRUD.delete(id);
     }
 
     public DailyTasks createDailyTask(TaskDTO taskDTO, Authentication auth) {
@@ -99,7 +100,7 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
             taskDTO.setDone(dailyTask.getDone());
             taskDTO.setToday(dailyTask.getToday());
             taskDTO.setDaily_id(dailyTask.getId());
-            taskDTO.setSubtasks(getSubTasks(taskDTO.getId()));
+//            taskDTO.setSubtasks(getSubTasks(taskDTO.getId()));
         });
         return list.stream().filter(taskDTO -> compareDates(new Date(), taskDTO.getToday())).collect(Collectors.toList());
     }
@@ -111,22 +112,21 @@ public class TaskService implements DbaServiceInterface<TaskDTO> {
             taskDTO.setDone(dailyTask.getDone());
             taskDTO.setToday(dailyTask.getToday());
             taskDTO.setDaily_id(dailyTask.getId());
-            taskDTO.setSubtasks(getSubTasks(taskDTO.getId()));
         });
         return list.stream().filter(taskDTO -> compareDates(date, taskDTO.getToday())).collect(Collectors.toList());
     }
 
-    public void updateSubtask(SubtaskDTO subtaskDTO, Long id){
-        taskComponentSubtasker.updateSubtask(subtaskDTO, id);
+    public void updateSubtask(SubtaskDTO subtaskDTO, Long id, Authentication auth) {
+        taskComponentSubtaskerCRUD.update(subtaskDTO, id, userAuthComponent.getUserByAuthorities(auth));
     }
 
     private List<TaskDTO> getList(Authentication auth) {
         return taskComponentCRUD.get(userAuthComponent.getUserByAuthorities(auth));
     }
 
-    private List<SubtaskDTO> getSubTasks(Long id) {
-        return taskComponentSubtasker.getAllSubtasks(tasksComponentEntityCRUD.getEntityById(id));
-    }
+//    private List<SubtaskDTO> getSubTasks(Long id) {
+//        return taskComponentSubtasker.getAllSubtasks(tasksComponentEntityCRUD.getEntityById(id));
+//    }
 
     private boolean compareDates(Date date1, Date date2) {
         return date1.getDate() == date2.getDate();

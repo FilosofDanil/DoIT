@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class UserService {
-    private final UserAuthComponent userAuthComponent;
     private final ComponentCrud<UserDTO> userCRUDComponent;
+    private final UserAuthComponent userAuthComponent;
     private final UserCalcComponent userCalcComponent;
 
     public UserDTO getProfile(Authentication authentication) {
