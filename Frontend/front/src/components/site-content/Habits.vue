@@ -6,15 +6,15 @@
   <h2 class="current">Your currently habits, which have been worked on:</h2>
   <div class="habits_table">
     <div v-for="habit in habits">
-      <h1 class="bolder cool-text-color white-color">{{ habit.name }}</h1>
-      <h1 v-if="habit.completed" class="bolder cool-text-color white-color">Current status(completed): Yes</h1>
-      <h1 v-if="!habit.completed" class="bolder cool-text-color white-color">Current status(completed): No</h1>
+      <h1 class="bolder cool-text-color white-color kkk">{{ habit.name }}</h1>
+      <h1 v-if="habit.completed" class="bolder cool-text-color white-color kkk">Current status(completed): Yes</h1>
+      <h1 v-if="!habit.completed" class="bolder cool-text-color white-color kkk">Current status(completed): No</h1>
       <button @click="showHistory(habit.id)" class="form-button check_history">Show History</button>
       <i @click="hideEditMenu(habit.id)" class="edit fa-solid fa-edit"></i>
       <div class="today_markup">
-        <h2 class="bolder cool-text-color white-color">Today duty markup</h2>
-        <p class="white-color">Attention! You may only mark today task. If you don't do this, then that'll be
-          authomatickly marked as incomplete</p>
+        <h2 class="bolder cool-text-color white-color lll">Today duty markup</h2>
+        <p class="white-color ppp">Attention! You may only mark today task. If you don't do this, then that'll be
+          automatically marked as incomplete</p>
         <div class="tracks h" v-for="track in habit.tracks">
           <div></div>
           <i v-on:click="mark(habit.id, track.id)" v-if="track.status==='today'&&track.marked===false"
@@ -172,10 +172,10 @@ export default {
 <style scoped>
 .habits_table {
   position: absolute;
-  top: 32vh;
-  padding: 5vh;
+  top: 16vw;
+  padding: 2.5vw;
   width: 95%;
-  height: 100vh;
+  height: 50vw;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -183,7 +183,7 @@ export default {
 .main-text {
   position: absolute;
   color: white;
-  font-size: 60px;
+  font-size: 4lvw;
   z-index: 1;
   top: 7.7%;
   left: 30%;
@@ -192,59 +192,60 @@ export default {
 .current {
   position: absolute;
   color: white;
-  font-size: 42px;
+  font-size: 2.85lvw;
   z-index: 1;
-  top: 22vh;
-  left: 4.25vh;
+  top: 11vw;
+  left: 2.125vw;
 }
 
 .circle_1 {
-  font-size: 1.77em;
+  font-size: 2.025lvw;
   color: darkgreen;
 }
 
 .circle_2 {
-  font-size: 1.77em;
+  font-size: 2.025lvw;
   color: gray;
 }
 
 .today {
-  font-size: 3em;
-  right: 14vh;
-  top: 3.3vh;
+  font-size: 4.2lvw;
+  right: 7vw;
+  top: 1.65vw;
 }
 
 .today:hover {
-  max-width: 1.18em;
-  border: 4px solid goldenrod;
+  max-width: 4.56vw;
+  max-height: 4.5vw;
+  border: 0.242lvw solid goldenrod;
   border-radius: 50%;
   color: greenyellow;
   opacity: 30%;
 }
 
 .circle_3 {
-  font-size: 1.77em;
+  font-size: 2.025lvw;
   color: rgba(155, 155, 155, 0.34);
 }
 
 .circle_4 {
-  font-size: 1.77em;
+  font-size: 2.025lvw;
   color: darkred;
 }
 
 .track-block {
   margin: 0;
   padding: 0;
-  max-width: 120vh;
-  max-height: 40vh;
+  max-width: 60vw;
+  max-height: 20vw;
   overflow-y: scroll;
-  left: 62vh;
-  bottom: 25vh;
+  left: 31vw;
+  bottom: 10vw;
 }
 
 .today_markup {
-  bottom: 7vh;
-  max-width: 50vh;
+  bottom: 3.5vw;
+  max-width: 25vw;
 }
 
 .tracks {
@@ -255,62 +256,64 @@ export default {
 
 .main-gradient-1 {
   position: absolute;
-  top: 3.8rem;
+  top: 3.8vw;
   width: 100vw;
-  height: 140vh;
+  height: 70vw;
   background: linear-gradient(180deg, #090B13 0%, rgba(9, 11, 19, 0.2) 100%);
   opacity: 60%;
   z-index: 0;
 }
 
 .creation {
-  bottom: 2.5vh;
-  min-height: 20vh;
+  bottom: 1.25vw;
+  min-height: 10vw;
 }
 
 .create_but {
-  top: 10.5vh;
-  left: 12vh;
+  top: 5.25vw;
+  left: 6vw;
 }
 
 .check_history {
-  bottom: 6.5vh;
-  left: 80vh;
+  bottom: 3.25vw;
+  left: 40vw;
 }
 
 .edit {
   color: white;
-  left: 142.5vh;
-  font-size: 2.5em;
-  bottom: 5vh;
+  left: 71.25vw;
+  font-size: 3.25lvw;
+  bottom: 2.5vw;
 }
 
 .edition-menu {
-  left: 127.5vh;
-  bottom: 27.5vh;
+  left: 67.785vw;
+  bottom: 13.75vw;
 }
 
 .warn-text {
-  top: 5.25vh;
-  width: 30vh;
-  right: 14vh;
+  top: 2.625vw;
+  width: 15vw;
+  right: 7vw;
+  font-size: 1lvw;
 }
 
 .t_date {
-  right: 5vh;
+  font-size: 1lvw;
+  right: 2.5vw;
   color: white;
 }
 
 .plus {
-  top: 2vh;
-  font-size: 2.25em;
+  top: 1vw;
+  font-size: 3.5vw;
   color: white;
 }
 
 .add {
-  padding-left: 2vh;
-  max-width: 27vh;
-  max-height: 8vh;
+  padding-left: 1vw;
+  max-width: 13.5vw;
+  max-height: 4vw;
   color: white;
 }
 
@@ -321,26 +324,26 @@ export default {
 }
 
 .add-text {
-  bottom: 5.15vh;
-  left: 8vh;
-  font-size: 36px;
+  bottom: 2.56vw;
+  left: 4vw;
+  font-size: 2.4lvw;
 }
 
 ::-webkit-scrollbar {
-  width: 20px;
+  width: 1.28lvw;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
+  border-radius: 0.64lvw;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.1);
   opacity: 10%;
-  border-radius: 10px;
+  border-radius: 0.64lvw;
 }
 
 /* Handle on hover */
@@ -349,6 +352,18 @@ export default {
 }
 
 .h {
-  left: 5vh;
+  left: 2.5vw;
+}
+
+.lll{
+  font-size: 2lvw;
+}
+
+.ppp{
+  font-size: 1lvw;
+}
+
+.kkk{
+  font-size: 2.25lvw;
 }
 </style>
