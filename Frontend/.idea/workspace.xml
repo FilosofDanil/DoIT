@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="login page and header refactored">
+    <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="Footer, Header, MainPage now adaptive">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/assets/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/layouts/Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/layouts/Footer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/layouts/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/layouts/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/statics/MainPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/statics/MainPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Profile.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +106,7 @@
       <workItem from="1687945155280" duration="6301000" />
       <workItem from="1688051836993" duration="9497000" />
       <workItem from="1688130762866" duration="1941000" />
-      <workItem from="1688219610156" duration="6602000" />
+      <workItem from="1688219610156" duration="7471000" />
     </task>
     <task id="LOCAL-00001" summary="created a based version of a front-end part of web-site.">
       <created>1685723603833</created>
@@ -167,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687948240059</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Footer, Header, MainPage now adaptive">
+      <created>1688226687079</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688226687079</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,7 +198,8 @@
     <MESSAGE value="Added new wallpaper for a habit page&#10;Redesigned showing of an habits entity. Added creation button" />
     <MESSAGE value="Added awesome rendering of entities" />
     <MESSAGE value="login page and header refactored" />
-    <option name="LAST_COMMIT_MESSAGE" value="login page and header refactored" />
+    <MESSAGE value="Footer, Header, MainPage now adaptive" />
+    <option name="LAST_COMMIT_MESSAGE" value="Footer, Header, MainPage now adaptive" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
