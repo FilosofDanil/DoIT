@@ -30,7 +30,7 @@
   .main-text {
     position: absolute;
     color: white;
-    font-size: 60px;
+    font-size: 4lvw;
     z-index: 1;
     top: 8.7%;
     left: 39%;
@@ -38,24 +38,25 @@
   .about{
     position: absolute;
     width: 100%;
-    height: 85vh;
+    height: 42.5vw;
     z-index: 1;
-    top: 25vh;
+    top: 12.25vw;
   }
   .part{
     width: 100%;
     height: auto;
     z-index: 2;
-    padding: 2.3rem;
+    padding: 2.3vw;
   }
 
   .part-title{
     color: white;
     font-weight: 700;
+    font-size: 2lvw;
   }
   .part-text{
     color: white;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 1.25lvw;
   }
   </style>

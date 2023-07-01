@@ -37,33 +37,34 @@ export default {
 <style scoped>
 .success{
   color: green;
-  font-size: 4em;
+  font-size: 4.75lvw;
   position: absolute;
-  top:50.5vh;
-  right:73vh;
+  padding-left: 70px;
+  top:24.6vw;
+  right:39.75vw;
   width: 80px;
 }
 .lds-spinner {
   color: white;
   display: inline-block;
   position: absolute;
-  top:50vh;
-  right:73vh;
-  width: 80px;
-  height: 80px;
+  top:25vw;
+  right:36.5vw;
+  width: 5.12lvw;
+  height: 5.12lvw;
 }
 .lds-spinner div {
-  transform-origin: 40px 40px;
+  transform-origin: 2.56lvw 2.56lvw;
   animation: lds-spinner 1.2s linear infinite;
 }
 .lds-spinner div:after {
   content: " ";
   display: block;
   position: absolute;
-  top: 3px;
-  left: 37px;
-  width: 6px;
-  height: 18px;
+  top: 0.192lvw;
+  left: 2.368lvw;
+  width: 0.384lvw;
+  height: 1.152lvw;
   border-radius: 20%;
   background: #fff;
 }
@@ -127,16 +128,18 @@ export default {
 .main-text{
   position: absolute;
   color: white;
-  top:52vh;
-  right:90vh;
+  top:26vw;
+  right:44vw;
+  font-size: 1.8lvw;
 }
 
 .profile_link{
   position: absolute;
   color: white;
-  top:60vh;
-  right:73.7vh;
-  font-size: 32px;
+  top:30vw;
+  max-height: 3vw;
+  right:37.165vw;
+  font-size: 1.8lvw;
   font-weight: 700;
 }
 </style>
