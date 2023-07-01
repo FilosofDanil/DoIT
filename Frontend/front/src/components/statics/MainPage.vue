@@ -87,8 +87,15 @@
 
 <script>
 export default {
-  name: "MainPage"
+  name: "MainPage",
+  head: {
+    meta: [
+      // creates a meta description tag in header.
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+    ]
+  }
 }
+
 </script>
 
 <style scoped>
@@ -99,7 +106,7 @@ export default {
 
 .underlined_cool_text {
   text-decoration: underline;
-  font-size: 60px;
+  font-size: 4lvw;
   z-index: 1;
 }
 
@@ -116,8 +123,10 @@ export default {
 }
 
 .main-text3 {
+  padding-left: 2.5vw;
+  font-size: 2.25lvw;
   position: absolute;
-  top: 38.5%;
+  top: 37.5%;
   left: 1.7%;
   color: white;
 }
@@ -128,8 +137,9 @@ export default {
 }
 
 .main-text4 {
+  font-size: 2.25lvw;
   position: absolute;
-  top: 38.8%;
+  top: 37.8%;
   right: 6.2%;
   color: white;
 }
@@ -143,49 +153,51 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding: 0.5rem;
-  margin: 1rem;
+  padding: 0.8vw;
+  margin: 1.6vw;
   height: auto;
 }
 
 .blocks {
   position: absolute;
-  top: 45%;
+  top: 42%;
+  left: 3.7vw;
+  padding-left: 1.4vw;
 }
 
 .block {
   text-align: right;
   top: 45%;
-  width: 33.1vh;
+  width: 13.65vw;
   display: inline-flex;
   justify-content: space-between;
-  height: 50vh;
+  height: 50vw;
 }
 
 .empty-block {
-  width: 100vh;
+  width: 100vw;
   height: 0;
   margin: 0;
   padding: 0;
 }
 
 .punkt-icon {
-  right: 10vh;
-  width: 100px;
-  font-size: 1.77em;
+  right: 7vw;
+  width: 7vw;
+  font-size: 2.025lvw;
   color: white;
 }
 
 .punkt-text {
-  right: 2.5vh;
+  right: 2.5vw;
   bottom: 0.1vb;
-  font-size: 18px;
+  font-size: 1.2lvw;
   white-space: nowrap;
   text-align: center;
   font-weight: 700;
   color: white;
   display: flex;
-  width: 100rem;
+  width: 10vw;
 }
 
 .main-gradient-1{
