@@ -289,7 +289,7 @@ export default {
 .main-text {
   position: absolute;
   color: white;
-  font-size: 60px;
+  font-size: 4lvw;
   z-index: 1;
   top: 8.7%;
   left: 30%;
@@ -298,44 +298,45 @@ export default {
 .current {
   position: absolute;
   color: white;
-  font-size: 42px;
+  font-size: 2.275lvw;
   z-index: 1;
   top: 20.5%;
-  left: 5vh;
+  left: 5vw;
 }
 
 .tasks_table {
   position: absolute;
-  top: 27vh;
-  padding: 5vh;
+  top: 13.5vw;
+  padding: 5vw;
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 75vh;
-  min-height: 25vh;
-  min-width: 50vh;
+  max-height: 32.5vw;
+  min-height: 12.5vw;
+  min-width: 25vw;
 }
 
 .navigation {
   position: absolute;
-  top: 27vh;
-  left: 150vh;
+  top: 13.5vw;
+  left: 75vw;
   justify-content: center;
   place-content: center;
 }
 
 .navigation-text {
-  left: 10vh;
+  left: 4.25vw;
+  font-size: 2.5lvw;
 }
 
 .navigation-left {
-  left: 5.5vh;
-  font-size: 2em;
+  left: 2.75vw;
+  font-size: 2.275lvw;
   z-index: 2;
 }
 
 .navigation-right {
-  left: 29vh;
-  font-size: 2em;
+  left: 14.5vw;
+  font-size: 2.275lvw;
   z-index: 2;
 }
 
@@ -352,20 +353,20 @@ export default {
 }
 
 ::-webkit-scrollbar {
-  width: 20px;
+  width: 1.28lvw;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
+  border-radius: 0.64lvw;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.1);
   opacity: 10%;
-  border-radius: 10px;
+  border-radius: 0.64lvw;
 }
 
 /* Handle on hover */
@@ -386,49 +387,49 @@ export default {
 }
 
 .circle_4 {
-  font-size: 1.77em;
+  font-size: 2.025lvw;
   color: rgba(155, 155, 155, 0.34);
 }
 
 .circle {
-  font-size: 1.77em;
-  bottom: 5vh;
-  border: 2.2px solid black;
+  font-size: 2.025lvw;
+  bottom: 2.5vw;
+  border: 0.140vw solid black;
   border-radius: 50%;
 }
 
 .n_circle {
-  font-size: 1.77em;
-  bottom: 5vh;
-  border: 2.2px solid black;
+  font-size: 2.025lvw;
+  bottom: 2.5vw;
+  border: 0.140vw solid black;
   border-radius: 50%;
 }
 
 .sub-circle {
-  font-size: 1.2em;
-  bottom: 2vh;
-  left: 10vh;
-  border: 1.5px solid black;
+  font-size: 1.52lvw;
+  bottom: 1vw;
+  left: 5vw;
+  border: 0.096lvw solid black;
   border-radius: 50%;
 }
 
 .edit {
   color: white;
-  left: 70vh;
-  font-size: 2.5em;
-  bottom: 5vh;
+  left: 35vw;
+  font-size: 3.25lvw;
+  bottom: 1.75vw;
 }
 
 .sub-edit-block {
-  max-width: 5vh;
+  max-width: 2.5lvw;
   z-index: 2;
-  left: 72vh;
-  bottom: 2.075vh;
+  left: 36vw;
+  bottom: 1.025vw;
 }
 
 .sub-edit {
   color: white;
-  font-size: 1.5em;
+  font-size: 1.875lvw;
 }
 
 .sub-circle:hover {
@@ -439,15 +440,15 @@ export default {
 }
 
 .n_sub-circle {
-  font-size: 1.2em;
-  bottom: 2vh;
-  left: 10vh;
-  border: 1.5px solid black;
+  font-size: 1.52lvw;
+  bottom: 1vw;
+  left: 5vw;
+  border: 0.096lvw solid black;
   border-radius: 50%;
 }
 
 .n_sub-circle:hover {
-  border: 2px solid goldenrod;
+  border: 0.128lvw solid goldenrod;
   border-radius: 50%;
   color: darkred;
   opacity: 30%;
@@ -455,49 +456,51 @@ export default {
 }
 
 .task-text {
-  left: 10vh;
-  width: 100vh; /* Ширина блока */
-  padding-right: 20vh;
+  font-size: 2lvw;
+  top: 0.975vw;
+  left: 5vw;
+  width: 50vw; /* Ширина блока */
+  padding-right: 10vw;
   word-wrap: break-word; /* Перенос слов */
 }
 
 .circle:hover {
-  border: 3px solid goldenrod;
+  border: 0.196lvw solid goldenrod;
   border-radius: 50%;
   color: greenyellow;
   opacity: 30%;
 }
 
 .n_circle:hover {
-  border: 3px solid goldenrod;
+  border: 0.196lvw solid goldenrod;
   border-radius: 50%;
   color: darkred;
   opacity: 30%;
 }
 
 .plus {
-  top: 2vh;
-  font-size: 2.25em;
+  top: 1vw;
+  font-size: 3.25lvw;
 }
 
 .sub-plus {
-  top: 2vh;
-  font-size: 1.5em;
+  top: 1vw;
+  font-size: 1.875lvw;
   margin: 0;
   padding: 0;
 }
 
 .sub-minus {
   color: white;
-  font-size: 1.5em;
+  font-size: 1.875lvw;
   margin: 0;
   padding: 0;
 }
 
 .add {
-  padding-left: 2vh;
-  max-width: 27vh;
-  max-height: 8vh;
+  padding-left: 1vw;
+  max-width: 13.5vw;
+  max-height: 4vw;
   color: white;
 }
 
@@ -508,41 +511,41 @@ export default {
 }
 
 .add-text {
-  bottom: 5vh;
-  font-size: 40px;
+  bottom: 2.5vw;
+  font-size: 2.25lvw;
 }
 
 .labels {
-  right: 2vh;
+  right: 1vw;
   display: flex;
-  padding: 2rem;
+  padding: 2vw;
 }
 
 .loh-input {
-  width: 30vh;
-  height: 5.5vh;
+  width: 15vw;
+  height: 2.75vw;
 }
 
 .form-button {
-  width: 20vh;
-  height: 6.5vh;
-  top: 7vh;
-  left: 6vh;
+  width: 10vw;
+  height: 3.25vw;
+  top: 3.5vw;
+  left: 3vw;
 }
 
 .sub-task-text {
-  font-size: 20px;
-  left: 15vh;
-  bottom: 6vh;
+  font-size: 1.32vw;
+  left: 7.5vw;
+  bottom: 3vw;
 }
 
 .sub-add {
-  padding-left: 2vh;
-  max-width: 30vh;
-  max-height: 6vh;
+  padding-left: 1vw;
+  max-width: 15vw;
+  max-height: 3vw;
   color: white;
-  left: 8vh;
-  bottom: 4vh;
+  left: 4vw;
+  bottom: 2vw;
 }
 
 .sub-add:hover {
@@ -552,66 +555,66 @@ export default {
 }
 
 .sub-add-text {
-  bottom: 2.2vh;
-  font-size: 20px;
-  right: 10vh;
+  bottom: 1.1vw;
+  font-size: 1.32lvw;
+  right: 5vw;
 }
 
 .sub-adding-form {
-  left: 7vh;
-  bottom: 6vh;
+  left: 3.5vw;
+  bottom: 3vw;
 }
 
 .delete {
   color: white;
   position: absolute;
-  left: 100vh;
-  bottom: 26vh;
+  left: 50vw;
+  bottom: 13vw;
 }
 
 .sub-delete {
   z-index: 2;
   position: absolute;
-  left: 65vh;
-  bottom: 6.55vh;
+  left: 32.5vw;
+  bottom: 3.2525vw;
 }
 
 .n_text {
-  top: 4vh;
+  top: 2vw;
 }
 
 .edition-menu {
-  left: 64.5vh;
-  bottom: 5vh;
+  left: 32.25vw;
+  bottom: 2.5vw;
   padding-bottom: 5vh;
 }
 
 .sub-edition-menu {
-  left: 71.5vh;
-  top:7.5vh;
+  left: 36vw;
+  top:3.75vw;
   z-index: 3;
 }
 
 .edition-menus-block {
-  left: 8vh;
-  bottom: 30vh;
-  padding-bottom: 2vh;
+  left: 4vw;
+  bottom: 15vw;
+  padding-bottom: 1vw;
 }
 
 .sub-input-name{
-  font-size: 16px;
+  font-size: 1.15lvw;
 }
 
 .sub-input{
-  left: 2.25vh;
-  height: 4vh;
-  width: 20vh;
+  left: 1.125lvw;
+  height: 2vw;
+  width: 10vw;
 }
 
 .sub-form-button{
-  width: 18vh;
-  height: 5.25vb;
-  font-size: 16px;
+  width: 9vw;
+  height: 2.625vw;
+  font-size: 1.15lvw;
 }
 
 </style>

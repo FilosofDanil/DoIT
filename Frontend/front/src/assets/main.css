@@ -77,52 +77,51 @@ a,
 
 .main-gradient-1 {
     position: absolute;
-    top: 3.8rem;
+    top: 3.8vw;
     width: 100vw;
-    height: 115vh;
+    height: 55.25vw;
     background: linear-gradient(180deg, #090B13 0%, rgba(9, 11, 19, 0.2) 100%);
     opacity: 60%;
     z-index: 0;
 }
 
 .input{
-    top: 3rem;
+    top: 3vw;
     background: rgba(28, 28, 28, 0.77);
-    height: 2.8rem;
-    width: 50vh;
+    height: 3.25vw;
+    width: 22.5vw;
     border-radius: 20% 30%;
     color: white;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 1.2vw;
 }
 
 .labels {
     display: flex;
-    padding: 2rem;
+    padding: 2vw;
 }
 
 .input-name{
     position: absolute;
     text-align: start;
-    font-size: 24px;
+    font-size: 1.8lvw;
     color: white;
     font-weight: 500;
 }
 
 .form-button{
-
-    padding: 0.5rem;
+    padding: 0.2vw;
     color: rgba(255, 255, 255, 80%);
-    width: 27vh;
-    height: 7.25vb;
+    width: 13.5vw;
+    height: 3.6125vw;
     text-align: center;
     opacity: 100%;
     border-radius: 45%;
     background-color: transparent;
     border-color: white;
-    border-width: 5px;
+    border-width: 0.32vw;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 1.2vw;
 }
 
 .form-button:hover{

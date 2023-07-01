@@ -66,8 +66,8 @@ export default {
 <style scoped>
 .login-form {
   position: absolute;
-  top: 20%;
-  left: 65vh;
+  top: 12vw;
+  left: 35vw;
 }
 
 .title {
@@ -75,16 +75,16 @@ export default {
   position: absolute;
   z-index: 2;
   top: 10%;
-  left: 83.25vh;
-  font-size: 32px;
+  left: 41.75vw;
+  font-size: 4lvw;
   font-weight: 700;
 }
 .labels {
   display: flex;
-  padding: 2rem;
+  padding: 2vw;
 }
 .form-button{
-  top: 10vh;
-  left: 12vh;
+  top: 5vw;
+  left: 6vw;
 }
 </style>

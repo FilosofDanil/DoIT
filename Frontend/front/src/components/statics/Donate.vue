@@ -48,36 +48,37 @@ export default {
 }
 
 .donation_text {
-  width: 170vh;
+  width: 85vw;
   left: 6%;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.2lvw;
   padding-bottom: 1.4rem;
   color: white;
 }
 
 .donations {
-  padding: 5rem;
-  width: 40rem;
-  height: 50vh;
+  padding: 5vw;
+  width: 40vw;
+  height: 25vw;
   display: inline-flex;
 }
 .donations-subtitle{
-  font-size: 20px;
+  font-size: 1.25lvw;
   color: white;
-  width: 20rem;
-  left: 4rem;
+  width: 20vw;
+  left: 4vw;
   white-space: nowrap;
 }
 .qr_code{
-  top: 5vh;
-  right: 24vb;
+  top: 4vw;
+  right: 10vw;
 }
 .donation_subji{
-  top: 5vh;
-  right: 24vb;
+  font-size: 1lvw;
+  top: 2.5vw;
+  right: 12vw;
   color: white;
-  width: 40rem;
+  width: 40vw;
 }
 .subji{
   display: flex;

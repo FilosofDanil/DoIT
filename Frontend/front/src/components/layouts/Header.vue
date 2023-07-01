@@ -7,14 +7,14 @@
       <router-link class="header-link" to="/faq">FAQ</router-link>
       <router-link class="header-link" to="/donate">Donate</router-link>
     </div>
-    <div class="header-part">
+    <div class="header-part but_part">
       <form action="/signup">
         <button class="try_for_free_button ">
           Try For Free
         </button>
       </form>
     </div>
-    <div class="header-part">
+    <div class="header-part but_part">
       <form action="/login">
         <button class="login_button ">
           Login
@@ -23,7 +23,7 @@
 
     </div>
     <div class="header-part">
-      <router-link class="profile_link" to="/profile"><i class="user-icon fa-solid fa-user-circle fa-3x"></i>
+      <router-link class="profile_link" to="/profile"><i class="user-icon fa-solid fa-user-circle fa-x3"></i>
       </router-link>
 
     </div>
@@ -57,16 +57,17 @@ export default {
 
 header {
   width: 100vw;
+  height:4vw;
   position: fixed;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 1vw;
   box-shadow: 3px 7px 3px rgba(0, 0, 0, 0.2);
   z-index: 2;
 }
 
 .user-icon {
-  top: 0.75vb;
+  top: 0.375vw;
   color: white;
 }
 
@@ -75,45 +76,50 @@ header {
   justify-content: space-between;
 }
 
+.but_part{
+  padding-top: 0.7vw;
+}
+
 .header-link {
   display: flex;
-  padding: 1rem;
+  font-size: 1vw;
+  padding: 1vw;
   align-items: center;
   justify-content: center;
   color: white;
-  margin-right: 10vh;
+  margin-right: 5vw;
   font-weight: 700;
 }
 
 .try_for_free_button {
-  right: 10vh;
-  top: 5px;
-  padding: 0.5rem;
+  font-size: 1vw;
+  right: 5vw;
+  bottom: 7.5px;
   color: rgba(255, 255, 255, 80%);
-  width: 19vh;
-  height: 6.25vb;
+  width: 9.5vw;
+  height: 3.125vw;
   text-align: center;
   opacity: 100%;
   border-radius: 45%;
   background-color: transparent;
   border-color: white;
-  border-width: 5px;
+  border-width: 0.32vw;
   font-weight: bolder;
 }
 
 .login_button {
-  right: 15vh;
-  top: 5px;
-  padding: 0.5rem;
+  font-size: 1vw;
+  right: 7.5vw;
+  bottom: 7.5px;
   color: rgba(255, 255, 255, 80%);
-  width: 19vh;
-  height: 6.25vb;
+  width: 9.5vw;
+  height: 3.125vw;
   text-align: center;
   opacity: 100%;
   border-radius: 45%;
   background-color: transparent;
   border-color: white;
-  border-width: 5px;
+  border-width: 0.32vw;
   font-weight: bolder;
 }
 
@@ -135,11 +141,16 @@ header {
 }
 
 .header-logo {
-  font-size: 1.77em;
+  font-size: 2.025lvw;
 }
 
 .profile_link{
-  right: 10vh;
+  right: 9vw;
+  bottom: 1.7px;
+}
+
+.fa-x3{
+  font-size: 3vw;
 }
 
 </style>

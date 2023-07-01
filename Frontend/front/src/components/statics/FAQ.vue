@@ -42,7 +42,7 @@ export default {
 .main-text {
   position: absolute;
   color: white;
-  font-size: 60px;
+  font-size: 4lvw;
   z-index: 1;
   top: 8.7%;
   left: 22.5%;
@@ -51,25 +51,25 @@ export default {
   position: absolute;
   top: 20%;
   left:5%;
-  width: 180vh;
-  height: 80vh;
+  width: 90vw;
+  height: 40vw;
   display: inline-grid;
   direction: initial;
-  gap: 1rem;
-  column-gap: 1rem;
-  row-gap: 1rem;
+  gap: 1vw;
+  column-gap: 1vw;
+  row-gap: 1vw;
 
   grid-template-columns: 1fr 1fr 1fr;
 }
 
 .question-block{
- border: 3px solid goldenrod;
+ border: 0.192lvw solid goldenrod;
   /*border-color: goldenrod;*/
   /*border-width: 5px;*/
   border-radius: 10%;
   text-align: left;
-  width: 60vh;
-  height: 33vh;
+  width: 30vw;
+  height: 16.5vw;
   transition: 0.5s;
   background: rgba(28, 28, 28, 0.4);
 }
@@ -89,7 +89,7 @@ export default {
 .answer{
   color: white;
   text-align: center;
-  font-size: 18px;
+  font-size: 1.2lvw;
   font-weight: 400;
 }
 </style>

@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="login page and header refactored">
-      <change beforePath="$PROJECT_DIR$/front/src/services/TaskService.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/TaskService.js" afterDir="false" />
+    <list default="true" id="993169e6-a153-4b6e-9dbb-7fa75a37a0c6" name="Changes" comment="FAQ, Daily, Habits pages are now adaptive">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/assets/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Daily.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Daily.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/site-content/Habits.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/statics/FAQ.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/statics/FAQ.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +108,8 @@
       <workItem from="1687894473653" duration="5105000" />
       <workItem from="1687945155280" duration="6301000" />
       <workItem from="1688051836993" duration="9497000" />
-      <workItem from="1688130762866" duration="1201000" />
+      <workItem from="1688130762866" duration="1941000" />
+      <workItem from="1688219610156" duration="13533000" />
     </task>
     <task id="LOCAL-00001" summary="created a based version of a front-end part of web-site.">
       <created>1685723603833</created>
@@ -162,7 +167,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687948240059</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Footer, Header, MainPage now adaptive">
+      <created>1688226687079</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688226687079</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Profile now adaptive">
+      <created>1688227578013</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1688227578013</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Login/SignUP, AboutUS, Donate, Verified pages are now adaptive">
+      <created>1688230173995</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1688230173995</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,17 +215,10 @@
     <MESSAGE value="Added new wallpaper for a habit page&#10;Redesigned showing of an habits entity. Added creation button" />
     <MESSAGE value="Added awesome rendering of entities" />
     <MESSAGE value="login page and header refactored" />
-    <option name="LAST_COMMIT_MESSAGE" value="login page and header refactored" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/front/src/components/site-content/Login.vue</url>
-          <line>58</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Footer, Header, MainPage now adaptive" />
+    <MESSAGE value="Profile now adaptive" />
+    <MESSAGE value="Login/SignUP, AboutUS, Donate, Verified pages are now adaptive" />
+    <MESSAGE value="FAQ, Daily, Habits pages are now adaptive" />
+    <option name="LAST_COMMIT_MESSAGE" value="FAQ, Daily, Habits pages are now adaptive" />
   </component>
 </project>

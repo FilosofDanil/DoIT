@@ -20,19 +20,19 @@
 
   <div v-if="UserDTO.profile_name!=='You just need to authorize or verify your account or refresh the page!'" class="statistics">
     <div class="stats">
-      <h2 class="bolder cool-text-color">Completed Tasks</h2>
+      <h2 class="bolder cool-text-color  stat-text">Completed Tasks</h2>
       <h1 class="bolder cool-text-color stat_nums">{{ calc_stats_c_tasks }}</h1>
     </div>
     <div class="stats">
-      <h2 class="bolder cool-text-color">Uncompleted Tasks</h2>
+      <h2 class="bolder cool-text-color stat-text">Uncompleted Tasks</h2>
       <h1 class="bolder cool-text-color stat_nums">{{ calc_stats_u_tasks }}</h1>
     </div>
     <div class="stats">
-      <h2 class="bolder cool-text-color">Formed habit</h2>
+      <h2 class="bolder cool-text-color stat-text">Formed habit</h2>
       <h1 class="bolder cool-text-color stat_nums">{{ calc_stats_c_habits }}</h1>
     </div>
     <div class="stats">
-      <h2 class="bolder cool-text-color">Unformed habit</h2>
+      <h2 class="bolder cool-text-color stat-text">Unformed habit</h2>
       <h1 class="bolder cool-text-color stat_nums">{{ calc_stats_u_habits }}</h1>
     </div>
   </div>
@@ -92,22 +92,27 @@ export default {
 }
 
 .stat_nums{
-  bottom: 7.2vh;
-  left: 43vb;
+  bottom: 3.6vw;
+  left: 22.5vw;
+  font-size: 2.25lvw;
 }
 
 .stats{
-  padding-right: 60vh;
-  padding-left: 5vh;
+  padding-right: 28vw;
+  padding-left: 2.5vw;
   color: white;
   white-space: nowrap;
 
 }
 
+.stat-text{
+  font-size: 2.25lvw;
+}
+
 .main-text {
   position: absolute;
   color: white;
-  font-size: 60px;
+  font-size: 4lvw;
   z-index: 1;
   top: 8.7%;
   left: 35%;
@@ -116,48 +121,51 @@ export default {
 .congratulations {
   position: absolute;
   color: white;
-  font-size: 60px;
+  font-size: 4lvw;
   z-index: 1;
   top: 15.5%;
-  left: 5vh;
+  left: 2.4vw;
 }
 
 .reg-mail{
+  font-size: 2lvw;
   position: absolute;
   color: white;
   top: 27%;
-  left: 5vh;
+  left: 2.5vw;
 }
 
 .reg-phone{
+  font-size: 2lvw;
   position: absolute;
   color: white;
   top: 35%;
-  left: 5vh;
+  left: 2.5vw;
 }
 
 .reg-age{
+  font-size: 2lvw;
   position: absolute;
   color: white;
   top: 43%;
-  left: 5vh;
+  left: 2.5vw;
 }
 
 .change{
   position: absolute;
-  left: 130vh;
-  right: 15vh;
+  left: 65vw;
   top: 5px;
-  padding: 0.5rem;
+  padding: 0.5vw;
   color: rgba(255, 255, 255, 80%);
-  width: 19vh;
-  height: 6.25vb;
+  width: 11vw;
+  height: 3.125vw;
   text-align: center;
   opacity: 100%;
   border-radius: 45%;
   background-color: transparent;
   border-color: white;
-  border-width: 5px;
+  border-width: 0.32vw;
+  font-size: 1vw;
   font-weight: 750;
 }
 
